@@ -1,0 +1,55 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        }
+    }
+}
