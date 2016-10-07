@@ -36,3 +36,7 @@ function msg_alert(msg, type) {
     }
     $("#alert_msg_box").addClass(type_alert).html("<center>" + msg + "</center>");
 }
+
+function get_pecah(data) {
+    return data.split("|");
+}

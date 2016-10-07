@@ -20,6 +20,7 @@
                     DinarPal Social Transfer
                 </a>
             </h3>
+            <h4>Registration (Personal Account)</h4>
         </center>
     </div>
 </div>
@@ -32,24 +33,24 @@
             
             <table class="table">
                 <tr>
-<!--                    <td>Username</td>
-                    <td>:</td>-->
                     <td>
-                        <input type="text" id="user" class="form-control" placeholder="Your username." />
+                        <input type="text" id="user" class="form-control" placeholder="Username. (Exp: John13)" />
                     </td>
                 </tr>
                 <tr>
-<!--                    <td>Password</td>
-                    <td>:</td>-->
                     <td>
-                        <input type="password" id="pwd" class="form-control" placeholder="Your password." />
+                        <input type="text" id="email" class="form-control" placeholder="E-Mail. (Exp: yourself@gmail.com)" />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="1" align="center">
-                        <button class="btn btn-success" id="btn_login">Log In</button>
-                        <br />
-                        <button class="btn btn-link" id="btn_reg">Register</button>
+                    <td>
+                        <input type="text" id="phone" class="form-control" placeholder="Phone No. (Exp: 0199737578)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button class="btn btn-success" id="btn_reg">Register</button>
+                        <button class="btn btn-info" id="btn_reset">Reset</button>
                     </td>
                 </tr>
             </table>
@@ -63,35 +64,37 @@
 <script>
     $(document).ready(function () {
         
-        $("#btn_reg").click(function () {
-            location.href = 'registration.html';
+        $("#btn_reset").click(function () {
+            $("#user").val("");
+            $("#email").val("");
+            $("#phone").val("");
         });
         
-        $("#btn_login").click(function () {
+        $("#btn_reg").click(function () {
             var user = $("#user").val();
-            var pwd = $("#pwd").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+            var account_type = 1;
             
-            if (user == '' || pwd == '') {
+            if (user == '' || email == '' || phone == '') {
                 msg_alert('Do not leave blank!', 4);
                 return;
             }
             
-            $.post(URL_SERVER + "login/authenticate", {
-                username: user,
-                password: pwd
+            $.post(URL_SERVER + "login/daftar_members", {
+                me_username: user,
+                me_email: email,
+                me_whatsapp_no: phone,
+                me_account_type: account_type
             }).done(function (data) {
                 var d = get_pecah(data);
                 if (d[0] == '1' || d[0] == 1) {
                     msg_alert(d[1], 4);
                 } else {
-                    localStorage.setItem("username", user);
-                    localStorage.setItem("password", pwd);
-                    localStorage.setItem("loggedin", true);
-                    location.href = 'member/overview.html';
+                    msg_alert('Register success. Please check your email for account verification.', 1);
                 }
             });
-            msg_alert('Authenticating ...', 2);
-            
+            msg_alert('Connecting ...', 2);
         });
     });
 </script>
