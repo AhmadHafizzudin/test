@@ -1,0 +1,101 @@
+<!-- start library -->
+<script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+<script src="assets/js/my_server_config.js" type="text/javascript"></script>
+<script src="assets/js/my_public_session.js" type="text/javascript"></script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+<!-- end library -->
+
+<!-- start message box -->
+<div class="row"><div class="col-sm-12" id="alert_msg_box"></div></div>
+<!-- end message box -->
+
+<!-- start title -->
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <center>
+            <h3>
+                <a href="index.html">
+                    DinarPal Social Transfer
+                </a>
+            </h3>
+            <h4>Registration (Personal Account)</h4>
+        </center>
+    </div>
+</div>
+<!-- end title -->
+
+<!-- start content -->
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <center>
+            
+            <table class="table">
+                <tr>
+                    <td>
+                        <input type="text" id="user" class="form-control" placeholder="Username. (Exp: John13)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="email" class="form-control" placeholder="E-Mail. (Exp: yourself@gmail.com)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="phone" class="form-control" placeholder="Phone No. (Exp: 0199737578)" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button class="btn btn-success" id="btn_reg">Register</button>
+                        <button class="btn btn-info" id="btn_reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+            
+        </center>
+    </div>
+</div>
+<!-- end content -->
+
+<!-- start controller jquery -->
+<script>
+    $(document).ready(function () {
+        
+        $("#btn_reset").click(function () {
+            $("#user").val("");
+            $("#email").val("");
+            $("#phone").val("");
+        });
+        
+        $("#btn_reg").click(function () {
+            var user = $("#user").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+            var account_type = 1;
+            
+            if (user == '' || email == '' || phone == '') {
+                msg_alert('Do not leave blank!', 4);
+                return;
+            }
+            
+            $.post(URL_SERVER + "login/daftar_members", {
+                me_username: user,
+                me_email: email,
+                me_whatsapp_no: phone,
+                me_account_type: account_type
+            }).done(function (data) {
+                var d = get_pecah(data);
+                if (d[0] == '1' || d[0] == 1) {
+                    msg_alert(d[1], 4);
+                } else {
+                    msg_alert('Register success. Please check your email for account verification.', 1);
+                }
+            });
+            msg_alert('Connecting ...', 2);
+        });
+    });
+</script>
+<!-- end controller jquery -->
