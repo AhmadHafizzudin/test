@@ -76,9 +76,26 @@
                 return;
             }
             
-            $.post(URL_SERVER + "login/authenticate", {
-                username: user,
-                password: pwd
+            $.ajax({
+                url: URL_SERVER + "login/authenticate",
+                timeout: 10000,
+                method: "POST",
+                data: {
+                    username: user,
+                    password: pwd
+                },
+                error: function(jqXHR) {
+                    if(jqXHR.status==0) {
+                        msg_alert('Opss! Fail to connect,<br />please check your connection settings!!', 4);
+                    }
+                },
+                success: function() {
+                },
+                statusCode: {
+                    404: function() {
+                        msg_alert('Opss! Page not found!!', 4);
+                    }
+                }
             }).done(function (data) {
                 var d = get_pecah(data);
                 if (d[0] == '1' || d[0] == 1) {
@@ -90,6 +107,21 @@
                     location.href = 'member/overview.html';
                 }
             });
+            
+//            $.post(URL_SERVER + "login/authenticate", {
+//                username: user,
+//                password: pwd
+//            }).done(function (data) {
+//                var d = get_pecah(data);
+//                if (d[0] == '1' || d[0] == 1) {
+//                    msg_alert(d[1], 4);
+//                } else {
+//                    localStorage.setItem("username", user);
+//                    localStorage.setItem("password", pwd);
+//                    localStorage.setItem("loggedin", true);
+//                    location.href = 'member/overview.html';
+//                }
+//            });
             msg_alert('Authenticating ...', 2);
             
         });

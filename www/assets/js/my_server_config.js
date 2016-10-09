@@ -1,5 +1,6 @@
 
-var URL_SERVER = 'http://localhost/dinarpal_v2/apps/index.php/';
+//var URL_SERVER = 'http://localhost/dinarpal_v2/apps/index.php/';
+var URL_SERVER = 'http://www.dinarpal.com/apps/index.php/';
 
 $(this).mousemove(function (e) {
     $("#alert_msg_box").removeClass("alert alert-success").html("");
