@@ -1,4 +1,4 @@
-<!-- start library -->
+﻿<!-- start library -->
 <script src="../assets/js/jquery-2.2.3.js" type="text/javascript"></script>
 <script src="../assets/js/bootstrap.js" type="text/javascript"></script>
 <script src="../assets/js/my_server_config.js" type="text/javascript"></script>
@@ -9,25 +9,29 @@
 <!-- end library -->
 
 <!-- start message box -->
-<div class="row">
-    <div class="col-sm-12" id="alert_msg_box"></div>
-</div>
+<div class="row"><div class="col-sm-12" id="alert_msg_box"></div></div>
 <!-- end message box -->
 <!-- start title -->
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
+
         <h3>
-            <!--<span style="font-size:30px;cursor:pointer;float:right" onclick="openNav()">&#9776;</span>-->
-            <a href="index.html" style="text-align:center">
-                DinarPal Social Transfer
+            <a  style="text-align:center">
+
+                Social Connect test apiz
+
+                Social Connect test umaq
+
             </a>
         </h3>
+
     </div>
 </div>
 <!-- end title -->
 <!-- start content -->
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
+
         <!--Start menu bar-->
         <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
             <div class="container-fluid" id="navfluid">
@@ -53,22 +57,50 @@
             <!-- /.container-fluid -->
         </nav>
         <!--end menu bar-->
+
         <table class="table">
             <tr>
+                <td>
+                    <img src="assets/images/fb.ico" width="50" height="50"></td>
+                <td>Use facebook to transfer.</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <a class="slider round"></a>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="assets/images/twitter.jpg" width="50" height="50">
+                </td>
+                <td>Use twitter to transfer</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <a class="slider round"></a>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><center><button class="btn btn-success" id="btn_save">Save</button></center></td>
                 <td></td>
             </tr>
         </table>
+
     </div>
 </div>
 <!-- end content -->
 <!-- start controller jquery -->
 <script>
-   function openNav() {
-      document.getElementById("mySidenav").style.width = "200px";
-   }
 
-   function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-   }
+ function openNav() {
+    document.getElementById("mySidenav").style.width = "200px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 </script>
 <!-- end controller jquery -->
