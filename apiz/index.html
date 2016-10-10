@@ -1,0 +1,103 @@
+<!-- start library -->
+<script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.js" type="text/javascript"></script>
+<script src="assets/js/my_server_config.js" type="text/javascript"></script>
+<script src="assets/js/my_public_session.js" type="text/javascript"></script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+<!-- end library -->
+
+<!-- start message box -->
+<div class="row"><div class="col-sm-12" id="alert_msg_box"></div></div>
+<!-- end message box -->
+
+<!-- start title -->
+<div class="row" style="background-color:ghostwhite">
+    <div class="col-sm-10 col-sm-offset-1">
+        <center>
+            <h3>
+                <a href="index.html">
+                    DinarPal Social Transfer
+                </a>
+            </h3>
+        </center>
+    </div>
+</div>
+<!-- end title -->
+
+<!-- start content -->
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <center>
+            
+            <table class="table">
+				<tr>
+					<td>
+						<center><img src="assets/images/logo dinarpal.png" class="img-thumbnail" alt="logo dinarpal" ></center>
+					</td>
+				</tr>
+                <tr>
+<!--                    <td>Username</td>
+                    <td>:</td>-->
+                    <td>
+                        <input type="text" id="user" class="form-control" placeholder="Your username." />
+                    </td>
+                </tr>
+                <tr>
+<!--                    <td>Password</td>
+                    <td>:</td>-->
+                    <td>
+                        <input type="password" id="pwd" class="form-control" placeholder="Your password." />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" align="center">
+                        <button class="btn btn-success" id="btn_login">Log In</button>
+                        <br />
+                        <button class="btn btn-link" id="btn_reg">Register</button>
+                    </td>
+                </tr>
+            </table>
+            
+        </center>
+    </div>
+</div>
+<!-- end content -->
+
+<!-- start controller jquery -->
+<script>
+    $(document).ready(function () {
+
+        $("#btn_reg").click(function () {
+            location.href = 'main_menu.html';
+        });
+
+        $("#btn_login").click(function () {
+            var user = $("#user").val();
+            var pwd = $("#pwd").val();
+
+            if (user == '' || pwd == '') {
+                msg_alert('Do not leave blank!', 4);
+                return;
+            }
+
+            $.post(URL_SERVER + "login/authenticate", {
+                username: user,
+                password: pwd
+            }).done(function (data) {
+                var d = get_pecah(data);
+                if (d[0] == '1' || d[0] == 1) {
+                    msg_alert(d[1], 4);
+                } else {
+                    localStorage.setItem("username", user);
+                    localStorage.setItem("password", pwd);
+                    localStorage.setItem("loggedin", true);
+                    location.href = 'main_menu.html';
+                }
+            });
+            msg_alert('Authenticating ...', 2);
+
+        });
+    });
+</script>
+<!-- end controller jquery -->
