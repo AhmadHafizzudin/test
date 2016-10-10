@@ -1,7 +1,105 @@
-
 .p_hack {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+}
+html,body {
+height: 100%;
+overflow-y:auto;
+overflow-x:hidden;
+background-color: white;
+background-image: url(../../assets/images/logo.jpg);
+background-position: center;
+background-repeat:no-repeat;
+background-size:120%;
+
+}
+.navbar-left {
+float:left;
+margin-left:15px;
+padding:6px 10px;
+}
+.box{
+margin: 25px;
+}
+.navcolor {
+background-color: #252e33;
+border: 0px;
+}
+.footer {
+background-color: #252e33;
+color: white;
+border: 0px;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+.btn-dp {
+background-color: #252e33;
+color: white;
+border: 2px solid white;
+border-radius: 3px;
+text-align: center;
+width:100%;
+}
+.btn-dp:hover {background-color: 	#252e33;}
+.btn-dp:active {
+background-color: #252e33;
+color: white;
+box-shadow: 0 3px #666;
+transform: translateY(4px);
+}
+.image-upload > input
+{
+display: none;
+}
+.image-upload img
+{
+cursor: pointer;
+}
+input:checked {
+z-index: 2;
+position: relative;
+}
+input:checked + img + img + label {
+color: rgba(49, 179, 217, 1);
+position: relative;
+background: rgba(236, 245, 247, 1);
+padding-left: 1em;
+margin-left: -1em;
+z-index: 1;
+}
+.chip {
+display: inline-block;
+padding: 0 25px;
+height: 50px;
+font-size: 16px;
+line-height: 50px;
+border-radius: 25px;
+background-color: #f1f1f1;
+}
+.chip img {
+float: left;
+margin: 0 10px 0 -25px;
+height: 50px;
+width: 50px;
+border-radius: 50%;
+}
+input[type="radio"] {
+-webkit-appearance: checkbox;
+-moz-appearance: checkbox;
+-ms-appearance: checkbox;     /* not currently supported */
+-o-appearance: checkbox;      /* not currently supported */
+}
+.image-upload > input
+{
+display: none;
+}
+.image-upload img
+{
+cursor: pointer;
+}
+.panel.panel-default{
+    background-color: rgba(245, 245, 245, 0.5);
 }
