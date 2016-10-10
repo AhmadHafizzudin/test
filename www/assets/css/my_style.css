@@ -1,9 +1,8 @@
 .p_hack {
-<<<<<<< HEAD
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 10px;
-padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 html,body {
 height: 100%;
@@ -104,12 +103,7 @@ cursor: pointer;
 .panel.panel-default{
     background-color: rgba(245, 245, 245, 0.5);
 }
-=======
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
+ 
 
 
 .sidenav {
@@ -273,4 +267,54 @@ tab h3:focus, .active {
           border: 0px;
           }
 
->>>>>>> apiz
+
+  body {
+         height: 100%;
+         overflow-y:auto;
+         overflow-x:hidden;
+         background-color: #FFF4C8;
+
+         }
+         .navbar-left {
+         float:left;
+         margin-left:15px;
+         padding:6px 10px;
+         }
+         .box{
+         margin: 25px;
+         }
+         .navcolor {
+         background-color: #252e33;
+         border: 0px;
+         }
+         .footer {
+         background-color: #252e33;
+         color: white;
+         border: 0px;
+         position: fixed;
+         bottom: 0;
+         width: 100%;
+         }
+         .btn-dp {
+         background-color: #FFC300;
+         color: white;
+         border: 2px solid white;
+         border-radius: 3px;
+         text-align: center;
+         width:100%;
+         }
+         .btn-dp:hover {background-color: #FFC300;}
+         .btn-dp:active {
+         background-color: #FFC300;;
+         box-shadow: 0 3px #666;
+         transform: translateY(4px); 
+         }
+		 
+		 
+table, th, td {
+	position:responsive;
+    border: 1px solid black;
+	text-align: left;
+    padding: 8px;
+	overflow-x:auto
+}
