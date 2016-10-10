@@ -7,7 +7,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
       <style>
          html,
          body {
@@ -15,8 +14,6 @@
          overflow-y:auto;
          overflow-x:hidden;
          background-color: #FFF4C8;
-         
-
          }
          .navbar-left {
          float:left;
@@ -52,13 +49,21 @@
          box-shadow: 0 3px #666;
          transform: translateY(4px);
          }
+         .image-upload > input
+         {
+         display: none;
+         }
+         .image-upload img
+         {
+         cursor: pointer;
+         }
       </style>
    </head>
    <body>
       <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
          <div class="container-fluid" id="navfluid">
             <div class="navbar-header">
-               <button type="button" class="navbar-toggle navbar-left" onclick="location.href='select_receiver.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+               <button type="button" class="navbar-toggle navbar-left" onclick="location.href='sendpayment.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
@@ -80,9 +85,8 @@
       </nav>
       <div class="container">
          <div class="row">
-            <h3 align="center"><b>Transaction Details</b></h3>
+            <h3 align="center"><b>Message</b></h3>
          </div>
-        
          </p>
          <div class="row box" >
             <form role="form">
@@ -90,42 +94,42 @@
                   <div class="col-md-6 col-md-offset-3" >
                      <div class="panel panel-default">
                         <div class="panel-body">
-                           <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                           <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
+                           <span>&nbsp;via </span>
+                           <image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
                            </p>
                            <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
                            </p>
-                           <select id="type" name="type" class="form-control">
-                              <option value="">Please select type</option>
-                              <option value="gold">Gold</option>
-                              <option value="silver">Silver</option>
-                           </select>
+                           <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)" readonly >
                            </p>
-
-                           <!--fetch db code here-->
-
-                           <fieldset>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                           </fieldset>
-
-                           
+                           <input type="text" name="linkurl" id="linkurl" class="form-control" placeholder="Auto generated Link" readonly >
+                           </p>
+                           <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
+                           </p>
+                           <a href="#upload" data-toggle="collapse">
+                              <image src="../assets/images/paperclip.png" width="10%"  class="img-circle" alt="Add attachment"/>
+                           </a>
+                           </p>
+                           <div id="upload" class="collapse">
+                              <div class="image-upload">
+                                 <label for="file-input">
+                                    <image src="../assets/images/gallery.png" width="10%"  class="img-circle" alt="Gallery"/>
+                                 </label>
+                                 <input id="file-input" type="file"/>
+                              </div>
+                              </p>
+                              <a href="#camera" data-toggle="collapse">
+                                 <image src="../assets/images/camera.png" width="10%"  class="img-circle" alt="Camera"/>
+                              </a>
+                              </p>
+                              <a href="#sound" data-toggle="collapse">
+                                 <image src="../assets/images/sound.png" width="10%"  class="img-circle" alt="Sound"/>
+                              </a>
+                           </div>
                            </p>
                            <p>&nbsp;</p>
                            <div align="center">
-                              <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='writemessage_transfer.html';">
+                              <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='confirm_transfer.html';">
                            </div>
                            </p>
                         </div>
@@ -135,10 +139,8 @@
             </form>
          </div>
       </div>
-
       <div class="footer" align="center">
          <footer>DinarPal Social Transfer (2016)</footer>
       </div>
-      
    </body>
 </html>

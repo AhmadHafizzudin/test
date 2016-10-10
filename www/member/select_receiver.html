@@ -7,7 +7,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
       <style>
          html,
          body {
@@ -15,8 +14,7 @@
          overflow-y:auto;
          overflow-x:hidden;
          background-color: #FFF4C8;
-         
-
+         /*background-image: url(image/bg.jpg);*/
          }
          .navbar-left {
          float:left;
@@ -52,13 +50,41 @@
          box-shadow: 0 3px #666;
          transform: translateY(4px);
          }
+         input:checked {
+         z-index: 2;
+         position: relative;
+         }
+         input:checked + img + img + label {
+         color: rgba(49, 179, 217, 1);
+         position: relative;
+         background: rgba(236, 245, 247, 1);
+         padding-left: 1em;
+         margin-left: -1em;
+         z-index: 1;
+         }
+         .chip {
+         display: inline-block;
+         padding: 0 25px;
+         height: 50px;
+         font-size: 16px;
+         line-height: 50px;
+         border-radius: 25px;
+         background-color: #f1f1f1;
+         }
+         .chip img {
+         float: left;
+         margin: 0 10px 0 -25px;
+         height: 50px;
+         width: 50px;
+         border-radius: 50%;
+         }
       </style>
    </head>
    <body>
       <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
          <div class="container-fluid" id="navfluid">
             <div class="navbar-header">
-               <button type="button" class="navbar-toggle navbar-left" onclick="location.href='select_receiver.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+               <button type="button" class="navbar-toggle navbar-left" data-target="#"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
@@ -80,9 +106,8 @@
       </nav>
       <div class="container">
          <div class="row">
-            <h3 align="center"><b>Transaction Details</b></h3>
+            <h3 align="center"><b>Select Receiver</b></h3>
          </div>
-        
          </p>
          <div class="row box" >
             <form role="form">
@@ -90,42 +115,31 @@
                   <div class="col-md-6 col-md-offset-3" >
                      <div class="panel panel-default">
                         <div class="panel-body">
-                           <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                           <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search"/>
+                              <span class="input-group-addon">
+                              <i class="fa fa-search"></i>
+                              </span>
+                           </div>
                            </p>
-                           <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
-                           </p>
-                           <select id="type" name="type" class="form-control">
-                              <option value="">Please select type</option>
-                              <option value="gold">Gold</option>
-                              <option value="silver">Silver</option>
-                           </select>
-                           </p>
-
-                           <!--fetch db code here-->
-
-                           <fieldset>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                              <label>
-                                 <input type="checkbox" name="item" value="item" />
-                                 <img src="../assets/images/gold.jpg" width="20%">
-                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                              </label>
-                           </fieldset>
-
-                           
+                           <div class="userselect">
+                              <div class="chip">
+                                 <input type="radio" name="group1" value="user" id="user"/>
+                                 <image src="../assets/images/twitter.png" width="20%"  class="img-circle"/>
+                                 <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
+                                 <label for="user">&nbsp;Contact Name</label>
+                              </div>
+                              <div class="chip">
+                                 <input type="radio" name="group1" value="user" id="user2"/>
+                                 <image src="../assets/images/twitter.png" width="20%"  class="img-circle"/>
+                                 <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
+                                 <label for="user">&nbsp;Contact Name</label>
+                              </div>
+                           </div>
                            </p>
                            <p>&nbsp;</p>
                            <div align="center">
-                              <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='writemessage_transfer.html';">
+                              <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='sendpayment.html';">
                            </div>
                            </p>
                         </div>
@@ -135,10 +149,8 @@
             </form>
          </div>
       </div>
-
       <div class="footer" align="center">
          <footer>DinarPal Social Transfer (2016)</footer>
       </div>
-      
    </body>
 </html>
