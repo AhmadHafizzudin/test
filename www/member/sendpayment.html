@@ -5,54 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="../assets/css/my_style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       
-      <style>
-         html,
-         body {
-         height: 100%;
-         overflow-y:auto;
-         overflow-x:hidden;
-         background-color: #FFF4C8;
-         
-
-         }
-         .navbar-left {
-         float:left;
-         margin-left:15px;
-         padding:6px 10px;
-         }
-         .box{
-         margin: 25px;
-         }
-         .navcolor {
-         background-color: #252e33;
-         border: 0px;
-         }
-         .footer {
-         background-color: #252e33;
-         color: white;
-         border: 0px;
-         position: fixed;
-         bottom: 0;
-         width: 100%;
-         }
-         .btn-dp {
-         background-color: #FFC300;
-         color: white;
-         border: 2px solid white;
-         border-radius: 3px;
-         text-align: center;
-         width:100%;
-         }
-         .btn-dp:hover {background-color: #FFC300;}
-         .btn-dp:active {
-         background-color: #FFC300;;
-         box-shadow: 0 3px #666;
-         transform: translateY(4px);
-         }
-      </style>
+      
    </head>
    <body>
       <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
@@ -95,7 +52,7 @@
                            <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
                            </p>
                            <select id="type" name="type" class="form-control">
-                              <option value="">Please select type</option>
+                              <option value="" disabled selected style="display: none;">Please select type</option>
                               <option value="gold">Gold</option>
                               <option value="silver">Silver</option>
                            </select>
