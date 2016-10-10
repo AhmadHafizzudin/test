@@ -1,6 +1,7 @@
 
 var username = localStorage.getItem("username");
 var password = localStorage.getItem("password");
+var uid = localStorage.getItem("uid");
 var loggedin = localStorage.getItem("loggedin");
 
 if (loggedin == "false") {

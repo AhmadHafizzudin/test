@@ -93,15 +93,32 @@
             if (user == '' || email == '' || phone == '' || company == '' || company_no == '') {
                 msg_alert('Do not leave blank!', 4);
                 return;
-            }
+            }  
             
-            $.post(URL_SERVER + "login/daftar_members", {
-                me_username: user,
-                me_email: email,
-                me_whatsapp_no: phone,
-                me_company: company,
-                me_reg_num: company_no,
-                me_account_type: account_type
+            $.ajax({
+                url: URL_SERVER + "login/daftar_members",
+                timeout: 10000,
+                method: "POST",
+                data: {
+                    me_username: user,
+                    me_email: email,
+                    me_whatsapp_no: phone,
+                    me_company: company,
+                    me_reg_num: company_no,
+                    me_account_type: account_type
+                },
+                error: function(jqXHR) {
+                    if(jqXHR.status==0) {
+                        msg_alert('Opss! Fail to connect,<br />please check your connection settings!!', 4);
+                    }
+                },
+                success: function() {
+                },
+                statusCode: {
+                    404: function() {
+                        msg_alert('Opss! Page not found!!', 4);
+                    }
+                }
             }).done(function (data) {
                 var d = get_pecah(data);
                 if (d[0] == '1' || d[0] == 1) {

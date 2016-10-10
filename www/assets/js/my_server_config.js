@@ -15,6 +15,13 @@ $(this).keypress(function (e) {
     $("#alert_msg_box").removeClass("alert alert-danger").html("");
 });
 
+function msg_alert_clr() {
+    $("#alert_msg_box").removeClass("alert alert-success").html("");
+    $("#alert_msg_box").removeClass("alert alert-info").html("");
+    $("#alert_msg_box").removeClass("alert alert-warning").html("");
+    $("#alert_msg_box").removeClass("alert alert-danger").html("");
+}
+
 function msg_alert(msg, type) {
     var type_alert = "alert alert-info";
     switch (type) {

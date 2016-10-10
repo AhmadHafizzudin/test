@@ -101,8 +101,10 @@
                 if (d[0] == '1' || d[0] == 1) {
                     msg_alert(d[1], 4);
                 } else {
+                    var uid = d[2];
                     localStorage.setItem("username", user);
                     localStorage.setItem("password", pwd);
+                    localStorage.setItem("uid", uid);
                     localStorage.setItem("loggedin", true);
                     location.href = 'member/overview.html';
                 }
