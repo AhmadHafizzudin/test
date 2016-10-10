@@ -1,0 +1,128 @@
+<html>
+   <head>
+      <title>DinarPal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+         html,
+         body {
+         height: 100%;
+         overflow-y:auto;
+         overflow-x:hidden;
+         background-color: #FFF4C8;
+         }
+         .navbar-left {
+         float:left;
+         margin-left:15px;
+         padding:6px 10px;
+         }
+         .box{
+         margin: 25px;
+         }
+         .navcolor {
+         background-color: #252e33;
+         border: 0px;
+         }
+         .footer {
+         background-color: #252e33;
+         color: white;
+         border: 0px;
+         position: fixed;
+         bottom: 0;
+         width: 100%;
+         }
+         .btn-dp {
+         background-color: #FFC300;
+         color: white;
+         border: 2px solid white;
+         border-radius: 3px;
+         text-align: center;
+         width:100%;
+         }
+         .btn-dp:hover {background-color: #FFC300;}
+         .btn-dp:active {
+         background-color: #FFC300;;
+         box-shadow: 0 3px #666;
+         transform: translateY(4px);
+         }
+         .image-upload > input
+         {
+         display: none;
+         }
+         .image-upload img
+         {
+         cursor: pointer;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
+         <div class="container-fluid" id="navfluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle navbar-left" onclick="location.href='sendpayment.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
+               <ul class="nav navbar-nav">
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Profile</a></li>
+                  <li><a href="">Setting</a></li>
+                  <li><a href="">Log Out</a></li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container-fluid -->
+      </nav>
+      <div class="container">
+         <div class="row">
+            <h3 align="center"><b>Confirm Transaction</b></h3>
+         </div>
+         </p>
+         <div class="row box" >
+            <form role="form">
+               <div class="form-group">
+                  <div class="col-md-6 col-md-offset-3" >
+                     <div class="panel panel-default">
+                        <div class="panel-body">
+                           <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
+                           <span>&nbsp;via </span>
+                           <image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                           </p>
+                           <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
+                           </p>
+                           <input type="text" name="type" id="type" class="form-control" placeholder="Item Type" readonly >
+                           </p>
+                           <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)" readonly >
+                           </p>
+                           <textarea rows="4" cols="50" class="form-control" readonly></textarea>
+                           </p>
+                           
+                           
+                           </p>
+                           <p>&nbsp;</p>
+                           <div align="center">
+                              <input type="button" name="buttonConfirm" id="buttonConfirm" value="Confirm" class="btn btn-dp" >
+                           </div>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="footer" align="center">
+         <footer>DinarPal Social Transfer (2016)</footer>
+      </div>
+   </body>
+</html>

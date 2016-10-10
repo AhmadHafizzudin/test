@@ -1,0 +1,36 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.coolappz.dinarpal_dopo"
+        }
+    }
+}
