@@ -13,7 +13,6 @@ background-image: url(../../assets/images/logo.jpg);
 background-position: center;
 background-repeat:no-repeat;
 background-size:120%;
-
 }
 .navbar-left {
 float:left;
@@ -36,16 +35,16 @@ bottom: 0;
 width: 100%;
 }
 .btn-dp {
-background-color: #252e33;
+background-color: #FFC300;
 color: white;
 border: 2px solid white;
 border-radius: 3px;
 text-align: center;
 width:100%;
 }
-.btn-dp:hover {background-color: 	#252e33;}
+.btn-dp:hover {background-color: 	#FFC300;}
 .btn-dp:active {
-background-color: #252e33;
+background-color: #FFC300;
 color: white;
 box-shadow: 0 3px #666;
 transform: translateY(4px);
@@ -92,20 +91,9 @@ input[type="radio"] {
 -ms-appearance: checkbox;     /* not currently supported */
 -o-appearance: checkbox;      /* not currently supported */
 }
-.image-upload > input
-{
-display: none;
-}
-.image-upload img
-{
-cursor: pointer;
-}
 .panel.panel-default{
     background-color: rgba(245, 245, 245, 0.5);
 }
- 
-
-
 .sidenav {
     height: 100%;
     width: 0;
@@ -118,7 +106,6 @@ cursor: pointer;
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -127,11 +114,9 @@ cursor: pointer;
     display: block;
     transition: 0.3s
 }
-
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -139,21 +124,17 @@ cursor: pointer;
     font-size: 36px;
     margin-left: 50px;
 }
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-
 .switch input {display:none;}
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -165,7 +146,6 @@ cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -177,41 +157,31 @@ cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 input:checked + .slider {
   background-color: #2196F3;
 }
-
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
-
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
-
-        .container{
-
+        /*.container{
             background-color:cadetblue;
             margin: 0;
             padding: 0;
             overflow: hidden;
             border: 1px solid cadetblue;
-
-
-        }
-
+        }*/
         
 .tab {
     list-style-type: none;
@@ -221,8 +191,6 @@ input:checked + .slider:before {
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
-
-
 /* Style the links inside the list items */
 .tab h3 {
     color: black;
@@ -230,91 +198,21 @@ input:checked + .slider:before {
     text-decoration: none;
     transition: 0.3s;
 }
-
 /* Change background color of links on hover */
 .tab h3:hover {
     background-color: #ddd;
 }
-
 /* Create an active/current tablink class */
 tab h3:focus, .active {
     background-color: #ccc;
 }
-
 /* Style the tab content */
-
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-
-
-.navbar-left {
-          float:left;
-          margin-left:15px;
-          padding:6px 10px;
-          }
-          .box{
-          margin: 25px;
-          }
-          .navcolor {
-          background-color: #252e33;
-          border: 0px;
-          }
-
-
-  body {
-         height: 100%;
-         overflow-y:auto;
-         overflow-x:hidden;
-         background-color: #FFF4C8;
-
-         }
-         .navbar-left {
-         float:left;
-         margin-left:15px;
-         padding:6px 10px;
-         }
-         .box{
-         margin: 25px;
-         }
-         .navcolor {
-         background-color: #252e33;
-         border: 0px;
-         }
-         .footer {
-         background-color: #252e33;
-         color: white;
-         border: 0px;
-         position: fixed;
-         bottom: 0;
-         width: 100%;
-         }
-         .btn-dp {
-         background-color: #FFC300;
-         color: white;
-         border: 2px solid white;
-         border-radius: 3px;
-         text-align: center;
-         width:100%;
-         }
-         .btn-dp:hover {background-color: #FFC300;}
-         .btn-dp:active {
-         background-color: #FFC300;;
-         box-shadow: 0 3px #666;
-         transform: translateY(4px); 
-         }
 		 
-		 
-table, th, td {
-	position:responsive;
-    border: 1px solid black;
-	text-align: left;
-    padding: 8px;
-	overflow-x:auto
-}
