@@ -1,3 +1,8 @@
+<html>
+<head>
+<title>DinarPal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- start library -->
 <script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.js" type="text/javascript"></script>
@@ -5,8 +10,33 @@
 <script src="assets/js/my_public_session.js" type="text/javascript"></script>
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="assets/css/my_style.css">
+</head>
 <!-- end library -->
+<body>
+<nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
+         <div class="container-fluid" id="navfluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle navbar-left" onclick="history.go(-1);"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
+               <ul class="nav navbar-nav" align="center">
+                  <li><a href="index.html">Login</a></li>
+                  <li><a href="registration.html">Registration</a></li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container-fluid -->
+      </nav>
 
+<div class="container">
 <!-- start message box -->
 <div class="row"><div class="col-sm-12" id="alert_msg_box"></div></div>
 <!-- end message box -->
@@ -14,21 +44,18 @@
 <!-- start title -->
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <center>
-            <h3>
-                <a href="index.html">
-                    DinarPal Social Transfer
-                </a>
-            </h3>
-            <h4>Registration</h4>
-        </center>
+        
+            <h3 align="center"><b>Registration</b></h3>
+        
     </div>
 </div>
 <!-- end title -->
 
 <!-- start content -->
 <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
+     <div class="col-md-6 col-md-offset-3" >
+                     <div class="panel panel-default">
+                        <div class="panel-body">
         <center>
             
             <table class="table">
@@ -49,8 +76,16 @@
             </table>
             
         </center>
+        </div>
+</div>
     </div>
 </div>
+</div>
+ <div class="footer" align="center">
+         <footer>DinarPal Social Transfer (2016)</footer>
+      </div>
+</body>
+</html>
 <!-- end content -->
 
 <!-- start controller jquery -->

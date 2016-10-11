@@ -23,11 +23,12 @@
                </button>
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
-               <ul class="nav navbar-nav">
-                  <li><a href="">Home</a></li>
-                  <li><a href="">Profile</a></li>
-                  <li><a href="">Setting</a></li>
-                  <li><a href="">Log Out</a></li>
+               <ul class="nav navbar-nav" align="center">
+                  <li><a href="overview.html">Home</a></li>
+                  <li><a href="profile.html">Profile</a></li>
+                  <li><a href="social_connect.html">Social Connect</a></li>
+                  <li><a href="transaction_history.html">Transaction History</a></li>
+                  <li><a href="#!" class="btn_logout">Log Out</a></li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -58,27 +59,25 @@
                            <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
                            </p>
                            <a href="#upload" data-toggle="collapse">
-                              <image src="../assets/images/paperclip.png" width="10%"  class="img-circle" alt="Add attachment"/>
+                              <image src="../assets/images/paperclip.png" width="15%"  class="img-circle" alt="Add attachment"/>
                            </a>
-                           </p>
-                           <div id="upload" class="collapse">
-                              <div class="image-upload">
-                                 <label for="file-input">
-                                    <image src="../assets/images/gallery.png" width="10%"  class="img-circle" alt="Gallery"/>
-                                 </label>
-                                 <input id="file-input" type="file"/>
-                              </div>
-                              </p>
-                              <a href="#camera" data-toggle="collapse">
-                                 <image src="../assets/images/camera.png" width="10%"  class="img-circle" alt="Camera"/>
+                           
+                           <div id="upload" class="">
+                              &nbsp;&nbsp;&nbsp;
+                              <a href="#gallery" data-toggle="collapse">
+                                    <image src="../assets/images/gallery.png" width="15%"  class="img-circle" alt="Gallery"/>
                               </a>
-                              </p>
+                              &nbsp;&nbsp;&nbsp;
+                              <a href="#camera" data-toggle="collapse">
+                                 <image src="../assets/images/camera.png" width="15%"  class="img-circle" alt="Camera"/>
+                              </a>
+                              &nbsp;&nbsp;&nbsp;
                               <a href="#sound" data-toggle="collapse">
-                                 <image src="../assets/images/sound.png" width="10%"  class="img-circle" alt="Sound"/>
+                                 <image src="../assets/images/sound.png" width="15%"  class="img-circle" alt="Sound"/>
                               </a>
                            </div>
                            </p>
-                           <p>&nbsp;</p>
+                           
                            <div align="center">
                               <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='confirm_transfer.html';">
                            </div>
@@ -94,4 +93,13 @@
          <footer>DinarPal Social Transfer (2016)</footer>
       </div>
    </body>
+
 </html>
+
+<script>
+   $("[data-toggle='toggle']").click(function() {
+    var selector = $(this).data("target");
+    $(selector).toggleClass('in');
+});
+</script>
+
