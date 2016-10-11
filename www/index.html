@@ -1,19 +1,22 @@
-<!-- start library -->
-<script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.js" type="text/javascript"></script>
-<script src="assets/js/my_server_config.js" type="text/javascript"></script>
-<script src="assets/js/my_public_session.js" type="text/javascript"></script>
-<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-<link href="assets/css/my_style.css" rel="stylesheet" />
-<!-- end library -->
-<!-- start message box -->
+<html>
+<head>
+    <!-- start library -->
+    <script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.js" type="text/javascript"></script>
+    <script src="assets/js/my_server_config.js" type="text/javascript"></script>
+    <script src="assets/js/my_public_session.js" type="text/javascript"></script>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/my_style.css" rel="stylesheet" />
+    <!-- end library -->
+</head>
+<body style="background-image:none">
+    <!-- start message box -->
     <div class="row">
         <div class="col-sm-12" id="alert_msg_box"></div>
     </div>
     <!-- end message box -->
     <!-- start title -->
-
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <center>
@@ -27,14 +30,8 @@
     </div>
     <!-- end title -->
     <!-- start content -->
-
-
-
-
-
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-
             <!--Start menu bar-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -43,82 +40,77 @@
                 <a href="../logout.html">Logout</a>
             </div>
             <!--end menu bar-->
+            <div>
+                <center><img src="assets/images/logo dinarpal.png" class="img-thumbnail" alt="logo dinarpal"></center>
+            </div>
+            <br /><br />
+            <!-- panel for username and password -->
 
-
-            <center>
-                <table class="table">
-                    <tr>
-                        <td>
-                            <center><img src="assets/images/logo dinarpal.png" class="img-thumbnail" alt="logo dinarpal"></center>
-                        </td>
-                    </tr>
-                </table>
-                <!-- panel for username and password -->
-                <form role="form" class="form-group" style="">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <!-- username -->
-                                <input type="text" id="user" class="form-control" placeholder="Your username." />
-                                <br />
-                                <!-- password -->
-                                <input type="password" id="pwd" class="form-control" placeholder="Your password." />
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- end panel for username and password -->
-                <table>
-                    <tr>
-                        <td colspan="1" align="center">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form role="form" class="form-group" style="">
+                            <!-- username -->
+                            <input type="text" id="user" class="form-control" placeholder="Your username." value="ahmadhafizzudin" />
+                            <br />
+                            <!-- password -->
+                            <input type="password" id="pwd" class="form-control" placeholder="Your password." value="wcKG741!@#" />
+                        </form>
+                        <br />
+                        <center>
                             <button class="btn btn-success" id="btn_login">Log In</button>
-                            <br />
+                            </p>
                             <button class="btn btn-link" id="btn_reg">Register</button>
-                            <br />
-                            <a href="member/overview.html">skip</a>
-                        </td>
-                    </tr>
-                </table>
-            </center>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+            </div>
+            <!-- end panel for username and password -->
         </div>
     </div>
-<!-- end content -->
-<!-- start controller jquery -->
-<script>
-   $(document).ready(function () {
+    <!-- end content -->
+    <!-- start controller jquery -->
+    <script>
+        $(document).ready(function () {
 
-       $("#btn_reg").click(function () {
-           location.href = 'registration.html';
-       });
+            $("#btn_reg").click(function () {
+                location.href = 'registration.html';
+            });
 
-       $("#btn_login").click(function () {
-           var user = $("#user").val();
-           var pwd = $("#pwd").val();
+            $("#btn_login").click(function () {
+                var user = $("#user").val();
+                var pwd = $("#pwd").val();
 
-           if (user == '' || pwd == '') {
-               msg_alert('Do not leave blank!', 4);
-               return;
-           }
+                if (user == '' || pwd == '') {
+                    msg_alert('Do not leave blank!', 4);
+                    return;
+                }
 
-           $.post(URL_SERVER + "login/authenticate", {
-               username: user,
-               password: pwd
-           }).done(function (data) {
-               var d = get_pecah(data);
-               if (d[0] == '1' || d[0] == 1) {
-                   msg_alert(d[1], 4);
-               } else {
-                   var uid = d[2];
-                   localStorage.setItem("username", user);
-                   localStorage.setItem("password", pwd);
-                   localStorage.setItem("uid", uid);
-                   localStorage.setItem("loggedin", true);
-                   location.href = 'member/overview.html';
-               }
-           });
-           msg_alert('Authenticating ...', 2);
+                $.post(URL_SERVER + "login/authenticate", {
+                    username: user,
+                    password: pwd
+                }).done(function (data) {
+                    var d = get_pecah(data);
+                    if (d[0] == '1' || d[0] == 1) {
+                        msg_alert(d[1], 4);
+                    } else {
+                        var uid = d[2];
+                        localStorage.setItem("username", user);
+                        localStorage.setItem("password", pwd);
+                        localStorage.setItem("uid", uid);
+                        localStorage.setItem("loggedin", true);
+                        location.href = 'member/overview.html';
+                    }
+                });
+                msg_alert('Authenticating ...', 2);
 
-       });
-   });
-</script>
-<!-- end controller jquery -->
+            });
+        });
+    </script>
+    <!-- end controller jquery -->
+</body>
+</html>
