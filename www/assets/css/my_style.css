@@ -1,150 +1,150 @@
 .p_hack {
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 10px;
-padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 html,body {
-height: 100%;
-overflow-y:auto;
-overflow-x:hidden;
-background-color: white;
-background-image: url(../../assets/images/logo.png);
-background-position: center;
-background-repeat:no-repeat;
-background-size:120%;
+    height: 100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background-color: white;
+    background-image: url(../../assets/images/logo.png);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:120%;
 }
 .navbar-left {
-float:left;
-margin-left:15px;
-padding:6px 10px;
+    float:left;
+    margin-left:15px;
+    padding:6px 10px;
 }
 .box{
-margin: 25px;
+    margin: 25px;
 }
 .navcolor {
-background-color: #252e33;
-border: 0px;
+    background-color: #252e33;
+    border: 0px;
 }
 .footer {
-background-color: #252e33;
-color: white;
-border: 0px;
-position: fixed;
-bottom: 0;
-width: 100%;
+    background-color: #252e33;
+    color: white;
+    border: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 .btn-success{
-width: 100%;
+    width: 100%;
 }
 .btn-info{
-width: 100%;
+    width: 100%;
 }
 .btn-primary{
-width: 100%;
+    width: 100%;
 }
 .btn-warning{
-width: 100%;
+    width: 100%;
 }
 .btn-danger{
-width: 100%;
+    width: 100%;
 }
 .btn-dp {
-background-color: #FFC300;
-color: white;
-border: 2px solid white;
-border-radius: 3px;
-text-align: center;
-width:100%;
+    background-color: #FFC300;
+    color: white;
+    border: 2px solid white;
+    border-radius: 3px;
+    text-align: center;
+    width:100%;
 }
 
 .btn-success{
     width:100%;
 }
 .btn-info{
-width: 100%;
+    width: 100%;
 }
 .btn-primary{
-width: 100%;
+    width: 100%;
 }
 .btn-warning{
-width: 100%;
+    width: 100%;
 }
 .btn-danger{
-width: 100%;
+    width: 100%;
 }
 .btn-dp:hover {background-color: 	#FFC300;}
 
 .btn-dp:active {
-background-color: #FFC300;
-color: white;
-box-shadow: 0 3px #666;
-transform: translateY(4px);
+    background-color: #FFC300;
+    color: white;
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
 }
 .image-upload > input
 {
-display: none;
+    display: none;
 }
 .image-upload img
 {
-cursor: pointer;
+    cursor: pointer;
 }
 input:checked {
-z-index: 2;
-position: relative;
+    z-index: 2;
+    position: relative;
 }
 input:checked + img + img + label {
-color: rgba(49, 179, 217, 1);
-position: relative;
-background: rgba(236, 245, 247, 1);
-padding-left: 1em;
-margin-left: -1em;
-z-index: 1;
+    color: rgba(49, 179, 217, 1);
+    position: relative;
+    background: rgba(236, 245, 247, 1);
+    padding-left: 1em;
+    margin-left: -1em;
+    z-index: 1;
 }
 .chip {
-display: inline-block;
-padding: 0 25px;
-height: 50px;
-font-size: 16px;
-line-height: 50px;
-border-radius: 25px;
-background-color: #f1f1f1;
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
 }
 .chip img {
-float: left;
-margin: 0 10px 0 -25px;
-height: 50px;
-width: 50px;
-border-radius: 50%;
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 input[type="radio"] {
--webkit-appearance: checkbox;
--moz-appearance: checkbox;
--ms-appearance: checkbox;     /* not currently supported */
--o-appearance: checkbox;      /* not currently supported */
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -ms-appearance: checkbox;     /* not currently supported */
+    -o-appearance: checkbox;      /* not currently supported */
 }
 .panel.panel-default{
-background-color: rgba(245, 245, 245, 0.5);
+    background-color: rgba(245, 245, 245, 0.5);
 }
 .sidenav {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-right: 0;
-background-color: #111;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 .sidenav a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 20px;
-color: #818181;
-display: block;
-transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
     height: 100%;
     width: 0;
     position: fixed;
@@ -165,75 +165,75 @@ transition: 0.3s;
     transition: 0.3s
 }
 .sidenav a:hover, .offcanvas a:focus{
-color: #f1f1f1;
+    color: #f1f1f1;
 }
 .sidenav .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 @media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 .switch {
-position: relative;
-display: inline-block;
-width: 60px;
-height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 .switch input {display:none;}
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 input:checked + .slider {
-background-color: #2196F3;
+    background-color: #2196F3;
 }
 input:focus + .slider {
-box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196F3;
 }
 input:checked + .slider:before {
--webkit-transform: translateX(26px);
--ms-transform: translateX(26px);
-transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 /* Rounded sliders */
 .slider.round {
-border-radius: 34px;
+    border-radius: 34px;
 }
 .slider.round:before {
 
-  border-radius: 50%;
+    border-radius: 50%;
 }
-        /*.container{
-            background-color:cadetblue;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            border: 1px solid cadetblue;
-        }*/
-        
+/*.container{
+    background-color:cadetblue;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid cadetblue;
+}*/
+
 .tab {
     list-style-type: none;
     margin: 0;
@@ -241,105 +241,56 @@ border-radius: 34px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-
 }
 /* Style the links inside the list items */
 .tab h3 {
-color: black;
-text-align: center;
-text-decoration: none;
-transition: 0.3s;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
 }
 /* Change background color of links on hover */
 .tab h3:hover {
-background-color: #ddd;
+    background-color: #ddd;
 }
 /* Create an active/current tablink class */
 tab h3:focus, .active {
-background-color: #ccc;
+    background-color: #ccc;
 }
 /* Style the tab content */
 @-webkit-keyframes fadeEffect {
-from {opacity: 0;}
-to {opacity: 1;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 @keyframes fadeEffect {
 
     from {opacity: 0;}
     to {opacity: 1;}
 }
-		 
-/************************************************************************************
-FOOTER
-*************************************************************************************/
-#footerwrap {
-	background-color:gray;
-	width:100%;
-	bottom:0;
-    position:fixed;
-    z-index:10000;
-    _position:absolute;
-    _top:expression(eval(document.documentElement.scrollTop+
-        (document.documentElement.clientHeight-this.offsetHeight)));
-    height:40px;
+
+.swiper-container {
+    width: 350px;
+    height: 300px;
+    margin: 20px auto;
+    border:10px;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
 }
 
-
-#footer {
-	clear: both;
-	color: #ddd;
-}
-#footer h1,
-#footer h2,
-#footer h3,
-#footer h4,
-#footer h5,
-#footer h6 {
-	color: #fff;
-}
-#footer a {
-	color: #FFF;
-}
-
-/* footer widgets */
-#footer .widget {
-	padding: 0;
-	background: none;
-	border: none;
-	border-radius: none;
-	box-shadow: none;
-}
-#footer .widget li {
-	border-color: #444;
-	border-color: rgba(0,0,0,.2);
-}
-
-/* footer nav */
-#footernav-wrap {
-	clear: left;
-	float: left;
-	overflow: hidden;
-	width: 50%;
-}
-#footer-nav {
-	margin: 5px 0;
-	padding: 0;
-}
-#footer-nav li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	float: left;
-}
-#footer-nav ul {
-	margin: 0;
-	padding: 0;
-}
-#footer-nav a {
-	text-decoration: none;
-	margin: 0 10px 0 0;
-}
-#footer-nav a:hover {
-	text-decoration: underline;
-
-}
