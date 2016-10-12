@@ -56,11 +56,12 @@
                               <option value="" disabled selected style="display: none;">Please select type</option>
                               <option value="gold">Gold</option>
                               <option value="silver">Silver</option>
+                              <option value="money">Money</option>
                            </select>
                            </p>
 
                            <!--fetch db code here-->
-
+                        <div class="hidden isgold">
                            <fieldset>
                               <label>
                                  <input type="checkbox" name="item" value="item" />
@@ -78,8 +79,36 @@
                                  <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
                               </label>
                            </fieldset>
-
+                        </div>
                            
+                           <!--fetch db code here-->
+                        <div class="hidden issilver">
+                           <fieldset>
+                              <label>
+                                 <input type="checkbox" name="item" value="item" />
+                                 <img src="../assets/images/2.png" width="20%">
+                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                              </label>
+                              <label>
+                                 <input type="checkbox" name="item" value="item" />
+                                 <img src="../assets/images/2.png" width="20%">
+                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                              </label>
+                              <label>
+                                 <input type="checkbox" name="item" value="item" />
+                                 <img src="../assets/images/2.png" width="20%">
+                                 <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                              </label>
+                           </fieldset>
+                        </div>
+
+                        <div class="hidden ismoney">
+                           <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
+                        </p>
+                           <input type="text" name="item" id="item" class="form-control" placeholder="Amount to transfer (MYR)">
+                        </div>
+
+
                            </p>
                            <p>&nbsp;</p>
                            <div align="center">
@@ -100,3 +129,13 @@
       
    </body>
 </html>
+<script>
+
+$("#type").change(function(){          
+    var value = $("#type option:selected").val();
+    var theDiv = $(".is" + value);
+    
+    theDiv.slideDown().removeClass("hidden");
+    theDiv.siblings('[class*=is]').slideUp(function() { $(this).addClass("hidden"); });
+});
+</script>

@@ -40,7 +40,7 @@
                             <li><a href="overview.html">Home</a></li>
                             <li><a href="profile.html">Profile</a></li>
                             <li><a href="social_connect.html">Setting</a></li>
-                            <li><a href="">Log Out</a></li>
+                            <li><a href="#!" class="btn_logout">Log Out</a></li>
                         </ul>
                     </center>
                 </div>
@@ -80,19 +80,19 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="../assets/images/twitter.jpg" width="50" height="50">
+                                    <img src="../assets/images/twitter.png" width="50" height="50">
                                 </td>
                                 <td>Use twitter to transfer</td>
                                 <td>
                                     <label class="switch">
-                                        <input type="checkbox" checked>
+                                        <input type="checkbox" >
                                         <a class="slider round"></a>
                                     </label>
                                 </td>
                             </tr>
                             </table>
                             <center>
-            <button class="btn btn-success" id="btn_save">Save</button>
+            <a href="sendpayment.html" class="btn btn-success" id="btn_save">Make transaction</a><!--Sav setting and continue to transaction page-->
         </center>
                           
                     </div>
@@ -112,8 +112,8 @@
 </html>
 <!-- start controller jquery -->
 <script>
-    $("#back").click(function () {
-        location.href = 'overview.html';
+    $("#btn_save").click(function () {
+        location.href = 'sendpayment.html';
     });
  function openNav() {
     document.getElementById("mySidenav").style.width = "200px";

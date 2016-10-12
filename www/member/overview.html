@@ -1,88 +1,107 @@
-
 <html>
-    <head>
-        <title>DinarPal</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- start library -->
-        <script src="../assets/js/jquery-2.2.3.js" type="text/javascript"></script>
-        <script src="../assets/js/bootstrap.js" type="text/javascript"></script>
-        <script src="../assets/js/my_server_config.js" type="text/javascript"></script>
-        <script src="../assets/js/my_session_script.js" type="text/javascript"></script>
-        <link href="../assets/css/bootstrap.css" rel="stylesheet" />
-        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" />
-        <link href="../assets/css/my_style.css" rel="stylesheet" />
-        <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
-        <!-- end library -->
-
-       
-    </head>
-    <body>
-        <!-- start message box -->
-        <div class="row">
-            <div class="col-sm-12" id="alert_msg_box"></div>
-        </div>
-        <!-- end message box -->
-
-        <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
-            <div class="container-fluid" id="navfluid">
-                <div class="navbar-header">
-                    <!--<button type="button" class="navbar-toggle navbar-left" onclick="location.href='main_menu.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>-->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
-                    <center><ul class="nav navbar-nav">
-                            <li><a href="overview.html">Home</a></li>
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="social_connect.html">Setting</a></li>
-                            <li><a href="transaction_history.html">Transaction History</a></li>
-                            <li><a href="#!" class="btn_logout">Log Out</a></li>
-                        </ul></center>
-                </div>
-                <!-- /.navbar-collapse -->
+   <head>
+      <title>DinarPal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- start library -->
+      <script src="../assets/js/jquery-2.2.3.js" type="text/javascript"></script>
+      <script src="../assets/js/bootstrap.js" type="text/javascript"></script>
+      <script src="../assets/js/my_server_config.js" type="text/javascript"></script>
+      <script src="../assets/js/my_session_script.js" type="text/javascript"></script>
+      <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+      <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" />
+      <link href="../assets/css/my_style.css" rel="stylesheet" />
+      <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+      <!-- end library -->
+   </head>
+   <body>
+      <!-- start message box -->
+      <div class="row">
+         <div class="col-sm-12" id="alert_msg_box"></div>
+      </div>
+      <!-- end message box -->
+      <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
+         <div class="container-fluid" id="navfluid">
+            <div class="navbar-header">
+               <!--<button type="button" class="navbar-toggle navbar-left" onclick="location.href='main_menu.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>-->
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-        <div class="container">
-            <div class="row">
-                <h3 align="center"><b>DinarPal Social Transfer</b></h3>
+            <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
+               <center>
+                  <ul class="nav navbar-nav">
+                     <li><a href="overview.html">Home</a></li>
+                     <li><a href="profile.html">Profile</a></li>
+                     <li><a href="social_connect.html">Setting</a></li>
+                     <li><a href="transaction_history.html">Transaction History</a></li>
+                     <li><a href="#!" class="btn_logout">Log Out</a></li>
+                  </ul>
+               </center>
             </div>
-        </div>
-        <div class="row box" >
-            <form role="form">
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-3" >
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-
-                            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container-fluid -->
+      </nav>
+      <div class="container">
+         <div class="row">
+            <h3 align="center"><b>Account Overview</b></h3>
+         </div>
+      </div>
+      <div class="row box" >
+         <form role="form">
+            <div class="form-group">
+               <div class="col-md-6 col-md-offset-3" >
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <a href="#gold" data-toggle="collapse">
+                           <image src="../assets/images/1.png" width="15%"  class="img-circle" alt="My Gold"/>&nbsp;My Gold
+                        </a>
+                        <div id="gold" class="">
+                           <input type="text" name="goldpieces" id="goldpieces" class="form-control" placeholder="Total Gold (pcs)" readonly >
+                           </p>
+                           <input type="text" name="goldbalance" id="goldbalance" class="form-control" placeholder="Total Weight (gram)" readonly >
                         </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <div class="footer" align="center">
-            <footer>DinarPal Social Transfer (2016)</footer>
-        </div>
-
-        <!-- start controller jquery -->
-        <script>
-            function openNav() {
-                document.getElementById("mySidenav").style.width = "200px";
-            }
-
-            function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-            }
-        </script>
-        <!-- end controller jquery -->
-
-    </body>
+                        </p>
+                        <a href="#silver" data-toggle="collapse">
+                           <image src="../assets/images/2.png" width="15%"  class="img-circle" alt="My Silver"/>&nbsp;My Silver
+                        </a>
+                        <div id="silver" class="">
+                           <input type="text" name="silverpieces" id="silverpieces" class="form-control" placeholder="Total Silver (pcs)" readonly >
+                           </p>
+                           <input type="text" name="silverbalance" id="silverbalance" class="form-control" placeholder="Total Weight (gram)" readonly >
+                        </div>
+                        </p>
+                        <a href="#money" data-toggle="collapse">&nbsp;
+                           <image src="../assets/images/3.png" width="10%"  class="img-circle" alt="My Money"/>&nbsp;My Money
+                        </a>
+                        <div id="money" class="">
+                           <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
+                        </div>
+                        </p>
+                        <a href="social_connect.html" class="btn btn-primary">Setup my social connect</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="footer" align="center">
+         <footer>DinarPal Social Transfer (2016)</footer>
+      </div>
+      <!-- start controller jquery -->
+      <script>
+         function openNav() {
+             document.getElementById("mySidenav").style.width = "200px";
+         }
+         
+         function closeNav() {
+             document.getElementById("mySidenav").style.width = "0";
+         }
+      </script>
+      <!-- end controller jquery -->
+   </body>
 </html>
