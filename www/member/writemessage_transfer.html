@@ -1,105 +1,112 @@
-<html>
-   <head>
-      <title>DinarPal</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-      <link rel="stylesheet" href="../assets/css/my_style.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
-   </head>
-   <body>
-      <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
-         <div class="container-fluid" id="navfluid">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle navbar-left" onclick="location.href='sendpayment.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
+﻿<html>
+    <head>
+        <title>DinarPal</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- start library -->
+        <script src="../assets/js/jquery-2.2.3.js" type="text/javascript"></script>
+        <script src="../assets/js/bootstrap.js" type="text/javascript"></script>
+        <script src="../assets/js/my_server_config.js" type="text/javascript"></script>
+        <script src="../assets/js/my_session_script.js" type="text/javascript"></script>
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" />
+        <link href="../assets/css/my_style.css" rel="stylesheet" />
+        <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+        <!-- end library -->
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
+            <div class="container-fluid" id="navfluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle navbar-left" onclick="history.go(-1);"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="overview.html">Home</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="social_connect.html">Social Connect</a></li>
+                        <li><a href="transaction_history.html">Transaction History</a></li>
+                        <li><a href="#!" class="btn_logout">Log Out</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
-               <ul class="nav navbar-nav" align="center">
-                  <li><a href="overview.html">Home</a></li>
-                  <li><a href="profile.html">Profile</a></li>
-                  <li><a href="social_connect.html">Social Connect</a></li>
-                  <li><a href="transaction_history.html">Transaction History</a></li>
-                  <li><a href="#!" class="btn_logout">Log Out</a></li>
-               </ul>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <div class="row">
+                <h3 align="center"><b>Message</b></h3>
             </div>
-            <!-- /.navbar-collapse -->
-         </div>
-         <!-- /.container-fluid -->
-      </nav>
-      <div class="container">
-         <div class="row">
-            <h3 align="center"><b>Message</b></h3>
-         </div>
-         </p>
-         <div class="row box" >
+        </p>
+        <div class="row box" >
             <form role="form">
-               <div class="form-group">
-                  <div class="col-md-6 col-md-offset-3" >
-                     <div class="panel panel-default">
-                        <div class="panel-body">
-                           <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
-                           <span>&nbsp;via </span>
-                           <image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
-                           </p>
-                           <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
-                           </p>
-                           <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)" readonly >
-                           </p>
-                           <input type="text" name="linkurl" id="linkurl" class="form-control" placeholder="Auto generated Link" readonly >
-                           </p>
-                           <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
-                           </p>
-                           <a href="#upload" data-toggle="collapse">
-                              <image src="../assets/images/paperclip.png" width="15%"  class="img-circle" alt="Add attachment"/>
-                           </a>
-                           
-                           <div id="upload" class="">
-                              &nbsp;&nbsp;&nbsp;
-                              <a href="#gallery">
-                                    <image src="../assets/images/gallery.png" width="15%"  class="img-circle" alt="Gallery"/>
-                              </a>
-                              &nbsp;&nbsp;&nbsp;
-                              <a href="#camera">
-                                 <image src="../assets/images/camera.png" width="15%"  class="img-circle" alt="Camera"/>
-                              </a>
-                              &nbsp;&nbsp;&nbsp;
-                              <a href="#sound">
-                                 <image src="../assets/images/sound.png" width="15%"  class="img-circle" alt="Sound"/>
-                              </a>
-                           </div>
-                           </p>
-                           
-                           <div align="center">
-                              <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href='confirm_transfer.html';">
-                           </div>
-                           </p>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3" >
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/>
+                                <span>&nbsp;via </span>
+                                <image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                                </p>
+                                <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
+                                </p>
+                                <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)" readonly >
+                                </p>
+                                <input type="text" name="linkurl" id="linkurl" class="form-control" placeholder="Auto generated Link" readonly >
+                                </p>
+                                <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
+                                </p>
+                                <a href="#upload" data-toggle="collapse">
+                                    <image src="../assets/images/paperclip.png" width="15%"  class="img-circle" alt="Add attachment"/>
+                                </a>
+
+                                <div id="upload" class="">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="#gallery">
+                                        <image src="../assets/images/gallery.png" width="15%"  class="img-circle" alt="Gallery"/>
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="#camera">
+                                        <image src="../assets/images/camera.png" width="15%"  class="img-circle" alt="Camera"/>
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="#sound">
+                                        <image src="../assets/images/sound.png" width="15%"  class="img-circle" alt="Sound"/>
+                                    </a>
+                                </div>
+
+                                <div align="center">
+                                    <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="location.href = 'confirm_transfer.html';">
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </form>
-         </div>
-      </div>
-      <div class="footer" align="center">
-         <footer>DinarPal Social Transfer (2016)</footer>
-      </div>
-   </body>
+        </div>
+    </div>
+    <div class="footer" align="center">
+        <footer>DinarPal Social Transfer (2016)</footer>
+    </div>
+        
+    <script>
+        $("[data-toggle='toggle']").click(function () {
+            var selector = $(this).data("target");
+            $(selector).toggleClass('in');
+        });
+    </script>
+        
+</body>
 
 </html>
 
-<script>
-   $("[data-toggle='toggle']").click(function() {
-    var selector = $(this).data("target");
-    $(selector).toggleClass('in');
-});
-</script>
+
 

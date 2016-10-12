@@ -57,7 +57,24 @@ border-radius: 3px;
 text-align: center;
 width:100%;
 }
-.btn-dp:hover {background-color:  #FFC300;}
+
+.btn-success{
+    width:100%;
+}
+.btn-info{
+width: 100%;
+}
+.btn-primary{
+width: 100%;
+}
+.btn-warning{
+width: 100%;
+}
+.btn-danger{
+width: 100%;
+}
+.btn-dp:hover {background-color: 	#FFC300;}
+
 .btn-dp:active {
 background-color: #FFC300;
 color: white;
@@ -127,7 +144,25 @@ text-decoration: none;
 font-size: 20px;
 color: #818181;
 display: block;
-transition: 0.3s
+transition: 0.3s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
 }
 .sidenav a:hover, .offcanvas a:focus{
 color: #f1f1f1;
@@ -151,26 +186,26 @@ height: 34px;
 }
 .switch input {display:none;}
 .slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #ccc;
--webkit-transition: .4s;
-transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 .slider:before {
-position: absolute;
-content: "";
-height: 26px;
-width: 26px;
-left: 4px;
-bottom: 4px;
-background-color: white;
--webkit-transition: .4s;
-transition: .4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 input:checked + .slider {
 background-color: #2196F3;
@@ -188,22 +223,25 @@ transform: translateX(26px);
 border-radius: 34px;
 }
 .slider.round:before {
-border-radius: 50%;
+
+  border-radius: 50%;
 }
-/*.container{
-background-color:cadetblue;
-margin: 0;
-padding: 0;
-overflow: hidden;
-border: 1px solid cadetblue;
-}*/
+        /*.container{
+            background-color:cadetblue;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid cadetblue;
+        }*/
+        
 .tab {
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-border: 1px solid #ccc;
-background-color: #f1f1f1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+
 }
 /* Style the links inside the list items */
 .tab h3 {
@@ -226,23 +264,82 @@ from {opacity: 0;}
 to {opacity: 1;}
 }
 @keyframes fadeEffect {
-from {opacity: 0;}
-to {opacity: 1;}
+
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-#upload {
--webkit-transition: width 2s ease;
--moz-transition: width 2s ease;
--o-transition: width 2s ease;
-transition: width 2s ease;
-display: inline-block;
-overflow: hidden;
-white-space: nowrap;
-background: #C0C0C0;
-vertical-align: middle;
-line-height: 30px;
-height: 30px;
-width: 0px;
+		 
+/************************************************************************************
+FOOTER
+*************************************************************************************/
+#footerwrap {
+	background-color:gray;
+	width:100%;
+	bottom:0;
+    position:fixed;
+    z-index:10000;
+    _position:absolute;
+    _top:expression(eval(document.documentElement.scrollTop+
+        (document.documentElement.clientHeight-this.offsetHeight)));
+    height:40px;
 }
-#upload.in {
-width: 140px;
+
+
+#footer {
+	clear: both;
+	color: #ddd;
+}
+#footer h1,
+#footer h2,
+#footer h3,
+#footer h4,
+#footer h5,
+#footer h6 {
+	color: #fff;
+}
+#footer a {
+	color: #FFF;
+}
+
+/* footer widgets */
+#footer .widget {
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: none;
+	box-shadow: none;
+}
+#footer .widget li {
+	border-color: #444;
+	border-color: rgba(0,0,0,.2);
+}
+
+/* footer nav */
+#footernav-wrap {
+	clear: left;
+	float: left;
+	overflow: hidden;
+	width: 50%;
+}
+#footer-nav {
+	margin: 5px 0;
+	padding: 0;
+}
+#footer-nav li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+#footer-nav ul {
+	margin: 0;
+	padding: 0;
+}
+#footer-nav a {
+	text-decoration: none;
+	margin: 0 10px 0 0;
+}
+#footer-nav a:hover {
+	text-decoration: underline;
+
 }
