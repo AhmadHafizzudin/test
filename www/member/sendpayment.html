@@ -19,44 +19,30 @@
     </head>
     <body>
         <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
-            <div class="container-fluid" id="navfluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle navbar-left" onclick="history.go(-1);"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
-                    <ul class="nav navbar-nav" align="center">
-                        <li><a href="overview.html">Home</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="social_connect.html">Setting</a></li>
-                        <li><a href="transaction_history.html">Transaction History</a></li>
-                        <li><a href="#!" class="btn_logout">Log Out</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+        <div class="container-fluid" id="navfluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle navbar-right"  onclick="history.go(-1);"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
+               <button type="button" class="navbar-toggle navbar-left"  onclick="location.href='overview.html';"><span class="glyphicon glyphicon-home" style="color:white"></span></button>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
+         </div>
+      </nav>
         <div class="container">
             <div class="row">
                 <h3 align="center"><b>Transaction Details</b></h3>
             </div>
 
-            <div class="row box" >
+            <div class="row" >
                 <form role="form">
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3" >
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <image src="../assets/images/user.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                                    <image src="../assets/images/dummyuser4.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="../assets/images/fb.jpg" width="10%"  class="img-circle"/>
                                     </p>
-                                    <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly >
+                                    <label for="moneybalance">Receiver Name</label>
+                                    <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" value="Arash Rashid" readonly >
                                     </p>
+                                    <label for="moneybalance">Item Type</label>
                                     <select id="type" name="type" class="form-control">
                                         <option value="" disabled selected style="display: none;">Please select type</option>
                                         <option value="gold">Gold</option>
@@ -71,17 +57,17 @@
                                             <label>
                                                 <input type="checkbox" name="item" value="item" />
                                                 <img src="../assets/images/gold.jpg" width="20%">
-                                                <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                                                <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
                                             </label>
                                             <label>
                                                 <input type="checkbox" name="item" value="item" />
                                                 <img src="../assets/images/gold.jpg" width="20%">
-                                                <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                                                <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
                                             </label>
                                             <label>
                                                 <input type="checkbox" name="item" value="item" />
                                                 <img src="../assets/images/gold.jpg" width="20%">
-                                                <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
+                                                <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
                                             </label>
                                         </fieldset>
                                     </div>
@@ -108,7 +94,8 @@
                                     </div>
 
                                     <div class="hidden ismoney">
-                                        <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
+                                        <label for="moneybalance">Current Balance (MYR)</label>
+                                        <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" value="10000" readonly >
                                         </p>
                                         <input type="text" name="item" id="item" class="form-control" placeholder="Amount to transfer (MYR)">
                                     </div>

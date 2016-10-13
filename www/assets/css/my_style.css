@@ -8,8 +8,15 @@ html,body {
     height: 100%;
     overflow-y:auto;
     overflow-x:hidden;
-    background-color: white;
-    background-image: url(../../assets/images/logo.png);
+    
+    background-image:none;
+    height:100%;
+    background: orange; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(190deg, orange, black); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(190deg, orange, black); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(190deg, orange, black); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(190deg, orange, black); /* Standard syntax (must be last) */
+    
     background-position: center;
     background-repeat:no-repeat;
     background-size:120%;
@@ -19,9 +26,7 @@ html,body {
     margin-left:15px;
     padding:6px 10px;
 }
-.box{
-    margin: 25px;
-}
+
 .navcolor {
     background-color: #252e33;
     border: 0px;
@@ -126,6 +131,7 @@ input[type="radio"] {
 .panel.panel-default{
     background-color: rgba(245, 245, 245, 0.5);
 }
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -226,13 +232,7 @@ input:checked + .slider:before {
 
     border-radius: 50%;
 }
-/*.container{
-    background-color:cadetblue;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid cadetblue;
-}*/
+
 
 .tab {
     list-style-type: none;
@@ -303,22 +303,71 @@ transition: width 2s ease;
 display: inline-block;
 overflow: hidden;
 white-space: nowrap;
-background: #C0C0C0;
+background: white;
 vertical-align: middle;
 line-height: 30px;
 height: 30px;
 width: 0px;
 }
 #upload.in {
-width: 140px;
+width: 70%;
+height: 10%;
+
 }
 
-.grad2 {
-	background-image:none;
-	height:100%;
-    background: orange; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(190deg, orange, black); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(190deg, orange, black); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(190deg, orange, black); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(190deg, orange, black); /* Standard syntax (must be last) */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a{
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+a {
+    color: brown;
+    font-weight: bold;
+    font-size: 15px;
 }

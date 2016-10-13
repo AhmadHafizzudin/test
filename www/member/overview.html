@@ -23,73 +23,92 @@
       <nav class="navbar navbar-default navbar-inverse navcolor" role="navigation">
          <div class="container-fluid" id="navfluid">
             <div class="navbar-header">
-               <!--<button type="button" class="navbar-toggle navbar-left" onclick="location.href='main_menu.html';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>-->
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
+               <button type="button" class="navbar-toggle navbar-right" onclick="location.href='';"><span class="glyphicon glyphicon-chevron-left" style="color:white"></span></button>
             </div>
-            <div class="collapse navbar-collapse navbar-menubuilder" id="navigationbar">
-               <center>
-                  <ul class="nav navbar-nav">
-                     <li><a href="overview.html">Home</a></li>
-                     <li><a href="profile.html">Profile</a></li>
-                     <li><a href="social_connect.html">Setting</a></li>
-                     <li><a href="transaction_history.html">Transaction History</a></li>
-                     <li><a href="#!" class="btn_logout">Log Out</a></li>
-                  </ul>
-               </center>
-            </div>
-            <!-- /.navbar-collapse -->
          </div>
-         <!-- /.container-fluid -->
       </nav>
       <div class="container">
          <div class="row">
             <h3 align="center"><b>Account Overview</b></h3>
          </div>
-      </div>
+      
       <div class="row box" >
          <form role="form">
             <div class="form-group">
                <div class="col-md-6 col-md-offset-3" >
                   <div class="panel panel-default">
                      <div class="panel-body">
-                        <a href="#gold" data-toggle="collapse">
-                           <image src="../assets/images/1.png" width="15%"  class="img-circle" alt="My Gold"/>&nbsp;My Gold
+                        <a href="#gold" data-toggle="collapse" style="text-decoration:none">
+                           <image src="../assets/images/1.png" width="30%"  class="img-circle" alt="My Gold"/>&nbsp;My Gold
                         </a>
                         <div id="gold" class="collapse">
-                           <input type="text" name="goldpieces" id="goldpieces" class="form-control" placeholder="Total Gold (pcs)" readonly >
+                           <label for="moneybalance">Total Gold (pcs)</label>
+                           <input type="text" name="goldpieces" id="goldpieces" class="form-control" placeholder="Total Gold (pcs)" readonly value="3">
                            </p>
-                           <input type="text" name="goldbalance" id="goldbalance" class="form-control" placeholder="Total Weight (gram)" readonly >
+                           <label for="moneybalance">Total Weight (gram)</label>
+                           <input type="text" name="goldbalance" id="goldbalance" class="form-control" placeholder="Total Weight (gram)"  value="3"readonly >
                         </div>
                         </p>
-                        <a href="#silver" data-toggle="collapse">
-                           <image src="../assets/images/2.png" width="15%"  class="img-circle" alt="My Silver"/>&nbsp;My Silver
+                        <a href="#silver" data-toggle="collapse" style="text-decoration:none">
+                           <image src="../assets/images/2.png" width="30%"  class="img-circle" alt="My Silver"/>&nbsp;My Silver
                         </a>
                         <div id="silver" class="collapse">
-                           <input type="text" name="silverpieces" id="silverpieces" class="form-control" placeholder="Total Silver (pcs)" readonly >
+                           <label for="moneybalance">Total Silver (pcs)</label>
+                           <input type="text" name="silverpieces" id="silverpieces" class="form-control" placeholder="Total Silver (pcs)"  value="3" readonly >
                            </p>
-                           <input type="text" name="silverbalance" id="silverbalance" class="form-control" placeholder="Total Weight (gram)" readonly >
+                           <label for="moneybalance">Total Weight (gram)</label>
+                           <input type="text" name="silverbalance" id="silverbalance" class="form-control" placeholder="Total Weight (gram)" readonly  value="3">
                         </div>
                         </p>
-                        <a href="#money" data-toggle="collapse">&nbsp;
-                           <image src="../assets/images/3.png" width="10%"  class="img-circle" alt="My Money"/>&nbsp;My Money
+                        <a href="#money" data-toggle="collapse" style="text-decoration:none">
+                           <image src="../assets/images/3.png" width="30%"  class="img-circle" alt="My Money"/>&nbsp;My Money
                         </a>
                         <div id="money" class="collapse">
-                           <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
+                           <label for="moneybalance">Current Balance (MYR)</label>
+                           <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly value="10000">
                         </div>
                         </p>
-                        <center><a href="social_connect.html" class="btn btn-success">Setup my social connect</a></center>
-						   <center><a href="guide.html" class="btn btn-link">Guide me</a></center>
+                        
                      </div>
                   </div>
                </div>
             </div>
          </form>
       </div>
+      <div class="row" >
+         <form role="form">
+            <div class="form-group">
+               <div class="col-md-6 col-md-offset-3" >
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <center>
+                        <a href="select_receiver.html">
+                           <image src="../assets/images/transfer.png" width="30%"  class="img-circle" alt="Transfer"/>
+                        </a>
+                        <a href="transaction_history.html">
+                           <image src="../assets/images/history.png" width="30%"  class="img-circle" alt="history"/>
+                        </a>
+                        <a href="profile.html">
+                           <image src="../assets/images/profile.png" width="30%"  class="img-circle" alt="profile"/>
+                        </a>
+                     </p>
+                     <a href="guide.html">
+                           <image src="../assets/images/guide.png" width="30%"  class="img-circle" alt="guide"/>
+                        </a>
+                        <a href="social_connect.html">
+                           <image src="../assets/images/setting.png" width="30%"  class="img-circle" alt="Setting"/>
+                        </a>
+                        <a href="#!" class="btn_logout">
+                           <image src="../assets/images/logout.png" width="30%"  class="img-circle" alt="logout"/>
+                        </a>
+                     </center>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
       <div class="footer" align="center">
          <footer>DinarPal Social Transfer (2016)</footer>
       </div>
