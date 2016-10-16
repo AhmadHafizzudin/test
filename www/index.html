@@ -29,15 +29,34 @@
         
         <script>
             $(document).ready(function () {
-                var limit = 4;
-                for (i=1; i<=limit; i++) {
-                    var l = $("#adopted"+i).attr("l");
-                    $("#adopted"+i).load(l);
-                }
-                var link = localStorage.getItem("link_temp");
-                if (null != link && "" != link) {
-                    $("#adopted3").load(link);
-                }
+                
+                $("body").animate({
+                    marginRight: '200px',
+                    marginLeft: '-200px',
+                    opacity: '0.0'
+                }, 100, function () {
+                    var limit = 4;
+                    for (i=1; i<=limit; i++) {
+                        var l = $("#adopted"+i).attr("l");
+                        $("#adopted"+i).load(l);
+                    }
+                    var link = localStorage.getItem("link_temp");
+                    if (null != link && "" != link) {
+                        $("#adopted3").load(link);
+                    }
+                }).animate({
+                    marginRight: '100px',
+                    marginLeft: '-100px',
+                    opacity: '0.0'
+                }, 200).animate({
+                    marginRight: '-100px',
+                    marginLeft: '100px',
+                    opacity: '0.3'
+                }, 300).animate({
+                    marginRight: '0px',
+                    marginLeft: '0px',
+                    opacity: '1.0'
+                }, 200);
             });
         </script>
         
