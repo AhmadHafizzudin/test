@@ -1,8 +1,7 @@
 <html>
-
     <head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- start library -->
         <script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
         <script src="assets/js/bootstrap.js" type="text/javascript"></script>
@@ -11,106 +10,36 @@
         <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/my_style.css" rel="stylesheet" />
-        <!-- end library -->
+        <script src="assets/js/check_url.js"></script>
     </head>
     <body>
+        
         <!-- start message box -->
-        <div class="row">
-            <div class="col-sm-12" id="alert_msg_box"></div>
-        </div>
+        <span id="adopted1" l="messagebox.html"></span>
         <!-- end message box -->
         <!-- start title -->
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <center>
-                    <h3>
-                        
-                            <b>DinarPal Social Transfer</b>
-                        
-                    </h3>
-                </center>
-            </div>
-        </div>
+        <span id="adopted2" l="title.html"></span>
         <!-- end title -->
         <!-- start content -->
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div>
-                    <center><img src="assets/images/logo dinarpal.png" class="img-thumbnail" alt="logo dinarpal"></center>
-                </div>
-                <br /><br />
-                <!-- panel for username and password -->
-
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <form role="form" class="form-group" style="">
-                                <!-- username -->
-                                <input type="text" id="user" class="form-control" placeholder="Your username." value="ahmadhafizzudin" />
-                                <br />
-                                <!-- password -->
-                                <input type="password" id="pwd" class="form-control" placeholder="Your password." value="wcKG741!@#" />
-                            </form>
-                            <br />
-                            <center>
-                                <button class="btn btn-success" id="btn_login">Log In</button>
-                                </p>
-                                <button class="btn btn-link" id="btn_reg">Register</button>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-
-                </div>
-                <!-- end panel for username and password -->
-            </div>
-        </div>
+        <span id="adopted3" l="login.html"></span>
         <!-- end content -->
-		<!-- footer -->
-   <div class="footer" align="center">
-      <footer>DinarPal Social Transfer (2016)</footer>
-   </div>
-   <!-- end footer -->
-        <!-- start controller jquery -->
+        <!-- footer -->
+        <span id="adopted4" l="footer.html"></span>
+        <!-- end footer -->
+        
         <script>
             $(document).ready(function () {
-
-                $("#btn_reg").click(function () {
-                    location.href = 'registration.html';
-                });
-
-                $("#btn_login").click(function () {
-                    var user = $("#user").val();
-                    var pwd = $("#pwd").val();
-
-                    if (user == '' || pwd == '') {
-                        msg_alert('Do not leave blank!', 4);
-                        return;
-                    }
-
-                    $.post(URL_SERVER + "login/authenticate", {
-                        username: user,
-                        password: pwd
-                    }).done(function (data) {
-                        var d = get_pecah(data);
-                        if (d[0] == '1' || d[0] == 1) {
-                            msg_alert(d[1], 4);
-                        } else {
-                            var uid = d[2];
-                            localStorage.setItem("username", user);
-                            localStorage.setItem("password", pwd);
-                            localStorage.setItem("uid", uid);
-                            localStorage.setItem("loggedin", true);
-                            location.href = 'member/overview.html';
-                        }
-                    });
-                    msg_alert('Authenticating ...', 2);
-
-                });
+                var limit = 4;
+                for (i=1; i<=limit; i++) {
+                    var l = $("#adopted"+i).attr("l");
+                    $("#adopted"+i).load(l);
+                }
+                var link = localStorage.getItem("link_temp");
+                if (null != link && "" != link) {
+                    $("#adopted3").load(link);
+                }
             });
         </script>
-        <!-- end controller jquery -->
+        
     </body>
 </html>
