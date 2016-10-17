@@ -28,6 +28,9 @@
     <div class="col-sm-10 col-sm-offset-1">
             
         <div class="ordersummary">
+            
+            <span id="paparProfile"></span>
+            
             <div class="detailsummary" >
                 <center>
                     
@@ -208,7 +211,10 @@
             $("#me_unique_link").html(unique_link);
             $("#me_unique_link_href").attr("href", unique_link);
             
+            $("#paparProfile").hide();
+            $(".detailsummary").show();
         });
+        $(".detailsummary").hide();
         $("#paparProfile").html("<center>.. Connecting ..<br /><br /><span class=\"fa fa-spinner fa-spin fa-3x fa-fw\"></span></center>");
         msg_alert('Connecting ...', 2);
 
