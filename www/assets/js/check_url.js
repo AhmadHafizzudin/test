@@ -21,8 +21,6 @@ function pass_url(page) {
     adopt.attr("l", page);
     adopt.load(page);
     
-    
-    
 //    $("#adopted3").animate({
 //        right: '200px',
 //        left: '-200px',
