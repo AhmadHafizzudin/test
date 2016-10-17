@@ -17,12 +17,19 @@
         <!-- start message box -->
         <span id="adopted1" l="messagebox.html"></span>
         <!-- end message box -->
+        
         <!-- start title -->
         <span id="adopted2" l="title.html"></span>
         <!-- end title -->
+        
+        <!-- start menu bar -->
+        <span id="adopted5" l="menubar.html"></span>
+        <!-- end menu bar -->
+        
         <!-- start content -->
         <span id="adopted3" l="login.html"></span>
         <!-- end content -->
+        
         <!-- footer -->
         <span id="adopted4" l="footer.html"></span>
         <!-- end footer -->
@@ -33,6 +40,7 @@
                 $("#adopted1").load($("#adopted1").attr("l"));
                 $("#adopted2").load($("#adopted2").attr("l"));
                 $("#adopted4").load($("#adopted4").attr("l"));
+                $("#adopted5").load($("#adopted5").attr("l"));
                 var link = localStorage.getItem("link_temp");
                 if (null != link && "" != link) {
                     $("#adopted3").load(link);
@@ -42,8 +50,10 @@
                 
                 if (loggedin == "false") {
                     change_title('title.html');
+                    change_menubar('menubar.html');
                 } else {
                     change_title('member/title.html');
+                    change_menubar('member/menubar.html');
                 }
             });
         </script>

@@ -1,28 +1,37 @@
-<script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.js" type="text/javascript"></script>
-<script src="assets/js/my_server_config.js" type="text/javascript"></script>
-<script src="assets/js/my_public_session.js" type="text/javascript"></script>
 
-<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
 
 <script>
-    var username = localStorage.getItem("username");
-    var password = localStorage.getItem("password");
-    $.post(URL_SERVER + "logout", {
-    }).done(function (data) {
-        var d = data.split("|");
-//        alert(data);
-//        return;
-        if (d[0] == '1') {
-            msg_alert(d[1], 4);
-            history.back(-1);
-        } else {
-            localStorage.setItem("username", "");
-            localStorage.setItem("password", "");
-            localStorage.setItem("loggedin", false);
-//            location.href = 'index.html';
-            pass_url('login.html');
-        }
+    $(document).ready(function () {
+        var username = localStorage.getItem("username");
+        var password = localStorage.getItem("password");
+        $.post(URL_SERVER + "logout", {
+        }).done(function (data) {
+//            var d = data.split("|");
+//    //        alert(data);
+//    //        return;
+//            if (d[0] == '1') {
+//                msg_alert(d[1], 4);
+//    //            history.back(-1);
+//                pass_url('login.html');
+//                change_title('title.html');
+//                change_menubar('menubar.html');
+//            } else {
+//                localStorage.setItem("username", "");
+//                localStorage.setItem("password", "");
+//                localStorage.setItem("loggedin", false);
+//                localStorage.setItem("uid", "");
+//    //            location.href = 'index.html';
+//                pass_url('login.html');
+//                change_title('title.html');
+//                change_menubar('menubar.html');
+//            }
+        });
+        localStorage.setItem("username", "");
+        localStorage.setItem("password", "");
+        localStorage.setItem("loggedin", false);
+        localStorage.setItem("uid", "");
+        pass_url('login.html');
+        change_title('title.html');
+        change_menubar('menubar.html');
     });
 </script>

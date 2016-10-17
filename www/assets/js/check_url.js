@@ -19,26 +19,10 @@ function pass_url(page) {
     var adopt = $("#adopted3");
     
     adopt.attr("l", page);
-    adopt.load(page);
     
-//    $("#adopted3").animate({
-//        right: '200px',
-//        left: '-200px',
-//        opacity: '0.0'
-//    }, 100, function () {
-//    }).animate({
-//        right: '100px',
-//        left: '-100px',
-//        opacity: '0.0'
-//    }, 200).animate({
-//        right: '-100px',
-//        left: '100px',
-//        opacity: '0.3'
-//    }, 300).animate({
-//        right: '0px',
-//        left: '0px',
-//        opacity: '1.0'
-//    }, 200);
+    adopt.hide(0).load(page, function () {
+        adopt.fadeIn(500).css("display", "block");
+    });
     
     localStorage.setItem("link_temp", page);
 }
@@ -47,4 +31,10 @@ function change_title(title_page) {
     var tp = $("#adopted2");
     tp.attr("l", title_page);
     tp.load(title_page);
+}
+
+function change_menubar(bar_page) {
+    var mb = $("#adopted5");
+    mb.attr("l", bar_page);
+    mb.load(bar_page);
 }

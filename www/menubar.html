@@ -1,0 +1,95 @@
+
+<img src="assets/images/marble-gold-icon.png" class="img-circle" id="iconmenubar" />
+
+<div class="barmenubar img-rounded">
+    <button style="cursor: pointer" class="linkmenubar btn btn-info" l="login.html">Login</button>
+    <p></p>
+    <button style="cursor: pointer" class="linkmenubar btn btn-info" l="registration.html">Registration</button>
+    <p></p>
+</div>
+
+<script>
+    
+    function bukakbar() {
+        $("#iconmenubar").animate({
+            left: "200px"
+        }, 500, function () {
+            bmenu = 2;
+        });
+
+        $(".barmenubar").animate({
+            left: "10px"
+        }, 500, function () {
+            bmenu = 2;
+        });
+    }
+    
+    function tutupbar() {
+        $("#iconmenubar").animate({
+            left: "-10px"
+        }, 200, function () {
+            bmenu = 1;
+        });
+
+        $(".barmenubar").animate({
+            left: "-230px"
+        }, 200, function () {
+            bmenu = 1;
+        });
+    }
+    
+    $(document).ready(function () {
+        
+        $(document).keypress(function (e) {
+            tutupbar();
+        });
+        $(document).mousedown(function (e) {
+            tutupbar();
+        });
+        
+        $(".linkmenubar").click(function () {
+            var linkmenu = $(this).attr("l");
+            pass_url(linkmenu);
+            tutupbar();
+        });
+        
+        var bmenu = 1;
+        $("#iconmenubar").click(function () {
+            if (bmenu == 1) {
+                bukakbar();
+            }
+            
+            if (bmenu == 2) {
+                tutupbar();
+            }
+        });
+        
+        $("#iconmenubar").hover(function () {
+            if (bmenu == 1) {
+                bukakbar();
+            }
+        });
+    });
+</script>
+
+<style>
+    #iconmenubar {
+        max-height: 50px;
+        max-width: 50px;
+        position: absolute;
+        left: -10px;
+        top: 40px;
+        z-index: 200;
+        cursor: pointer;
+    }
+    
+    .barmenubar {
+        position: absolute;
+        left: -230px;
+        top: 50px;
+        z-index: 190;
+        cursor: pointer;
+        width: 230px;
+        height: 400px;
+    }
+</style>

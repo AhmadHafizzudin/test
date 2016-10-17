@@ -8,7 +8,8 @@ if (loggedin == "false") {
 //    location.href = '../index.html';
     pass_url('login.html');
 } else {
-    change_title('member/title.html');
+//    change_title('member/title.html');
+//    change_menubar('member/menubar.html');
 }
 
 
@@ -20,6 +21,7 @@ $(document).ready(function () {
         localStorage.setItem("uid", "");
         localStorage.setItem("loggedin", false);
         change_title('title.html');
+        change_menubar('menubar.html');
         pass_url('logout.html');
     }); 
 });
