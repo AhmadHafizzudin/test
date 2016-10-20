@@ -371,3 +371,14 @@ a {
     font-weight: bold;
     font-size: 15px;
 }
+
+/* make label bigger */
+label.password{
+	width:60px;
+	display: inline,!important;
+}
+/* keyboard label */
+label.keyboard{
+	width:80px;
+	display: inline,!important;
+}
