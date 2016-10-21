@@ -295,7 +295,7 @@ tab h3:focus, .active {
     align-items: center;
 }
 
-#upload {
+/*#upload {
 -webkit-transition: width 2s ease;
 -moz-transition: width 2s ease;
 -o-transition: width 2s ease;
@@ -313,7 +313,7 @@ width: 0px;
 width: 70%;
 height: 10%;
 
-}
+}*/
 
 ul.tab {
     list-style-type: none;

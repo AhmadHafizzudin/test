@@ -1,52 +1,105 @@
+<style>
+   .image-upload > input
+   {
+   display: none;
+   }
+   .image-upload
+   {  
+   border-style: ridge;
+   border-width: 1px;
+   height: 70px;
+   border-color: lightgray;
+    }
+   .image-upload img
+   {  
+   cursor: pointer;
+   
+   }
+   .label-upload{
+    width: 120px;
+    height: 50px;
+    
+   }
+</style>
 <div class="row" >
-    <form role="form">
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-3" >
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img src="assets/images/dummyuser4.jpg" width="20%"  class="img-circle"/>
-                        <span>&nbsp;via </span>
-                        <img src="assets/images/fb.jpg" width="10%"  class="img-circle"/>
-                        <p></p>
-                        <label for="moneybalance">Receiver Name</label>
-                        <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly value="Arash Rashid">
-                        <p></p>
-                        <label for="type">Item Type</label>
-                        <input type="text" name="type" id="type" class="form-control" placeholder="Type" readonly value="Gold">
-                        <p></p>
-                        <label for="moneybalance">Total Weight (Gram) / Amount (MYR)</label>
-                        <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)/Amount (MYR)" readonly value="5">
-                        <p></p>
-                        <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
-                        <p></p>
-                        <a href="#upload" data-toggle="collapse" style="text-decoration:none">
-                            <img src="assets/images/paperclip.png" width="25%"  class="img-circle" alt="Add attachment"/>
-                        </a>
-
-                        <div id="upload" class="">
-                            &nbsp;&nbsp;&nbsp;
-                            <a href="#gallery" style="text-decoration:none">
-                                <img src="assets/images/gallery.png" width="25%"  class="img-circle" alt="Gallery"/>
-                            </a>
-                            &nbsp;&nbsp;&nbsp;
-                            <a href="#camera" style="text-decoration:none">
-                                <img src="assets/images/camera.png" width="25%"  class="img-circle" alt="Camera"/>
-                            </a>
-
-                        </div>
-
-                        <div align="center">
-                            <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="pass_url('member/confirm_transfer.html')">
-                        </div>
-                    </div>
-                </div>
+   <form role="form">
+      <div class="form-group">
+         <div class="col-md-6 col-md-offset-3" >
+            <div class="panel panel-default">
+               <div class="panel-body">
+                  <img src="assets/images/dummyuser4.jpg" width="20%"  class="img-circle"/>
+                  <span>&nbsp;via </span>
+                  <img src="assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                  <p></p>
+                  <label for="receiver">Receiver Name</label>
+                  <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" readonly value="Arash Rashid">
+                  <p></p>
+                  <label for="type">Item Type</label>
+                  <input type="text" name="type" id="type" class="form-control" placeholder="Type" readonly value="Gold">
+                  <p></p>
+                  <label for="totalweight">Total Weight (Gram) / Amount (MYR)</label>
+                  <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)/Amount (MYR)" readonly value="5">
+                  <p></p>
+                  <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
+                  <p></p>
+                  <img id="item" src="#" alt="your image" style="width:100px;height:100px;display:none;"/>
+                  <p></p>
+                 <!-- <a href="#upload" data-toggle="collapse" style="text-decoration:none">
+                  <img src="assets/images/paperclip.png" width="25%"  class="img-circle" alt="Add attachment"/>
+                  </a>-->
+                  <div class="image-upload">
+                     
+                        <label for="camera_src" class="label-upload">
+                        <img src="assets/images/camera.png" style="width:70px;height:70px;"  class="img-circle" alt="Camera"/>
+                        </label>
+                        <input type="file"  name="camera_src" id="camera_src"  accept="image/*" capture="camera" onchange="readURL(this);">
+                        
+                        <label for="gallery_src" class="label-upload">
+                        <img src="assets/images/gallery.png" style="width:70px;height:70px;"  class="img-circle" alt="Gallery"/>
+                        </label>
+                        <input type="file"  name="gallery_src" id="gallery_src"  accept="image/*" capture onchange="readURL(this);">
+                        
+                      <!--  <label for="audio_src">
+                        <img src="assets/images/sound.png" width="25%"  class="img-circle" alt="Add attachment"/>
+                        </label>
+                        <input type="file"  name="audio_src" id="audio_src"  accept="audio/*" capture onchange="readURL(this);">-->
+                     
+                  </div>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <div align="center">
+                     <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="pass_url('member/confirm_transfer.html')">
+                  </div>
+               </div>
             </div>
-        </div>
-    </form>
+         </div>
+      </div>
+   </form>
 </div>
 <script>
-    $("[data-toggle='toggle']").click(function () {
-        var selector = $(this).data("target");
-        $(selector).toggleClass('in');
-    });
+   $("[data-toggle='toggle']").click(function () {
+       var selector = $(this).data("target");
+       $(selector).toggleClass('in');
+   });
+</script>
+
+<script>
+   function readURL(input) {
+    var $prev = $('#item'); // cached for efficiency
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $prev.attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+
+        $prev.show(); // this will show only when the input has a file
+    } else {
+        $prev.hide(); // this hides it when the input is cleared
+    }
+}
 </script>
