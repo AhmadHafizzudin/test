@@ -51,16 +51,14 @@ ul.pagination li.active{background:#98a7b0;color:#fff}.payment-options-selector{
    .button
    {
    	color:#fff;
-   	background-image:-webkit-linear-gradient(#fecc0e,#ffa300);
-   	background-image:linear-gradient(#fecc0e,#ffa300);
+   	background-color:transparent;
 
             
    }
    .button>i{display:inline-block}
    .button:hover
    {
-   	background-image:-webkit-linear-gradient(#fedc5a,#ffa300);
-   	background-image:linear-gradient(#fedc5a,#ffa300);
+   	background-color:transparent;
 	box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
    	color:#fff!important
 	
