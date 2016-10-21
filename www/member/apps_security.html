@@ -49,7 +49,7 @@
 
 <script>
 $(document).ready(function () {
-	var i = 0;
+	var i = 3;
 	localStorage.setItem("i",i);
  });
 
@@ -113,14 +113,22 @@ function post()
 	
 	if(verify == true)
 	{
-		msg_alert('You payment succeed. You can check in history to verify the transaction. Thank you',1);
-		pass_url('member/overview.html');
+		msg_alert('You payment succeed. You can check in history to verify the transaction. Thank you.',1);
+		pass_url('member/summary.html');
 	}
 	else
 	{
-		msg_alert('Your pin is incorrect!',1);
 		reset();
 		check=chance();
+		var i = localStorage.getItem("i");
+		if(i!=0)
+		{
+			msg_alert('Your pin is incorrect!. You have ' +i+ ' chance left.',1);
+		}
+		else
+		{
+			msg_alert('Your pin is incorrect!. You have been logout for security action.',1);
+		}
 		if(check == false)
 		{
 			pass_url('logout.html');
@@ -176,10 +184,10 @@ function chance ()
 {
 	var a = 1;
 	var i = localStorage.getItem("i");
-	i = (+i) + (+a);
+	i = (+i) - (+a);
 	
 	localStorage.setItem("i",i);
-	if(i=="3")
+	if(i=="0")
 	{
 		return false;
 	}
