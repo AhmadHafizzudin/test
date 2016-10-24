@@ -1,28 +1,8 @@
-<style>
-   .image-upload > input
-   {
-   display: none;
-   }
-   .image-upload
-   {  
-   border-style: ridge;
-   border-width: 1px;
-   height: 70px;
-   border-color: lightgray;
-    }
-   .image-upload img
-   {  
-   cursor: pointer;
-   
-   }
-   .label-upload{
-    width: 120px;
-    height: 50px;
-    
-   }
-</style>
+
+
+
 <div class="row" >
-   <form role="form">
+   <form role="form" name="myForm"  method="post">
       <div class="form-group">
          <div class="col-md-6 col-md-offset-3" >
             <div class="panel panel-default">
@@ -40,7 +20,7 @@
                   <label for="totalweight">Total Weight (Gram) / Amount (MYR)</label>
                   <input type="text" name="totalweight" id="totalweight" class="form-control" placeholder="Total Weight (gram)/Amount (MYR)" readonly value="5">
                   <p></p>
-                  <textarea rows="4" cols="50" class="form-control" placeholder="Write your message here.."></textarea>
+                  <textarea rows="4" cols="50" class="form-control" name="message" id="message" placeholder="Write your message here.."></textarea>
                   <p></p>
                   <img id="item" src="#" alt="your image" style="width:100px;height:100px;display:none;"/>
                   <p></p>
@@ -69,7 +49,7 @@
                   <p></p>
                   <p></p>
                   <div align="center">
-                     <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="pass_url('member/confirm_transfer.html')">
+                     <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
                   </div>
                </div>
             </div>
@@ -101,5 +81,20 @@
     } else {
         $prev.hide(); // this hides it when the input is cleared
     }
+}
+</script>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["message"].value;
+
+    if (x == null || x == "") {
+        msg_alert('Please write your message', 2);
+        return false;
+        x.focus();
+
+    }else{
+      pass_url('member/confirm_transfer.html');
+    }
+    
 }
 </script>

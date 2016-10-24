@@ -54,38 +54,7 @@ html,body {
 .btn-danger{
     width: 100%;
 }
-.btn-dp {
-    background-color: #FFC300;
-    color: white;
-    border: 2px solid white;
-    border-radius: 3px;
-    text-align: center;
-    width:100%;
-}
 
-.btn-success{
-    width:100%;
-}
-.btn-info{
-    width: 100%;
-}
-.btn-primary{
-    width: 100%;
-}
-.btn-warning{
-    width: 100%;
-}
-.btn-danger{
-    width: 100%;
-}
-.btn-dp:hover {background-color: 	#FFC300;}
-
-.btn-dp:active {
-    background-color: #FFC300;
-    color: white;
-    box-shadow: 0 3px #666;
-    transform: translateY(4px);
-}
 .image-upload > input
 {
     display: none;
@@ -499,4 +468,24 @@ label.keyboard{
     position:relative;
     top:1px;
 }
-
+.image-upload > input
+   {
+   display: none;
+   }
+   .image-upload
+   {  
+   border-style: ridge;
+   border-width: 1px;
+   height: 70px;
+   border-color: lightgray;
+    }
+   .image-upload img
+   {  
+   cursor: pointer;
+   
+   }
+   .label-upload{
+    width: 120px;
+    height: 50px;
+    
+   }
