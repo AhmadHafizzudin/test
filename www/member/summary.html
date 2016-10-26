@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <h4 align="center"><b>Summary of transaction</b></h4>
+    </div>
+    <div class="row box" >
+        <form role="form">
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3" >
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <center>
+								
+							</center>
+                            
+							<a style="color:green">Transaction Succeed</a>
+							<p></p>
+							<p>Receiver : Arash Rashid</p>
+							<p>Type transaction : Send Gold</p>
+							<p>Amount : 5g</p>
+							<p>Date : 21/10/2016</p>
+							<p></p>
+							<a style="color:black">Details of item :</a>
+							<img src="assets/images/goldd.png"/>
+							<p></p>
+						<center>
+							<button class="btn btn-warning" id="capture">Capture</button>
+							<p></p>
+							<button class="btn btn-success" id="done">Done</button>
+						</center>
+						
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+		$("#done").click(function(){
+			pass_url('member/overview.html');
+		});
+		
+		
+		$("#capture").click(function(){
+			alert("Yg ni umar kene buat... ntok screenshot and simpan ke database..ntok reference of history transaction ^_^...");
+			msg_alert("Your screenshot already taken and saved.");
+		});
+	});
+</script>
