@@ -1,0 +1,197 @@
+<div class="row">
+    <div class="col-md-12 col-md-offset-0">
+        <br /><br />
+      <div class="col-md-12 col-md-offset-0">
+		<center>
+			<img src="assets/images/dummyuser4.jpg" class="img-circle" width="80" height="80">
+		</center>
+		    <!-- start password place -->
+			<div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="form-group">
+                        <label id="first" class="password"><h3>-</h3></label>&nbsp
+						<label id="second" class="password"><h3>-</h3></label>&nbsp
+						<label id="third" class="password"><h3>-</h3></label>&nbsp
+						<label id="fourth" class="password"><h3>-</h3></label>&nbsp
+                    </form></center>
+                </div>
+            </div>
+			
+			<!-- start keyboard -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="keyboard_testing">
+                        <label id="1numpad" class="keyboard" onclick="insert('1')"><h3>1</h3></label>&nbsp
+						<label id="2numpad" class="keyboard" onclick="insert('2')"><h3>2</h3></label>&nbsp
+						<label id="3numpad" class="keyboard" onclick="insert('3')"><h3>3</h3></label>&nbsp
+                    </form></center>
+					<center><form role="form" class="form-group">
+						<label id="4numpad" class="keyboard" onclick="insert('4')"><h3>4</h3></label>&nbsp
+						<label id="5numpad" class="keyboard" onclick="insert('5')"><h3>5</h3></label>&nbsp
+						<label id="6numpad" class="keyboard" onclick="insert('6')"><h3>6</h3></label>&nbsp
+					</form></center>
+					<center><form role="form" class="form-group">
+						<label id="7numpad" class="keyboard" onclick="insert('7')"><h3>7</h3></label>&nbsp
+						<label id="8numpad" class="keyboard" onclick="insert('8')"><h3>8</h3></label>&nbsp
+						<label id="9numpad" class="keyboard" onclick="insert('9')"><h3>9</h3></label>&nbsp
+					</form></center>
+					<center><form role="form" class="form-group">
+						<label id="reset_numpad" class="keyboard" onclick="reset()"><h3>clear</h3></label>&nbsp
+						<label id="0numpad" class="keyboard" onclick="insert('0')"><h3>0</h3></label>&nbsp
+						<label id="del_numpad" class="keyboard" onclick="del_num()"><h3>del</h3></label>&nbsp
+					</form></center>
+                </div>
+            </div>
+        </div>
+        <!-- end panel for username and password -->
+    </div>
+</div>
+
+<script>
+$(document).ready(function () {
+	var i = 3;
+	localStorage.setItem("i",i);
+ });
+
+
+function insert(value)
+{	
+	
+	if($("#first").html() != "<h3>-</h3>" )
+	{
+		if($("#second").html() != "<h3>-</h3>" )
+		{
+			if($("#third").html() != "<h3>-</h3>" )
+			{
+				var dis4 = value;
+				$("#fourth").html("<h3>"+dis4+"</h3>");
+				localStorage.setItem("fourth", dis4);
+				msg_alert('Authenticating ...', 2);
+				 
+				window.setTimeout(post, 2500);
+				
+			}
+			else
+			{
+				var dis3 = value;
+				$("#third").html("<h3>"+dis3+"</h3>");
+				localStorage.setItem("third", dis3);
+			}
+		}
+		else
+		{
+			var dis2 = value;
+			$("#second").html("<h3>"+dis2+"</h3>");
+			localStorage.setItem("second", dis2);
+		}
+	}
+	else
+	{
+		var dis1 = value;
+		$("#first").html("<h3>"+dis1+"</h3>");
+		localStorage.setItem("first", dis1);
+	}
+
+	
+}
+
+function post()
+{
+	var verify = false;
+	var pwd = localStorage.getItem("first");
+	pwd = pwd+localStorage.getItem("second");
+	pwd = pwd+localStorage.getItem("third");
+	pwd = pwd+localStorage.getItem("fourth");
+	localStorage.setItem("pwd", pwd);
+	
+	alert("omar akan post ke php ntok verify " + pwd + " di database..yg ni dummy je");
+	
+	if(pwd == "1994")
+	{
+		verify = true;
+	}
+	
+	if(verify == true)
+	{
+		msg_alert('You payment succeed. You can check in history to verify the transaction. Thank you.',1);
+		pass_url('member/summary.html');
+	}
+	else
+	{
+		reset();
+		check=chance();
+		var i = localStorage.getItem("i");
+		if(i!=0)
+		{
+			msg_alert('Your pin is incorrect!. You have ' +i+ ' chance left.',1);
+		}
+		else
+		{
+			msg_alert('Your pin is incorrect!. You have been logout for security action.',1);
+		}
+		if(check == false)
+		{
+			pass_url('logout.html');
+		}
+	}
+	
+}
+
+function reset()
+{
+	$('#first').html("<h3>-</h3>");
+	$('#second').html("<h3>-</h3>");
+	$('#third').html("<h3>-</h3>");
+	$('#fourth').html("<h3>-</h3>");
+}
+
+function del_num()
+{
+	
+	if($("#fourth").html() != "<h3>-</h3>" )
+	{
+		$('#fourth').html("<h3>-</h3>");
+	}
+	else
+	{
+		if($("#third").html() != "<h3>-</h3>" )
+		{
+			$('#third').html("<h3>-</h3>");		
+		}
+		else
+		{
+			if($("#second").html() != "<h3>-</h3>" )
+			{
+				$('#second').html("<h3>-</h3>");
+				
+			}
+			else
+			{
+				if($("#first").html() != "<h3>-</h3>")
+				{
+					$('#first').html("<h3>-</h3>");
+				}
+				else
+				{
+					msg_alert('Password already empty');
+				}
+			}
+		}
+	}
+}
+
+function chance ()
+{
+	var a = 1;
+	var i = localStorage.getItem("i");
+	i = (+i) - (+a);
+	
+	localStorage.setItem("i",i);
+	if(i=="0")
+	{
+		return false;
+	}
+	
+	return true;
+}
+</script>

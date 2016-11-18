@@ -1,88 +1,132 @@
+<!--<body onload="loaddata()">-->
+<div id="main" class="container">
 <div class="row" >
     <form role="form" name="myForm" method="post">
         <div class="form-group">
             <div class="col-md-6 col-md-offset-3" >
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <image src="assets/images/dummyuser4.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                        <image width="90px" height="100px"  class="img-circle" id="userpic"/>
+                        <span>&nbsp;via </span>
+                        <image width="10%"  id="usersocial" class="img-circle"/>
                         <p></p>
                         <label for="moneybalance">Receiver Name</label>
-                        <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" value="Arash Rashid" readonly >
+                        <input type="text" name="receiver" id="receiver" class="form-control" readonly>
                         <p></p>
                         <label for="moneybalance">Item Type</label>
                         <select id="type" name="type" class="form-control">
                             <option value="" disabled selected style="display: none;">Please select type</option>
-                            <option value="gold">Gold</option>
-                            <option value="silver">Silver</option>
-                            <option value="money">Money</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Money">Money</option>
                         </select>
                         <p></p>
-
+                        <div class="outer-container">
+                        <div class="scrollable">
+                            
                         <!--fetch db code here-->
                         <div class="hidden isgold">
+                            
+                            <!--<button type="button" class="glyphicon glyphicon-scale fixed-button" data-toggle="collapse" data-target="#timbang1"></button>
+                            <div id="timbang1" class="collapse fixed-textbox">
+                                <input type="text" name="goldweight" id="goldweight" class="form-control" readonly >
+                            </div>-->
+                            
+                            <p></p>
                             <fieldset>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
+                                <table border="0" width="100%" class="table table-condensed" id="fgold">
+                                    
+                               <!-- <label>
+                                    <input type="checkbox" name="item" id="item"/>
+                                    <img id="goldpic" width="20%">
+                                    <span id="goldname"></span>&nbsp;&nbsp;&nbsp;<span id="goldweight"></span><span>gram</span>&nbsp;&nbsp;&nbsp;<span id="goldpurity"></span>
+                                </label>-->
+                                    
+                                </table>
                             </fieldset>
                         </div>
 
                         <!--fetch db code here-->
-                        <div class="hidden issilver">
+                        <div id="cbsilver" class="hidden issilver">
+                            <!--<button type="button" class="glyphicon glyphicon-scale fixed-button" data-toggle="collapse" data-target="#timbang2"></button>
+                            <div id="timbang2" class="collapse fixed-textbox">
+                                <input type="text" name="silweight" id="silweight" class="form-control" readonly >
+                            </div>-->
+                            
+                            <p></p>
                             <fieldset>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
+                                <table border="0" width="100%" class="table table-condensed" id="fsilver">
+                                    
+                              <!--  <label>
+                                    <input type="checkbox" name="item" value="kopsya 1g" />
                                     <img src="assets/images/2.png" width="20%">
                                     <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="item" value="item" />
+                                    <input type="checkbox" name="item" value="dinarpal 1g" />
                                     <img src="assets/images/2.png" width="20%">
                                     <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="item" value="item" />
+                                    <input type="checkbox" name="item" value="dinapal 1 dinar" />
                                     <img src="assets/images/2.png" width="20%">
                                     <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                                </label>
+                                </label>-->
+                                
+                                </table>
                             </fieldset>
                         </div>
 
                         <div class="hidden ismoney">
                             <label for="moneybalance">Current Balance (MYR)</label>
-                            <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" value="10000" readonly >
+                            <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
                             <p></p>
-                            <input type="text" name="item" id="item" class="form-control" placeholder="Amount to transfer (MYR)">
+                            <input type="text" name="amount" id="amount" class="form-control" placeholder="Amount to transfer (MYR)">
                         </div>
-
+                    </div>
+                </div>
 
                         <p></p>
-                        <p>&nbsp;<p></p>
+                        <p></p>
                         <div align="center">
                             <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
+                        <p></p>
+                        
                         </div>
+                        <div id="test"></div>
                         <p></p>
                     </div>
+
                 </div>
             </div>
         </div>
     </form>
 </div>
-<script>
+</div>
+<!-- start controller jquery -->
+<script src="assets/js/my_public_session.js"></script>
+<script src="assets/js/member/sendpayment.js"></script>
+<!-- end controller jquery -->
+
+<!--view list based on selected -->
+<!--<script>
+    
+
 
     $(document).ready(function () {
+
+        /* if my var reload isn't set locally.. in the first time it will be true */
+        if (!localStorage.getItem("reload")) {
+        /* set reload locally and then reload the page */
+        localStorage.setItem("reload", "true");
+        location.reload();
+        }
+        /* after reload clear the localStorage */
+        else {
+        localStorage.removeItem("reload");
+        // localStorage.clear(); // an option
+        }
+        
         $("#type").change(function () {
             var value = $("#type option:selected").val();
             var theDiv = $(".is" + value);
@@ -92,21 +136,361 @@
                 $(this).addClass("hidden");
             });
         });
+
     });
+
+    $(document).on('click', '.details', function (event) {//highlight selected item
+
+        if (!$(event.target).is('input')) {
+            var obj =$(this).find('input');      
+            obj.prop('checked', !obj.is(':checked'));
+            $(this).closest("tbody").toggleClass("selected", this.checked); 
+         
+        }
+
+        var itemtype = document.getElementById("type").value;
+        var arr = [];
+
+
+        if(itemtype == "Gold"){
+
+            var goldlist = [];
+            var newlist = [];
+            var cbcheck = $('input.cbgold:checkbox:checked');
+
+            $.ajax({ //display list of gold
+                 url: 'http://localhost/dpapps/index.php/sendpayment/listAllGold/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(data){
+                 $.each(data.results, function(index,item){
+
+                    goldlist.push(item.gacc_id);
+                 
+                });                                   
+                
+
+            cbcheck.each(function () {
+
+            if(this.checked){
+                arr.push($(this).val());//push value from checkbox
+            
+                 
+            } //if checkbox checked
+            });//end of get all checked checkbox
+
+            for (var i = 0; i < goldlist.length; i++) {
+                    for (var j = 0; j < arr.length; j++) {
+                        if (goldlist[i] == arr[j]) {
+                            newlist.push(arr[j]);
+                        }
+                    }
+                }
+
+            // store array data to the session storage
+            sessionStorage.setItem("selgold",  JSON.stringify(newlist));
+
+            //Use JSON to retrieve the stored data and convert it 
+            /*var storedData = sessionStorage.getItem("selgold");
+            
+            if (storedData) {
+                newItem = JSON.parse(storedData);
+            }*/
+                
+            
+            } // End of success function of ajax form
+             }); // End of second ajax call (gold)
+
+            
+
+
+        }else if(itemtype == "Silver"){
+
+            var silverlist = [];
+            var newlist = [];
+            var cbcheck = $('input.cbsilver:checkbox:checked');
+            $.ajax({ //display list of silver
+                 url: 'http://localhost/dpapps/index.php/sendpayment/listAllSilver/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(data){
+                 $.each(data.results, function(index,item){
+
+                    silverlist.push(item.sacc_id);
+                 
+                });                                   
+                
+
+            cbcheck.each(function () {
+
+            if(this.checked){
+                arr.push($(this).val());//push value from checkbox
+            
+                 
+            } //if checkbox checked
+            });//end of get all checked checkbox
+
+            for (var i = 0; i < silverlist.length; i++) {
+                    for (var j = 0; j < arr.length; j++) {
+                        if (silverlist[i] == arr[j]) {
+                            newlist.push(arr[j]);
+                        }
+                    }
+                }
+
+            // store array data to the session storage
+            sessionStorage.setItem("selsilver",  JSON.stringify(newlist));
+
+            //Use JSON to retrieve the stored data and convert it 
+            /*var storedData = sessionStorage.getItem("selsilver");
+            
+            if (storedData) {
+                newItem = JSON.parse(storedData);
+            }*/
+            
+            } // End of success function of ajax form
+             }); // End of second ajax call (silver)
+        }
+
+    });
+   
 </script>
-<script>
+<!--end of view list based on selected -->
+
+<!--validate page -->
+<!--<script>
+ 
+
 function validateForm() {
     
-var x = document.getElementById("type").value;
+var itemtype = document.getElementById("type").value;
+var curBal = document.getElementById("moneybalance").value;
+var transAmount = document.getElementById("amount").value;
 
-    if(x == "" || x == null){
-    msg_alert('Please select your assets type', 2);
+if(itemtype == "" || itemtype == null){
+        msg_alert('Please select your assets type', 2);
         return false;
-        x.focus();
-}else{
+        itemtype.focus();
+
+}else if(itemtype == "Money"){
+
+    if(transAmount >= curBal -1){
+        msg_alert('Insufficient Balance', 2);
+        return false;
+    
+    }else if(transAmount == "" || transAmount == null || transAmount == 0){
+        msg_alert('Amount is empty', 2);
+        return false;
+
+    }else if (transAmount<= curBal -1){
+
+        var newItem = new Array();
+        var newMoney = new Array();
+
+        newItem[0] = $("#type").val(); 
+        newMoney[0] = transAmount; 
+
+        // store array data to the session storage
+        sessionStorage.setItem("newItem",  JSON.stringify(newItem));
+        sessionStorage.setItem("newMoney",  JSON.stringify(newMoney));
+
+        //Use JSON to retrieve the stored data and convert it 
+        /*var storedData = sessionStorage.getItem("newItem");
+        if (storedData) {
+            newItem = JSON.parse(storedData);
+        }*/
+
+        pass_url('member/writemessage_transfer.html');
+        
+    }else{
+        msg_alert('Amount is invalid', 2);
+        return false;
+    }
+
+}else if(itemtype == "Gold"){
+
+    var totalChecked = $('input[name=gold]:checked').length;
+
+    if(totalChecked <= 0){
+        msg_alert('Please select at least 1', 2);
+        return false;
+    }else{
+
+    var newItem = new Array();
+
+    newItem[0] = $("#type").val();
+
+    // store array data to the session storage
+    sessionStorage.setItem("newItem",  JSON.stringify(newItem));
+
+    //Use JSON to retrieve the stored data and convert it 
+    /*var storedData = sessionStorage.getItem("newItem");
+    if (storedData) {
+        newItem = JSON.parse(storedData);
+    }*/
+
     pass_url('member/writemessage_transfer.html');
+
+    }
+
+}else if(itemtype == "Silver"){
+
+    var totalChecked = $('input[name=silver]:checked').length;
+
+    if(totalChecked <= 0){
+        msg_alert('Please select at least 1', 2);
+        return false;
+    }else{
+
+    var newItem = new Array();
+
+    newItem[0] = $("#type").val();
+
+    // store array data to the session storage
+    sessionStorage.setItem("newItem",  JSON.stringify(newItem));
+
+    //Use JSON to retrieve the stored data and convert it 
+    /*var storedData = sessionStorage.getItem("newItem");
+    if (storedData) {
+        newItem = JSON.parse(storedData);
+    }*/
+
+
+    pass_url('member/writemessage_transfer.html');
+    }
+
 }
     
 }
 
 </script>
+<!--end of validate -->
+
+<!--get receiver data from previous page -->
+<!--<script type="text/javascript">
+
+if(sessionStorage.length > 0) {
+    for (i=0; i<=sessionStorage.length-1; i++)  
+    {   
+        key = sessionStorage.key(i);  
+        val = sessionStorage.getItem("newReceiver");   
+    }
+var newVal = val.replace(/[\]\[\"\']+/g,'');
+
+
+var name = newVal.split(",")[0];
+var social = newVal.split(",")[1];
+var pic = newVal.split(",")[2];
+
+document.getElementById("receiver").value =  name;
+document.getElementById("userpic").src =  pic;
+document.getElementById("usersocial").src =  social;
+}
+
+/*function listAllItems(){ 
+if(sessionStorage.length > 0) {
+    for (i=0; i<=sessionStorage.length-1; i++)  
+    {   
+        key = sessionStorage.key(i);  
+        val = sessionStorage.getItem("newItem");
+
+    }
+
+ 
+var newVal = val.replace(/[\]\[\"\']+/g,'');
+
+
+document.getElementById("result").innerHTML = newVal ; 
+
+}else{
+alert('array empty');
+}
+}*/
+</script>
+<!--end of get receiver data from previous page -->
+
+<!--get account item list -->
+<!--<script type='text/javascript' language='javascript'>
+   $(document).ready(function() {
+                   
+   
+        var user = localStorage.getItem("username");
+
+        if (user != null || user !=""){
+
+            $.post("http://localhost/dpapps/index.php/overview/getUserSession/", {
+                usersession: user
+            }).done(function (data) {
+                //alert(data);
+            });
+
+   
+            $.ajax({ //check money money balance
+                 url: 'http://localhost/dpapps/index.php/sendpayment/checkMoneyBalance/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(results){
+                 var newVal = JSON.stringify(results).replace(/[^0-9.]/g, "");
+                 $('#moneybalance').val(newVal);
+                 } // End of success function of ajax form
+             }); // End of second ajax call (money)
+
+            $.ajax({ //display list of gold
+                 url: 'http://localhost/dpapps/index.php/sendpayment/listAllGold/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(data){
+
+                    var count = 0;
+
+                $.each(data.results, function(index,item){
+                $("#fgold").append('<tbody class="details"><tr><td rowspan="4"><input type="checkbox" id="gold['+count+']" value="' + item.gacc_id + '" class="cbgold" name="gold"/>&nbsp;<img id="goldpic['+count+']" src="http://localhost/dpapps/images/' + item.gacc_image + '" width="70px"></td><td id="goldno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.gacc_cert_no + '</td></tr><tr><td id="goldname['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.gacc_gold_name + '</td></tr><tr><td id="goldweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.gacc_weight + '&nbsp;gram</td></tr><tr><td id="goldpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.gacc_purity + '<input type="hidden" id="goldid['+count+']" value="' + item.gacc_id + '"/></td></tr></tbody>');
+
+                count ++;
+
+                });                
+                 } // End of success function of ajax form
+             }); // End of second ajax call (gold)
+
+            $.ajax({ //display list of silver
+                 url: 'http://localhost/dpapps/index.php/sendpayment/listAllSilver/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(data){
+
+                    var count = 0;
+                 
+                    $.each(data.results, function(index,item){
+                $("#fsilver").append('<tbody class="details"><label><tr><td rowspan="4"><input type="checkbox" id="silver['+count+']" value="' + item.sacc_id + '" class="cbsilver" name="silver"/>&nbsp;<img id="silverpic['+count+']" src="http://localhost/dpapps/images/' + item.sacc_image + '" width="70px"></td><td id="silverno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.sacc_cert_no + '</td></tr><tr><td id="silvername['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.sacc_silver_name + '</td></tr><tr><td id="silverweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.sacc_weight + '&nbsp;gram</td></tr><tr><td id="silverpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.sacc_purity + '<input type="hidden" id="silverid['+count+']" value="' + item.sacc_id + '"/></td></tr></label></tbody>');
+
+                count ++;
+
+                });
+                 } // End of success function of ajax form
+             }); // End of second ajax call (silver)
+
+        
+
+       }else{
+        pass_url("login.html");
+       }
+});
+
+   
+</script>
+<!--end of get account item list -->

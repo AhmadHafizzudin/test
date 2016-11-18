@@ -1,5 +1,5 @@
 <div class="row" >
-    <form role="form">
+    <form role="form" name="myForm" method="post">
         <div class="form-group">
             <div class="col-md-6 col-md-offset-3" >
                 <div class="panel panel-default">
@@ -71,7 +71,7 @@
                         <p></p>
                         <p>&nbsp;<p></p>
                         <div align="center">
-                            <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn btn-dp" onclick="pass_url('member/writemessage_transfer.html')">
+                            <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
                         </div>
                         <p></p>
                     </div>
@@ -93,4 +93,20 @@
             });
         });
     });
+</script>
+<script>
+function validateForm() {
+    
+var x = document.getElementById("type").value;
+
+    if(x == "" || x == null){
+    msg_alert('Please select your assets type', 2);
+        return false;
+        x.focus();
+}else{
+    pass_url('member/writemessage_transfer.html');
+}
+    
+}
+
 </script>

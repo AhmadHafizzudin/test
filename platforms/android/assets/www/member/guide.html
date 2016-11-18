@@ -27,6 +27,11 @@
                                     <div class="swiper-slide">Slide 9</div>
                                     <div class="swiper-slide">Slide 10</div>
                                 </div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- Add Arrows -->
+								<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
                             </div>
                         </div>
                     </div>
@@ -37,14 +42,14 @@
 </div>
 <!-- start controller jquery -->
 <script>
-    var swiper = new Swiper('.swiper-container');
-
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true
+    });
 </script>
 <!-- end controller jquery -->

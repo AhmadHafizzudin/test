@@ -2,43 +2,37 @@
     <div class="row">
         <h4 align="center"><b>Summary of transaction</b></h4>
     </div>
-    <div class="row box" >
+    <div class="row" >
         <form role="form">
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3" >
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <center>
-								
-							</center>
-                            
-							<a style="color:green">Transaction Succeed</a>
+							<a style="color:green">Transaction Success</a>
 							<p></p>
-							<p>Receiver : Arash Rashid</p>
-							<p>Type transaction : Send Gold</p>
-							<p>Amount : 5g</p>
-							<p>Date : 21/10/2016</p>
-							<p></p>
-							<a style="color:black">Details of item :</a>
-							<img src="assets/images/goldd.png"/>
-							<p></p>
-						<center>
-							<button class="btn btn-warning" id="capture">Capture</button>
-							<p></p>
-							<button class="btn btn-success" id="done">Done</button>
-						</center>
-						
+                            <p>Date : <label id="today"></label></p>
+							<p>Receiver : <label id="receiver"></label></p>
+							<p>Asset Type: <label id="type"></label></p>
+							<p>Total Weight (Gram) / Amount (MYR) : <label id="totalweight"></label></p>
+							<p>Message : <label id="message"></label></p>
+							
+							</div>
+						<p></p>
+                        <div align="center">
+                        <input type="button" name="buttonNext" id="btndone" value="Done" class="btn myButton-blue">
                         </div>
+                        <p></p>
+				                        
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-<script>
+<script src="assets/js/member/summary.js"></script>
+<!--<script>
     $(document).ready(function () {
-		$("#done").click(function(){
+		$("#btndone").click(function(){
 			pass_url('member/overview.html');
 		});
 		
@@ -48,4 +42,51 @@
 			msg_alert("Your screenshot already taken and saved.");
 		});
 	});
+</script>
+<script type="text/javascript">
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = dd+'/'+mm+'/'+yyyy;
+
+if(sessionStorage.length > 0) {
+    for (i=0; i<=sessionStorage.length-1; i++)  
+    {   
+        key = sessionStorage.key(i);  
+        val = sessionStorage.getItem("newReceiver");
+        val2 = sessionStorage.getItem("newItem");   
+        val3 = sessionStorage.getItem("newMessage");   
+    }
+var newVal = val.replace(/[\]\[\"\']+/g,'');
+var newVal2 = val2.replace(/[\]\[\"\']+/g,'');
+var newVal3 = val2.replace(/[\]\[\"\']+/g,'');
+var newVal4 = val3.replace(/[\]\[\"\']+/g,'');
+
+var name = newVal.split(",")[0];
+var social = newVal.split(",")[1];
+var pic = newVal.split(",")[2];
+
+var type = newVal2.split(",")[0];
+var weight = newVal2.split(",")[1];
+
+document.getElementById("receiver").innerHTML =  name;
+
+
+document.getElementById("type").innerHTML =  type;
+document.getElementById("totalweight").innerHTML =  newVal3;
+
+document.getElementById("today").innerHTML =  today;
+document.getElementById("message").innerHTML =  newVal4;
+}
 </script>

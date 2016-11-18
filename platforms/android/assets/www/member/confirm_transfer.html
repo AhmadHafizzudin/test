@@ -25,7 +25,7 @@
                     <p></p>
                     <p>&nbsp;<p></p>
                     <center>
-                        <button class="btn btn-dp" data-toggle="modal" data-target="#myModal">Confirm</button>
+                        <button class="btn myButton-green" data-toggle="modal" data-target="#myModal">Confirm</button>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" role="dialog">
 
@@ -36,12 +36,12 @@
                                         <h4 class="modal-title">CONFIRMATION</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Are you sure to make this transaction. Action cannot be redo after confirmation.<p></p>
+                                        <p>Click <b>Proceed</b> to insert password for transfer. After inserting password,action cannot be redo.<p></p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="btn_confirm">Confirm</button>
+                                        <button type="button" class="btn myButton-green" data-dismiss="modal" id="btn_confirm">Proceed</button>
                                         <p></p>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn myButton-red" data-dismiss="modal">No</button>
                                     </div>
                                 </div>
                             </div>
@@ -58,13 +58,12 @@
     $(document).ready(function () {
 
         $("#btn_confirm").click(function () {
-            msg_alert('Your send payment success! You can confirming by looking at history', 1);
-            window.setTimeout(refresh, 3000);
+            window.setTimeout(refresh, 1000);
         });
     });
 
     function refresh() {
 //        location.href = '';
-        pass_url('member/overview.html');
+        pass_url('member/apps_security.html');
     }
 </script>

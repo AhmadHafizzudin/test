@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>DinarPal Social Transfer</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="assets/css/swiper.min.css">
+      <link rel="stylesheet" href="assets/css/my_style.css">
+      <link rel="stylesheet" href="assets/css/button.css">
+      <script src="assets/js/jquery-2.2.3.js"></script>
+
+      <!-- Demo styles -->
+      <style>
+         html,body{
+         margin:0;
+         height:100%;
+         overflow:hidden;
+         }
+         .img{
+         min-height:100%;
+         min-width:100%;
+         height:auto;
+         width:auto;
+         position:absolute;
+         top:-100%; bottom:-100%;
+         left:-100%; right:-100%;
+         margin:auto;
+         }
+         .swiper-container {
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         }
+         .swiper-slide {
+         background-repeat:no-repeat;
+          -webkit-background-size:cover;
+          -moz-background-size:cover;
+          -o-background-size:cover;
+          background-size:cover;
+          background-position:center;
+
+
+         }
+         }
+         .containerdiv {
+         border: 0;
+         float: left;
+         position: relative;
+
+         } 
+         .cornerimage {
+         border: 0;
+         position: absolute;
+         bottom:5%;
+         right:3%;
+         width: 50px;
+         height: 50px;
+         } 
+         .loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('assets/images/page-loader2.gif') 50% 50% no-repeat white;
+}
+.text1 {
+         color: white;
+         }
+      </style>
+      
+<script type="text/javascript">
+
+$(document).ready(function(){
+    setTimeout(function() {
+      $('.loader').fadeOut('slow');
+    }, 10000);
+});
+</script>
+   </head>
+   <body>
+
+    <div class="loader"></div>
+      <!-- Swiper -->
+      <div class="swiper-container">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(assets/images/bg1.jpg)">
+               <div class="containerdiv">
+                 <!-- <a href="index.html" ><img src="assets/images/jump.png" class="cornerimage" alt="Skip"/></a> -->
+                 <h2 class="text">Transfer your gold anytime and anywhere.</h2>
+                 <h4>Now you can transfer gold and silver to your friends list in your social network..</h4>
+
+                 <a href="index.html"><input type="submit" class="button cornerimage" value="Skip" style="height:30px;line-height:5px; margin-top:-6px;"></a> 
+
+
+                                    
+               </div>
+            </div>
+            <div class="swiper-slide" style="background-image:url(assets/images/bg2.jpg)">
+               <div class="containerdiv">
+                <h2 class="text1">Monitor your current assets</h2>
+                <h4 class="text1">View your updated gold and silver in your DinarPal account using this apps..</h4>
+               
+                  <!--<a href="index.html" ><img src="assets/images/jump.png"  class="cornerimage"alt="Skip"/></a> -->
+                  <a href="index.html"><input type="submit" class="button cornerimage" value="Skip" style="height:30px;line-height:5px; margin-top:-6px;"></a>
+               </div>
+            </div>
+            <div class="swiper-slide" style="background-image:url(assets/images/bg3.jpg)">
+               <div class="containerdiv">
+                <h2 class="text1">Simple, fast and secured!</h2>
+                <h4 class="text1">Make a secured transaction to your friend in just a few simple steps..</h4>
+                <!--  <a href="index.html" ><img src="assets/images/jump.png"  class="cornerimage"alt="Skip"/></a>-->
+                <a href="index.html"><input type="submit" class="button cornerimage" value="Continue" style="height:30px;line-height:5px; margin-top:-6px;"></a>
+               </div>
+            </div>
+         </div>
+         <!-- Add Pagination -->
+         <div class="swiper-pagination"></div>
+      </div>
+      <!-- Swiper JS -->
+      <script src="assets/js/swiper.min.js"></script>
+      <!-- Initialize Swiper -->
+      <script>
+         var swiper = new Swiper('.swiper-container', {
+             pagination: '.swiper-pagination',
+             effect: 'cube',
+             grabCursor: true,
+             cube: {
+                 shadow: true,
+                 slideShadows: true,
+                 shadowOffset: 20,
+                 shadowScale: 0.94
+             }
+         });
+      </script>
+   </body>
+</html>

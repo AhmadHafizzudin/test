@@ -489,3 +489,40 @@ label.keyboard{
     height: 50px;
     
    }
+   .scroll-container{
+    height:270px;
+    overflow-y:scroll;
+    border-width: 1px;
+    border-color: black;
+    background-color: white;
+    position: relative;
+
+}
+.outer-container {
+    position: relative;
+    border:1px;
+    border-color:black;
+}
+
+.scrollable {
+    height: 270px;
+    overflow-y: auto;
+}
+
+.fixed-button {
+    position: absolute;
+    right: 1px;
+    top: 10px;
+}
+.fixed-textbox {
+    position: absolute;
+    right: 45px;
+    top: 10px;
+}
+.glyphicon.glyphicon-scale {
+    font-size: 200%;
+}
+.selected {
+    background-color: #B0B0B0;
+    border-color: #B0B0B0;
+}
