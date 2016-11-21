@@ -2,7 +2,14 @@
     <div class="row">
         <h4 align="center"><b>Transaction History</b></h4>
     </div>
-    <div class="row box" >
+    <ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Send')">Send</a></li>
+</ul>
+
+<div id="All" class="tabcontent">
+  <h3></h3>
+  <p>  <div class="row box" >
         <form role="form">
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3" >
@@ -32,4 +39,30 @@
             </div>
         </form>
     </div>
+    </p>
 </div>
+
+<div id="Send" class="tabcontent">
+  <h3></h3>
+  <p>.</p> 
+</div>
+
+</div>
+
+<script>
+document.getElementById("defaultOpen").click();
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
