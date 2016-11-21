@@ -1,22 +1,20 @@
-
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <h4 align="center"><b>Setting</b></h4>
     </div>
 </div>
-<p></p>
 
 
 <!-- Start panel for social apps -->
 
 <div class="panel-body">	
 <ul class="tab">
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')">Social Connect</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Paris')">Pin Setting</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Social')" id="defaultOpen">Social Connect</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pass')">Passcode</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Tokyo')">Others</a></li>
 </ul>
 
-<div id="London" class="tabcontent">
+<div id="Social" class="tabcontent">
   <form role="form" class="form-group" style="">
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
@@ -70,9 +68,24 @@
 </form>
 </div>
 
-<div id="Paris" class="tabcontent">
-    <div class="panel panel-default">
+<div id="Pass" class="tabcontent">
+		
+	<div class="row">
+      <div class="col-md-12 col-md-offset-0">
+		    <!-- start password place -->
+			<div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="form-group">
+                        <label id="first" class="password"><h3>-</h3></label>&nbsp
+						<label id="second" class="password"><h3>-</h3></label>&nbsp
+						<label id="third" class="password"><h3>-</h3></label>&nbsp
+						<label id="fourth" class="password"><h3>-</h3></label>&nbsp
+                    </form></center>
+                </div>
+            </div>
 			
+			<!-- start keyboard -->
+            <div class="panel panel-default">
                 <div class="panel-body">
                     <center><form role="form" class="keyboard_testing">
                         <label id="1numpad" class="keyboard" onclick="insert('1')"><h3>1</h3></label>&nbsp
@@ -90,27 +103,30 @@
 						<label id="9numpad" class="keyboard" onclick="insert('9')"><h3>9</h3></label>&nbsp
 					</form></center>
 					<center><form role="form" class="form-group">
-						<label id="reset_numpad" class="keyboard" onclick="reset()"><h3>clear</h3></label>&nbsp
 						<label id="0numpad" class="keyboard" onclick="insert('0')"><h3>0</h3></label>&nbsp
-						<label id="del_numpad" class="keyboard" onclick="delete()"><h3>del</h3></label>&nbsp
+						<br>
+						<center><label id="reset_numpad" class="keyboard" onclick="reset()"><h3>clear</h3></label>&nbsp
+						<label id="del_numpad" class="keyboard" onclick="del_num()"><h3>del</h3></label>&nbsp
+						<label id="save_numpad" class="keyboard" onclick="save_num()"><h3>save</h3></label></center>
 					</form></center>
-					
                 </div>
             </div>
-
-
+        </div>
+        <!-- end panel for username and password -->
+    </div>
+</div>
 
 <div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+		<h3>Others</h3>
+		<p></p>
 </div>
 
 </div>
-     
 <!-- end panel for social apps -->
 
 <!-- start controller jquery -->
 <script>
+	document.getElementById("defaultOpen").click();
 
     function openNav() {
         document.getElementById("mySidenav").style.width = "200px";
@@ -120,20 +136,165 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 	
-	
-	function openCity(evt, cityName) {
+	function openCity(evt, cityName) 
+	{
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
+    for (i = 0; i < tabcontent.length; i++) 
+		{
         tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		
+    for (i = 0; i < tablinks.length; i++) 
+		{
         tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+	
+
+//script for passcode/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$(document).ready(function () {
+	var i = 0;
+	localStorage.setItem("i",i);
+ });
+
+
+function insert(value)
+{	
+	
+	if($("#first").html() != "<h3>-</h3>" )
+	{
+		if($("#second").html() != "<h3>-</h3>" )
+		{
+			if($("#third").html() != "<h3>-</h3>" )
+			{
+				var dis4 = value;
+				$("#fourth").html("<h3>"+dis4+"</h3>");
+				localStorage.setItem("fourth", dis4);
+				//msg_alert('Authenticating ...', 2);
+				 
+				//window.setTimeout(post, 2500);
+				
+			}
+			else
+			{
+				var dis3 = value;
+				$("#third").html("<h3>"+dis3+"</h3>");
+				localStorage.setItem("third", dis3);
+			}
+		}
+		else
+		{
+			var dis2 = value;
+			$("#second").html("<h3>"+dis2+"</h3>");
+			localStorage.setItem("second", dis2);
+		}
+	}
+	else
+	{
+		var dis1 = value;
+		$("#first").html("<h3>"+dis1+"</h3>");
+		localStorage.setItem("first", dis1);
+	}
+
+	
 }
+
+function post()
+{
+	var verify = false;
+	var pwd = localStorage.getItem("first");
+	pwd = pwd+localStorage.getItem("second");
+	pwd = pwd+localStorage.getItem("third");
+	pwd = pwd+localStorage.getItem("fourth");
+	localStorage.setItem("pwd", pwd);
+	
+	alert("omar akan post ke php ntok verify " + pwd + " di database..yg ni dummy je");
+	
+	if(pwd == "1994")
+	{
+		verify = true;
+	}
+	
+	if(verify == true)
+	{
+		msg_alert('You payment succeed. You can check in history to verify the transaction. Thank you',1);
+		pass_url('member/overview.html');
+	}
+	else
+	{
+		msg_alert('Your pin is incorrect!',1);
+		reset();
+		check=chance();
+		if(check == false)
+		{
+			pass_url('logout.html');
+		}
+	}
+	
+}
+
+function reset()
+{
+	$('#first').html("<h3>-</h3>");
+	$('#second').html("<h3>-</h3>");
+	$('#third').html("<h3>-</h3>");
+	$('#fourth').html("<h3>-</h3>");
+}
+
+function del_num()
+{
+	
+	if($("#fourth").html() != "<h3>-</h3>" )
+	{
+		$('#fourth').html("<h3>-</h3>");
+	}
+	else
+	{
+		if($("#third").html() != "<h3>-</h3>" )
+		{
+			$('#third').html("<h3>-</h3>");		
+		}
+		else
+		{
+			if($("#second").html() != "<h3>-</h3>" )
+			{
+				$('#second').html("<h3>-</h3>");
+				
+			}
+			else
+			{
+				if($("#first").html() != "<h3>-</h3>")
+				{
+					$('#first').html("<h3>-</h3>");
+				}
+				else
+				{
+					msg_alert('Password already empty');
+				}
+			}
+		}
+	}
+}
+
+function chance ()
+{
+	var a = 1;
+	var i = localStorage.getItem("i");
+	i = (+i) + (+a);
+	
+	localStorage.setItem("i",i);
+	if(i=="3")
+	{
+		return false;
+	}
+	
+	return true;
+}
+
 
 </script>
 <!-- end controller jquery -->
