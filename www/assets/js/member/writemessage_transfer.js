@@ -26,7 +26,7 @@ function validateForm() {
     var x = document.forms["myForm"]["message"].value;
 
     if (x == null || x == "") {
-        msg_alert('Please write your message', 2);
+        msg_alert('Please write your message', 4);
         return false;
         x.focus();
 

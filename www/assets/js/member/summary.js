@@ -44,12 +44,19 @@ var type = JSON.parse(val2);
 var transvalue = JSON.parse(val4);
 var message = JSON.parse(val3);
 
+if (social == "assets/images/ws.png"){
+	var via = "Whatsapp";
+}else if (social == "assets/images/fb.png"){
+	var via = "Facebook";
+}else if (social == "assets/images/twitter.png"){
+	var via = "Twitter";
+}
+
 document.getElementById("receiver").innerHTML =  name;
-
-
 document.getElementById("type").innerHTML =  type;
 document.getElementById("totalweight").innerHTML =  transvalue;
-
 document.getElementById("today").innerHTML =  today;
 document.getElementById("message").innerHTML =  message;
+document.getElementById("via").innerHTML =  via;
+
 }

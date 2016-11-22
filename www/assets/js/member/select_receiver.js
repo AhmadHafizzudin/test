@@ -23,7 +23,7 @@ for(var i=0; i < x.length; i++){
 }
 
 if (c == -1){
- msg_alert('Please select a contact', 2);
+ msg_alert('Please select a contact', 3);
         return false;
         x.focus();
 }else{
