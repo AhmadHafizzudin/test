@@ -77,14 +77,7 @@ $(document).ready(function () {
 
             // store array data to the session storage
             sessionStorage.setItem("selgold",  JSON.stringify(newlist));
-
-            //Use JSON to retrieve the stored data and convert it 
-            /*var storedData = sessionStorage.getItem("selgold");
-            
-            if (storedData) {
-                newItem = JSON.parse(storedData);
-            }*/
-                
+              
             
             } // End of success function of ajax form
              }); // End of second ajax call (gold)
@@ -131,13 +124,6 @@ $(document).ready(function () {
 
             // store array data to the session storage
             sessionStorage.setItem("selsilver",  JSON.stringify(newlist));
-
-            //Use JSON to retrieve the stored data and convert it 
-            /*var storedData = sessionStorage.getItem("selsilver");
-            
-            if (storedData) {
-                newItem = JSON.parse(storedData);
-            }*/
             
             } // End of success function of ajax form
              }); // End of second ajax call (silver)

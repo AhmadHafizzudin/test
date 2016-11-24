@@ -163,7 +163,9 @@ function trans(){
         			val = sessionStorage.getItem("newReceiver");
         			val2 = sessionStorage.getItem("newItem"); 
         			val3 = sessionStorage.getItem("newMessage");
-        			val4 = sessionStorage.getItem("transvalue");    
+        			val4 = sessionStorage.getItem("transvalue");
+        			val5 = sessionStorage.getItem("selgold");
+        			val6 = sessionStorage.getItem("selsilver");    
     			}
 			
 			var newVal = val.replace(/[\]\[\"\']+/g,'');
@@ -174,6 +176,12 @@ function trans(){
 			type = JSON.parse(val2).toString();
 			transvalue = JSON.parse(val4);
 			message = JSON.parse(val3).toString();
+
+			if (type == "Gold"){
+				itemid = JSON.parse(val5).toString();
+			}else if (type == "Silver"){
+				itemid = JSON.parse(val6).toString();
+			}
 
 			if (social == "assets/images/ws.png"){
 				via = "Whatsapp";
@@ -205,6 +213,9 @@ function trans(){
 
             var status = "Pending";
             var sender = localStorage.getItem("username");
+            
+
+
 
             $.ajax({
                     type:'post',
@@ -217,7 +228,8 @@ function trans(){
                     'temp_total':transvalue,
                     'temp_message':message,
                     'temp_status':status,
-                    'temp_sender':sender
+                    'temp_sender':sender,
+                    'temp_itemid':itemid 
                 },
                     error: function(error_data){
                  	console.log(error_data);

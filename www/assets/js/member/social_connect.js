@@ -164,3 +164,84 @@ function submitPin(){
         });
 
 }
+
+
+$("#fbswitch").on('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    return false;
+    
+    alert('Break');
+});
+
+
+//start fb connection script
+
+function sortMethod(a, b) {
+var x = a.name.toLowerCase();
+var y = b.name.toLowerCase();
+return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+}
+window.fbAsyncInit = function() {
+FB.init({
+appId: '1602824146689212', 
+status: true, 
+cookie: true,
+xfbml: true,
+oauth: true
+});
+
+
+
+function updateButton(response) {
+var suisfb = document.getElementById('fbswitch');
+
+if (response.authResponse) { // in case if we are logged in
+var userInfo = document.getElementById('user-info');
+FB.api('/me', function(response) {
+userInfo.innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+fb.innerHTML = 'Connected';
+document.getElementById('fbswitch').checked = true;
+});
+//get friends
+FB.api('/me/friends?limit=99', function(response) {
+var result_holder = document.getElementById('result_friends');
+var friend_data = response.data.sort(sortMethod);
+var results = '';
+for (var i = 0; i < friend_data.length; i++) {
+results += '<div><img src="https://graph.facebook.com/' + friend_data[i].id + '/picture">' + friend_data[i].name + '</div>';
+
+}
+// and display them at our holder element
+//result_holder.innerHTML = '<h2>Result list of your friends:</h2>' + results;
+});
+suisfb.onclick = function() {
+FB.logout(function(response) {
+window.location.reload();
+document.getElementById('fbswitch').checked = false;
+
+});
+};
+} else { // otherwise - dispay login button
+suisfb.onclick = function() {
+FB.login(function(response) {
+if (response.authResponse) {
+window.location.reload();
+
+}
+}, {scope:'email'});
+}
+}
+}
+// run once with current status and whenever the status changes
+FB.getLoginStatus(updateButton);
+FB.Event.subscribe('auth.statusChange', updateButton);    
+};
+(function() {
+var e = document.createElement('script'); e.async = true;
+e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+document.getElementById('fb-root').appendChild(e);
+
+}());
+//end fb connection script
