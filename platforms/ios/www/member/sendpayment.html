@@ -1,112 +1,85 @@
+
+<div id="main" class="container">
 <div class="row" >
     <form role="form" name="myForm" method="post">
         <div class="form-group">
             <div class="col-md-6 col-md-offset-3" >
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <image src="assets/images/dummyuser4.jpg" width="20%"  class="img-circle"/><span>&nbsp;via </span><image src="assets/images/fb.jpg" width="10%"  class="img-circle"/>
+                        <image width="90px" height="100px"  class="img-circle" id="userpic"/>
+                        <span>&nbsp;via </span>
+                        <image width="10%"  id="usersocial" class="img-circle"/>
                         <p></p>
-                        <label for="moneybalance">Receiver Name</label>
-                        <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Receiver Name" value="Arash Rashid" readonly >
+                        <label for="receiver">Receiver Name</label>
+                        <input type="text" name="receiver" id="receiver" class="form-control" readonly>
                         <p></p>
-                        <label for="moneybalance">Item Type</label>
+                        <label for="type">Item Type</label>
                         <select id="type" name="type" class="form-control">
                             <option value="" disabled selected style="display: none;">Please select type</option>
-                            <option value="gold">Gold</option>
-                            <option value="silver">Silver</option>
-                            <option value="money">Money</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Money">Money</option>
                         </select>
                         <p></p>
-
-                        <!--fetch db code here-->
+                        <div class="outer-container">
+                        <div class="scrollable">
+                            
+                        
                         <div class="hidden isgold">
+                            
+                            
+                            
+                            <p></p>
                             <fieldset>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/gold.jpg" width="20%">
-                                    <span>Dinar Pal Gold Bar (1g)</span>&nbsp;&nbsp;&nbsp;<span>1</span>
-                                </label>
+                                <table border="0" width="100%" class="table table-condensed" id="fgold">
+                                    
+                               
+                                    
+                                </table>
                             </fieldset>
                         </div>
 
-                        <!--fetch db code here-->
-                        <div class="hidden issilver">
+                       
+                        <div id="cbsilver" class="hidden issilver">
+                            
+                            
+                            <p></p>
                             <fieldset>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/2.png" width="20%">
-                                    <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/2.png" width="20%">
-                                    <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" name="item" value="item" />
-                                    <img src="assets/images/2.png" width="20%">
-                                    <span>Item Name</span>&nbsp;&nbsp;&nbsp;<span>Item Weight</span>
-                                </label>
+                                <table border="0" width="100%" class="table table-condensed" id="fsilver">
+                                    </table>
                             </fieldset>
                         </div>
 
                         <div class="hidden ismoney">
                             <label for="moneybalance">Current Balance (MYR)</label>
-                            <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" value="10000" readonly >
+                            <input type="text" name="moneybalance" id="moneybalance" class="form-control" placeholder="Current Balance (MYR)" readonly >
                             <p></p>
-                            <input type="text" name="item" id="item" class="form-control" placeholder="Amount to transfer (MYR)">
+                            <input type="text" name="amount" id="amount" class="form-control" placeholder="Amount to transfer (MYR)">
                         </div>
-
+                    </div>
+                </div>
 
                         <p></p>
-                        <p>&nbsp;<p></p>
+                        <p></p>
                         <div align="center">
                             <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
+                        <p></p>
+                        
                         </div>
+                        <div id="test"></div>
                         <p></p>
                     </div>
+
                 </div>
             </div>
         </div>
     </form>
 </div>
-<script>
+</div>
 
-    $(document).ready(function () {
-        $("#type").change(function () {
-            var value = $("#type option:selected").val();
-            var theDiv = $(".is" + value);
+<!-- start controller jquery -->
+<script src="assets/js/my_public_session.js"></script>
+<script src="assets/js/member/sendpayment.js"></script>
+<!-- end controller jquery -->
 
-            theDiv.slideDown().removeClass("hidden");
-            theDiv.siblings('[class*=is]').slideUp(function () {
-                $(this).addClass("hidden");
-            });
-        });
-    });
-</script>
-<script>
-function validateForm() {
-    
-var x = document.getElementById("type").value;
 
-    if(x == "" || x == null){
-    msg_alert('Please select your assets type', 2);
-        return false;
-        x.focus();
-}else{
-    pass_url('member/writemessage_transfer.html');
-}
-    
-}
-
-</script>

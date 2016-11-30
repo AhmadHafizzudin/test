@@ -1,15 +1,21 @@
-
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <h4 align="center"><b>Social Connect</b></h4>
+        <h4 align="center"><b>Setting</b></h4>
     </div>
 </div>
-<p></p>
 
 
 <!-- Start panel for social apps -->
 
-<form role="form" class="form-group" style="">
+<div class="panel-body">	
+<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Social')" id="defaultOpen">Social Connect</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pass')">Passcode</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Tokyo')">Others</a></li>
+</ul>
+
+<div id="Social" class="tabcontent">
+  <form role="form" class="form-group" style="">
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -17,60 +23,120 @@
                 <table class="table">
                     <tr>
                         <td>
-                            <img src="assets/images/fb.ico" width="50" height="50">
+                            <img src="assets/images/fb.jpg" width="50" height="50">
                         </td>
-                        <td>Use facebook to transfer.</td>
+                        <td id="fb">Connect with Facebook</td>
                         <td>
                             <label class="switch">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" id="fbswitch">
                                 <a class="slider round"></a>
                             </label>
+                        </td>
+                        <td>
+                            <div id="fb-root"></div>
+                            <div id="user-info"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <img src="assets/images/twitter.png" width="50" height="50">
                         </td>
-                        <td>Use twitter to transfer</td>
+                        <td>Connect with Twitter</td>
                         <td>
                             <label class="switch">
-                                <input type="checkbox" >
+                                <input type="checkbox" id="twtswitch">
                                 <a class="slider round"></a>
                             </label>
+                        </td>
+                        <td>
+                            <div id="twt-root"></div>
+                            <div id="user-info"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <img src="assets/images/ws.png" width="50" height="50">
                         </td>
-                        <td>Use whatsapp to transfer</td>
+                        <td>Connect with Whatsapp</td>
                         <td>
                             <label class="switch">
-                                <input type="checkbox" >
+                                <input type="checkbox" id="wsswitch">
                                 <a class="slider round"></a>
                             </label>
+                        </td>
+                        <td>
+                            <div id="ws-root"></div>
+                            <div id="user-info"></div>
                         </td>
                     </tr>
                 </table>
                 <center>
-                    <a href="#!" class="btn myButton-blue" id="btn_save" onclick="pass_url('member/select_receiver.html')">Make transaction</a><!--Sav setting and continue to transaction page-->
+                    <a href="" class="btn myButton-blue" id="btnTrans" onclick="pass_url('member/select_receiver.html')">Make transaction</a><!--Sav setting and continue to transaction page-->
                 </center>
 
             </div>
         </div>
     </div>
 </form>
+</div>
+
+<div id="Pass" class="tabcontent">
+		
+	<div class="row">
+      <div class="col-md-12 col-md-offset-0">
+		    <!-- start password place -->
+			<div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="form-group">
+                        <label id="first" class="password"><h3>-</h3></label>&nbsp
+						<label id="second" class="password"><h3>-</h3></label>&nbsp
+						<label id="third" class="password"><h3>-</h3></label>&nbsp
+						<label id="fourth" class="password"><h3>-</h3></label>&nbsp
+                    </form></center>
+                </div>
+            </div>
+			
+			<!-- start keyboard -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="keyboard_testing">
+                        <label id="1numpad" class="keyboard" onclick="insert('1')"><h3>1</h3></label>&nbsp
+						<label id="2numpad" class="keyboard" onclick="insert('2')"><h3>2</h3></label>&nbsp
+						<label id="3numpad" class="keyboard" onclick="insert('3')"><h3>3</h3></label>&nbsp
+                    </form></center>
+					<center><form role="form" class="form-group">
+						<label id="4numpad" class="keyboard" onclick="insert('4')"><h3>4</h3></label>&nbsp
+						<label id="5numpad" class="keyboard" onclick="insert('5')"><h3>5</h3></label>&nbsp
+						<label id="6numpad" class="keyboard" onclick="insert('6')"><h3>6</h3></label>&nbsp
+					</form></center>
+					<center><form role="form" class="form-group">
+						<label id="7numpad" class="keyboard" onclick="insert('7')"><h3>7</h3></label>&nbsp
+						<label id="8numpad" class="keyboard" onclick="insert('8')"><h3>8</h3></label>&nbsp
+						<label id="9numpad" class="keyboard" onclick="insert('9')"><h3>9</h3></label>&nbsp
+					</form></center>
+					<center><form role="form" class="form-group">
+						<label id="0numpad" class="keyboard" onclick="insert('0')"><h3>0</h3></label>&nbsp
+						<br>
+						<center><label id="reset_numpad" class="keyboard" onclick="reset()"><h3>clear</h3></label>&nbsp
+						<label id="del_numpad" class="keyboard" onclick="del_num()"><h3>del</h3></label>&nbsp
+						<label id="save_numpad" class="keyboard" onclick="submitPin()"><h3>save</h3></label></center>
+					</form></center>
+                </div>
+            </div>
+        </div>
+        <!-- end panel for username and password -->
+    </div>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+		<h3>Others</h3>
+		<p></p>
+</div>
+
+</div>
 <!-- end panel for social apps -->
 
 <!-- start controller jquery -->
-<script>
-
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-</script>
+<script src="assets/js/my_public_session.js"></script>
+<script src="assets/js/member/social_connect.js"></script>
 <!-- end controller jquery -->

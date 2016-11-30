@@ -12,9 +12,9 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <ul class="tab">
-                                <li><a href="#" class="tablinks" onclick="openCity(event, 'A')"><img src="assets/images/twitter.png" width="40px"  class="img-rounder"/></a></li>
-                                <li><a href="#" class="tablinks" onclick="openCity(event, 'B')" ><img src="assets/images/fb.png" width="40px"  class="img-rounder"/></a></li>
-                                <li><a href="#" class="tablinks" onclick="openCity(event, 'C')" ><img src="assets/images/ws.png" width="40px"  class="img-rounder"/></a></li>
+                                <li><a href="#" class="tablinks" onclick="openTab(event, 'A')"><img src="assets/images/twitter.png" width="40px"  class="img-rounder"/></a></li>
+                                <li><a href="#" class="tablinks" onclick="openTab(event, 'B')" ><img src="assets/images/fb.png" width="40px"  class="img-rounder"/></a></li>
+                                <li><a href="#" class="tablinks" onclick="openTab(event, 'C')" ><img src="assets/images/ws.png" width="40px"  class="img-rounder"/></a></li>
 
                             </ul>
                             <div class="input-group">
@@ -26,6 +26,8 @@
                             <p></p>
 
                             <div class="userselect">
+                                <div class="outer-container">
+                        <div class="scrollable">
                                 <div id="A" class="tabcontent">
 
                                     <div class="chip">
@@ -86,61 +88,7 @@
                                     </div>
                                 </div>
                                 <div id="B" class="tabcontent">
-                                    <div class="chip">
-                                        <div class="radio" style="display: inline">
-                                        <label><input type="radio" name="user" value="Arash Rashid" id="user5"/></label>
-                                        </div>
-                                        <label for="receiver" ></label>
-                                        <div class="image1" style="display: inline">
-                                        <img src="assets/images/fb.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/>
-                                        </div>
-                                        <div class="image2" style="display: inline">
-                                        <img src="assets/images/dummyuser4.jpg" id="userpic5" name="userpic" width="20%"  class="img-circle"/>
-                                        </div>
-                                        <label for="user">&nbsp;Arash Rashid</label>
-                                    </div>
-                                    <p></p>
-                                    <div class="chip">
-                                        <div class="radio" style="display: inline">
-                                        <label><input type="radio" name="user" value="Pern" id="user6"/></label>
-                                        </div>
-                                        <label for="receiver" ></label>
-                                        <div class="image1" style="display: inline">
-                                        <img src="assets/images/fb.png" id="usersocial6" name="usersocial" height="30px" width="30px"  class="img-circle"/>
-                                        </div>
-                                        <div class="image2" style="display: inline">
-                                        <img src="assets/images/dummyuser5.jpg" id="userpic6" name="userpic" width="20%"  class="img-circle"/>
-                                        </div>
-                                        <label for="user">&nbsp;Pern</label>
-                                    </div>
-                                    <p></p>
-                                    <div class="chip">
-                                        <div class="radio" style="display: inline">
-                                        <label><input type="radio" name="user" value="Alip Rosli" id="user7"/></label>
-                                        </div>
-                                        <label for="receiver" ></label>
-                                        <div class="image1" style="display: inline">
-                                        <img src="assets/images/fb.png" id="usersocial7" name="usersocial" height="30px" width="30px"  class="img-circle"/>
-                                        </div>
-                                        <div class="image2" style="display: inline">
-                                        <img src="assets/images/dummyuser3.jpg" id="userpic7" name="userpic" width="20%"  class="img-circle"/>
-                                        </div>
-                                        <label for="user">&nbsp;Alip Rosli</label>
-                                    </div>
-                                    <p></p>
-                                    <div class="chip">
-                                        <div class="radio" style="display: inline">
-                                        <label><input type="radio" name="user" value="Hafizzudin" id="user8"/></label>
-                                        </div>
-                                        <label for="receiver" ></label>
-                                        <div class="image1" style="display: inline">
-                                        <img src="assets/images/fb.png" id="usersocial8" name="usersocial" height="30px" width="30px"  class="img-circle"/>
-                                        </div>
-                                        <div class="image2" style="display: inline">
-                                        <img src="assets/images/dummyuser2.jpg" id="userpic8" name="userpic" width="20%"  class="img-circle"/>
-                                        </div>
-                                        <label for="user">&nbsp;Hafizzudin</label>
-                                    </div>
+                                   
                                 </div>
                                 <div id="C" class="tabcontent">
                                     <div class="chip">
@@ -201,7 +149,11 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
+                                </div>
 
+                        <div id="fb-root"></div>
+                        <!--end fb section -->
                         
 
                         <p>&nbsp;<p></p>
@@ -209,6 +161,7 @@
                             <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
 
                         </div>
+                        
                         <p></p>
                     </div>
                 </div>
