@@ -65,12 +65,13 @@ oauth: true
 });
 function updateButton(response) {
 var button = document.getElementById('fb-auth');
+var result_holder = document.getElementById('B');
 if (response.authResponse) { // in case if we are logged in
 var userInfo = document.getElementById('user-info');
 
 // get friends
 FB.api('/me/taggable_friends?limit=5000?fields=full_picture', function(response) {
-var result_holder = document.getElementById('B');
+
 var friend_data = response.data.sort(sortMethod);
 var results = '';
 var loading = '';
@@ -91,7 +92,7 @@ result_holder.innerHTML =  results;
 });
 
 } else { // otherwise - dispay login button
-    result_holder.innerHTML = '<h2>Load failed</h2>';
+    result_holder.innerHTML = '<h4>Please connect your Facebook account</h4>';
 
 }
 }
@@ -107,3 +108,87 @@ document.getElementById('fb-root').appendChild(e);
 //end fb connection script
 
 
+
+//twitter follower script
+
+    $.ajax({ //get follower from twitter
+        url: 'http://localhost/dpapps/index.php/select_receiver/twtSession',
+        type: 'POST',
+        dataType: 'json',
+        error: function(error_data) {
+            
+            console.log(error_data)
+            
+        },
+        success: function(data) {
+           
+               //console.log(data);
+
+               if (data == "false"){
+                sessionStorage.setItem("twitter",data);
+
+               }else if(data == "true"){
+                sessionStorage.setItem("twitter",data);
+               }
+
+            } // End of success function of ajax form
+
+    }); // End of second ajax call (silver)
+
+
+
+twtresult = '';
+var twt_holder = document.getElementById('A');
+var twtsession = sessionStorage.getItem("twitter");
+
+       $.ajax({ //get follower from twitter
+        url: 'http://localhost/dpapps/index.php/select_receiver/getTwtFollower',
+        type: 'POST',
+        dataType: 'json',
+        error: function(error_data) {
+            
+            //console.log(error_data);
+            msg_alert("Cannot load Twitter data",4);
+            
+        },
+        success: function(data) {
+
+             $.each(data, function(index,item){
+
+                twtresult += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + item.name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/twitter.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+item.profile_image_url.replace('_normal', '_bigger')+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" id="userid" value="' + item.id_str + '"></div><label for="user">&nbsp;' + item.name + '</label></div>';
+
+
+                });
+
+                if (twtsession == "true"){ 
+
+                twt_holder.innerHTML =  twtresult; 
+
+            }else if (twtsession == "false"){
+                twt_holder.innerHTML = '<h4>Please connect your Twitter account</h4>';
+            }
+
+            } // End of success function of ajax form
+
+    }); // End of twt list follower
+
+
+
+        /* if my var reload isn't set locally.. in the first time it will be true */
+        if (!localStorage.getItem("reload")) {
+        /* set reload locally and then reload the page */
+        localStorage.setItem("reload", "true");
+        location.reload();
+        }
+        /* after reload clear the localStorage */
+        else {
+        localStorage.removeItem("reload");
+        // localStorage.clear(); // an option
+        }
+
+
+
+
+
+
+//end twitter follower list

@@ -226,7 +226,7 @@
     //var suistwt = document.getElementById('twtswitch');
 
 
-    $(function() {
+    $(function() {//toggle clicked
         $('#twtswitch').click(function() {
             if ($(this).is(':checked'))
 
@@ -241,14 +241,14 @@
 
     function logintwt() {
 
-        msg_alert("Redirect to Twitter login Page", 2);
+        msg_alert("Redirecting to Twitter login Page", 2);
 
-        $.ajax({ //display list of silver
-            url: 'http://localhost/dpapps/index.php/welcome/redirect',
+        $.ajax({ //logi twt
+            url: 'http://localhost/dpapps/index.php/social_connect/redirect',
             type: 'POST',
             error: function(error_data) {
                 console.log(error_data);
-                alert("error");
+                
             },
             success: function(data) {
                     //console.log(data);
@@ -270,9 +270,10 @@
     function logouttwt() {
 
 
-        $.ajax({ //display list of silver
-            url: 'http://localhost/dpapps/index.php/welcome/logout',
-            type: 'POST',
+        $.ajax({ //logout twt
+            url: 'http://localhost/dpapps/index.php/social_connect/logout',
+            type: 'GET',
+
             error: function(error_data) {
                 console.log(error_data);
                 alert("error");
@@ -292,7 +293,7 @@
 
     //twitter profile
     $.ajax({ //display list of silver
-        url: 'http://localhost/dpapps/index.php/welcome/success/',
+        url: 'http://localhost/dpapps/index.php/social_connect/success/',
         type: 'POST',
         dataType: 'json',
         error: function(error_data) {
@@ -302,10 +303,7 @@
         success: function(data) {
 
                 $("#body").show();
-                //console.log(data.name); 
-                //console.log(data.id_str); 
-                //console.log(data.profile_image_url);
-                //document.getElementById('id').innerHTML = data.id_str;
+
 
                 twtinfo.innerHTML = '<img src="' + data.profile_image_url + '"></br>' + data.name;
                 twt.innerHTML = 'Connected';

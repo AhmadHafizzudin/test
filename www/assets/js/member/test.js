@@ -1,6 +1,9 @@
+$(document).ready(function() {
+            getUsers();
+        });
 //twitter profile
 $.ajax({ //display list of silver
-                 url: 'http://localhost/dpapps/index.php/welcome/success/',
+                 url: 'http://localhost/dpapps/index.php/test/success/',
                  type:'POST',
                  dataType: 'json',
                  error: function(error_data){
@@ -34,7 +37,7 @@ function login(){
 
 //twitter connect
 $.ajax({ //display list of silver
-                 url: 'http://localhost/dpapps/index.php/welcome/redirect',
+                 url: 'http://localhost/dpapps/index.php/test/redirect',
                  type:'POST',
                 error: function(error_data){
                  //console.log(error_data);
@@ -64,7 +67,7 @@ function logout(){
 
 //twitter connect
 $.ajax({ //display list of silver
-                 url: 'http://localhost/dpapps/index.php/welcome/logout',
+                 url: 'http://localhost/dpapps/index.php/test/logout',
                  type:'POST',
                 error: function(error_data){
                  //console.log(error_data);
@@ -87,3 +90,45 @@ $.ajax({ //display list of silver
 
 //end twitter
 }
+
+function getUsers(){
+        var limit=25;
+            $.ajax({
+                url: 'https://api.twitter.com/1.1/followers/list.json?screen_name=sangwira91&count=100',
+            data: {screen_name: 'sangwira91', cursor:-1},
+                dataType: 'jsonp',
+                success: function(data) { 
+                    if (data.length > 0 ){
+                        try {
+                            
+                            for(i=0; i<limit; i++){ //*********************************
+                              $.ajax({
+                                
+                                url: 'https://api.twitter.com/1.1/followers/list.json?screen_name=sangwira91&count=100',
+                                data: {user_id: data.ids[i],include_entities:1},
+                                dataType: 'jsonp',
+                                success: function(userData) { //*********
+                                    if (userData.length > 0 ){ 
+                                        try {
+                                            //alert(userData[0].screen_name);
+                                            $('#followersList').append('<iframe allowtransparency="true" frameborder="0" scrolling="no" '+'src="//platform.twitter.com/widgets/follow_button.html?screen_name=' +userData[0].screen_name + '"' + 'style="width:300px; height:20px;" class="followerButton"></iframe></br>');
+                                        } 
+                                        catch (e) {
+                                            alert(e);
+                                        }
+                                    }
+    
+                                } // End success 2 ***********************
+                              }); // End Ajax 2
+                            } // End for loop ******************************************
+                            
+                        } ///end try {
+                         catch (e) {
+                            alert(e);
+                        }   
+                    } //if (userData.length > 0 ){
+                 } // End success 1-----------------------------------------------------
+                  
+        }); // End Ajax 1
+
+    } // End of the getUsers function
