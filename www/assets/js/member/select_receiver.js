@@ -148,7 +148,7 @@ var twtsession = sessionStorage.getItem("twitter");
         error: function(error_data) {
             
             //console.log(error_data);
-            msg_alert("Cannot load Twitter data",4);
+            msg_alert("Cannot load Twitter data.Please refresh page",4);
             
         },
         success: function(data) {

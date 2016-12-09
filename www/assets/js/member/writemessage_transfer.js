@@ -59,7 +59,7 @@ if(sessionStorage.length > 0) {
         val2 = sessionStorage.getItem("newItem"); 
         val3 = sessionStorage.getItem("selgold");
         val4 = sessionStorage.getItem("selsilver"); 
-        val5 = sessionStorage.getItem("newMoney");      
+        val5 = sessionStorage.getItem("transvalue");      
     }
 var newVal = val.replace(/[\]\[\"\']+/g,'');
 var newVal3 = val2.replace(/[\]\[\"\']+/g,'');
@@ -150,13 +150,13 @@ document.getElementById("totalweight").value =  total;
 } // End of success function of ajax form
              }); // End of second ajax call (gold)
 
-}else{
+}else if (newType == "Money"){
 
 
 
   document.getElementById("totalweight").value =  newVal6;
 
-  sessionStorage.setItem("transvalue",  JSON.stringify(newVal6));
+  //sessionStorage.setItem("transvalue",  JSON.stringify(newVal6));
 
 
 }

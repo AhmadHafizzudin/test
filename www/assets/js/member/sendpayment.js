@@ -173,7 +173,7 @@ if(itemtype == "" || itemtype == null){
 
         // store array data to the session storage
         sessionStorage.setItem("newItem",  JSON.stringify(newItem));
-        sessionStorage.setItem("newMoney",  JSON.stringify(newMoney));
+        sessionStorage.setItem("transvalue",  transAmount);
 
         //Use JSON to retrieve the stored data and convert it 
         /*var storedData = sessionStorage.getItem("newItem");

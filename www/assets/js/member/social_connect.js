@@ -271,12 +271,13 @@
 
 
         $.ajax({ //logout twt
-            url: 'http://localhost/dpapps/index.php/social_connect/logout',
+            url: 'http://localhost/dpapps/index.php/social_connect/logout/',
             type: 'GET',
 
             error: function(error_data) {
-                console.log(error_data);
-                alert("error");
+                msg_alert("Disconnecting Twitter..", 4);
+                    window.location.reload();
+                    suistwt.checked = false;
             },
             success: function(data) {
 

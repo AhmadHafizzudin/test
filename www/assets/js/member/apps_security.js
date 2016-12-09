@@ -69,8 +69,10 @@ function post(){
 	if(verify == true){
 
 			trans();
+			sendDm();
 			msg_alert('Transaction success! You may view the transaction in transaction history. Thank you.',1);
-			//pass_url('member/summary.html');
+			pass_url('member/summary.html');
+			//passTwtId();
  
 
 	}else{
@@ -166,7 +168,8 @@ function trans(){
         			val4 = sessionStorage.getItem("transvalue");
         			val5 = sessionStorage.getItem("selgold");
         			val6 = sessionStorage.getItem("selsilver");
-        			val7 = sessionStorage.getItem("newReceiverId")    
+        			val7 = sessionStorage.getItem("newReceiverId");
+        			val8 = sessionStorage.getItem("newMoney");      
     			}
 			
 			var newVal = val.replace(/[\]\[\"\']+/g,'');
@@ -175,14 +178,19 @@ function trans(){
 			var social = newVal.split(",")[1];
 			var pic = newVal.split(",")[2];
 			type = JSON.parse(val2).toString();
-			transvalue = JSON.parse(val4);
+			
 			message = JSON.parse(val3).toString();
 			fbid = JSON.parse(val7);
 
 			if (type == "Gold"){
 				itemid = JSON.parse(val5).toString();
+				transvalue = JSON.parse(val4);
 			}else if (type == "Silver"){
 				itemid = JSON.parse(val6).toString();
+				transvalue = JSON.parse(val4);
+			}else if(type == "Money"){
+				itemid = "";
+				transvalue = JSON.parse(val4);
 			}
 
 			if (social == "assets/images/ws.png"){
@@ -251,7 +259,13 @@ if(sessionStorage.length > 0) {
     for (i=0; i<=sessionStorage.length-1; i++)  
     {   
         key = sessionStorage.key(i);  
-        val = sessionStorage.getItem("newReceiver");   
+        val = sessionStorage.getItem("newReceiver");
+        val2 = sessionStorage.getItem("newItem"); 
+        val3 = sessionStorage.getItem("newMessage");
+        val4 = sessionStorage.getItem("transvalue");
+     	val5 = sessionStorage.getItem("selgold");
+        val6 = sessionStorage.getItem("selsilver");
+        val7 = sessionStorage.getItem("newReceiverId")   
     }
 var newVal = val.replace(/[\]\[\"\']+/g,'');
 
@@ -259,12 +273,39 @@ var newVal = val.replace(/[\]\[\"\']+/g,'');
 var name = newVal.split(",")[0];
 var social = newVal.split(",")[1];
 var pic = newVal.split(",")[2];
+type = JSON.parse(val2).toString();
+transvalue = JSON.parse(val4);
+message = JSON.parse(val3).toString();
+socialid = JSON.parse(val7);
 
 
 document.getElementById("userpic").src =  pic;
 
-}
+/*$.post("http://localhost/dpapps/index.php/apps_security/getTwtData", {
+                	'name':name,'type':type,'transvalue':transvalue,'message':message,'socialid':socialid
+            }).done(function (data) {
+                console.log(data);
+            });
 
+}*/
+
+var request = $.ajax({
+            url         : "http://localhost/dpapps/index.php/apps_security/getTwtData",
+            type        : 'POST',
+            ContentType : 'application/json',
+            data        : {'name':name,'type':type,'transvalue':transvalue,'message':message,'socialid':socialid}, //<------here
+        	error: function(error_data) {
+            
+            console.log(error_data);
+ 
+        },
+        success: function(data) {
+ 			console.log(data);
+
+            } // End of success function of ajax form
+        });
+        
+}
 
 //start fb connection script
 function sendPm(){
@@ -307,3 +348,31 @@ e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
 }());
 //end fb connection script
 }
+
+
+function sendDm(){
+
+
+	$.ajax({ //get follower from twitter
+        url: 'http://localhost/dpapps/index.php/apps_security/sendTwtDm',
+        type: 'GET',
+        error: function(error_data) {
+            
+            //console.log(error_data);
+            msg_alert("Message sending failed.Please notify the user manually",4);
+            
+        },
+        success: function(data) {
+
+             msg_alert("Message sent to receiver",1);
+
+                
+
+            } // End of success function of ajax form
+
+    }); // End of twt list follower
+
+}//end of sendDm()
+
+
+
