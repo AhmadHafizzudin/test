@@ -169,7 +169,8 @@ function trans(){
         			val5 = sessionStorage.getItem("selgold");
         			val6 = sessionStorage.getItem("selsilver");
         			val7 = sessionStorage.getItem("newReceiverId");
-        			val8 = sessionStorage.getItem("newMoney");      
+        			val8 = sessionStorage.getItem("newMoney");
+        			val9 = sessionStorage.getItem("link");      
     			}
 			
 			var newVal = val.replace(/[\]\[\"\']+/g,'');
@@ -178,6 +179,7 @@ function trans(){
 			var social = newVal.split(",")[1];
 			var pic = newVal.split(",")[2];
 			type = JSON.parse(val2).toString();
+			link = JSON.parse(val9).toString();
 			
 			message = JSON.parse(val3).toString();
 			fbid = JSON.parse(val7);
@@ -240,7 +242,8 @@ function trans(){
                     'temp_status':status,
                     'temp_sender':sender,
                     'temp_itemid':itemid,
-                    'temp_receiver_id':fbid 
+                    'temp_receiver_id':fbid,
+                    'temp_unique':link 
                 },
                     error: function(error_data){
                  	console.log(error_data);
@@ -265,7 +268,8 @@ if(sessionStorage.length > 0) {
         val4 = sessionStorage.getItem("transvalue");
      	val5 = sessionStorage.getItem("selgold");
         val6 = sessionStorage.getItem("selsilver");
-        val7 = sessionStorage.getItem("newReceiverId")   
+        val7 = sessionStorage.getItem("newReceiverId");
+        val9 = sessionStorage.getItem("link");   
     }
 var newVal = val.replace(/[\]\[\"\']+/g,'');
 
@@ -277,7 +281,7 @@ type = JSON.parse(val2).toString();
 transvalue = JSON.parse(val4);
 message = JSON.parse(val3).toString();
 socialid = JSON.parse(val7);
-
+link = JSON.parse(val9).toString();
 
 document.getElementById("userpic").src =  pic;
 
@@ -293,7 +297,7 @@ var request = $.ajax({
             url         : "http://localhost/dpapps/index.php/apps_security/getTwtData",
             type        : 'POST',
             ContentType : 'application/json',
-            data        : {'name':name,'type':type,'transvalue':transvalue,'message':message,'socialid':socialid}, //<------here
+            data        : {'name':name,'type':type,'transvalue':transvalue,'message':message,'socialid':socialid,'link':link}, //<------here
         	error: function(error_data) {
             
             console.log(error_data);

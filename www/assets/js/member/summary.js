@@ -33,7 +33,8 @@ if(sessionStorage.length > 0) {
         val = sessionStorage.getItem("newReceiver");
         val2 = sessionStorage.getItem("newItem"); 
         val3 = sessionStorage.getItem("newMessage");
-        val4 = sessionStorage.getItem("transvalue");    
+        val4 = sessionStorage.getItem("transvalue");   
+        val5 = sessionStorage.getItem("link");    
     }
 var newVal = val.replace(/[\]\[\"\']+/g,'');
 
@@ -43,6 +44,7 @@ var pic = newVal.split(",")[2];
 var type = JSON.parse(val2);
 var transvalue = JSON.parse(val4);
 var message = JSON.parse(val3);
+var link = JSON.parse(val5);
 
 if (social == "assets/images/ws.png"){
 	var via = "Whatsapp";
@@ -58,5 +60,6 @@ document.getElementById("totalweight").innerHTML =  transvalue;
 document.getElementById("today").innerHTML =  today;
 document.getElementById("message").innerHTML =  message;
 document.getElementById("via").innerHTML =  via;
+document.getElementById("link").innerHTML =  'http://localhost/scorpion/www/member/receive_transaction.html?'+link;
 
 }
