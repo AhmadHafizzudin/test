@@ -20,7 +20,15 @@ $(document).ready(function() {
             document.getElementById("message").innerHTML = item.temp_message;
             document.getElementById("via").innerHTML = item.temp_via;
             document.getElementById("tempid").value = item.temp_id;
+            document.getElementById("itemid").value = item.temp_itemid;
+            var jenis = item.temp_type;
+            sender = item.temp_sender;
           });
+          if (jenis == "Money") {
+            document.getElementById("jenis").innerHTML = "Amount (MYR) : ";
+          } else {
+            document.getElementById("jenis").innerHTML = "Total Weight (Gram) : ";
+          }
         } // End of success function of ajax form
     }); // End of second ajax call (money)
   });
@@ -51,21 +59,44 @@ $("#btn_login").click(function() {
           if (data.results.length === 0) {
             bootstrap_alert.danger("Incorrect username or password");
           } else {
-            /* $.each(data.results, function(index, item) {
-               bootstrap_alert.success(item.members_email);
-             });*/
+            $.each(data.results, function(index, item) {
+              username = item.members_username;
+            });
             var tempid = $("#tempid").val();
+            var itemid = $("#itemid").val();
+            var type = $("#type").text();
+            var pitih = $("#totalweight").text();
             var status = "Complete";
             $.post("http://localhost/dpapps/index.php/receive_transaction/updateTrans/", {
               temp_id: tempid,
               temp_status: status
             }).done(function(data) {
-              bootstrap_alert.success("Transaction success.Please check your account");
-
-              
-
-
-              
+              if (type == "Silver") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerSilver/", { //silver
+                  sacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your silver account");
+                  pass_url("login.html");
+                });
+              } else if (type == "Gold") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
+                  gacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your gold account");
+                  pass_url("login.html");
+                });
+              } else if (type == "Money") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
+                  macc_username: username,
+                  macc_amount: pitih,
+                  macc_sender: sender
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your money account");
+                  pass_url("login.html");
+                });
+              }
             });
           }
         } // End of success function of ajax form
