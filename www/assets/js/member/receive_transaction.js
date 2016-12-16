@@ -12,6 +12,14 @@ $(document).ready(function() {
         console.log(error_data);
       },
       success: function(data) {
+
+          if (data.results.length === 0) {
+
+            document.getElementById("btnaccept").disabled = true;
+            bootstrap_alert.danger("This link does not exist or already expired");
+
+          }else{
+
           $.each(data.results, function(index, item) {
             document.getElementById("receiver").innerHTML = item.temp_sender;
             document.getElementById("type").innerHTML = item.temp_type;
@@ -29,6 +37,7 @@ $(document).ready(function() {
           } else {
             document.getElementById("jenis").innerHTML = "Total Weight (Gram) : ";
           }
+        }
         } // End of success function of ajax form
     }); // End of second ajax call (money)
   });
@@ -77,7 +86,8 @@ $("#btn_login").click(function() {
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your silver account");
-                  pass_url("login.html");
+                  $('#myModal').modal('hide');
+                  document.getElementById("btnaccept").disabled = true;
                 });
               } else if (type == "Gold") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
@@ -85,7 +95,8 @@ $("#btn_login").click(function() {
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your gold account");
-                  pass_url("login.html");
+                  $('#myModal').modal('hide');
+                  document.getElementById("btnaccept").disabled = true;
                 });
               } else if (type == "Money") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
@@ -94,7 +105,8 @@ $("#btn_login").click(function() {
                   macc_sender: sender
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your money account");
-                  pass_url("login.html");
+                  $('#myModal').modal('hide');
+                  document.getElementById("btnaccept").disabled = true;
                 });
               }
             });
@@ -106,19 +118,19 @@ $("#btn_login").click(function() {
 });
 bootstrap_alert = function() {}
 bootstrap_alert.danger = function(message) {
-  $('#alert_placeholder').html('<div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.success = function(message) {
-  $('#alert_placeholder').html('<div id="alertdiv" div class="alert alert-success alert-dismissable"><span>' + message + '</span></div>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-success alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.info = function(message) {
-  $('#alert_placeholder').html('<div id="alertdiv" div class="alert alert-info alert-dismissable"><span>' + message + '</span></div>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-info alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
