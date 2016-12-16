@@ -2,7 +2,10 @@ $(document).ready(function () {
 
         $("#btn_confirm").click(function () {
             window.setTimeout(refresh, 1000);
+            sessionStorage.setItem("link",  JSON.stringify(uniqueID()));
         });
+
+
     });
 
     function refresh() {
@@ -28,7 +31,12 @@ var pic = newVal.split(",")[2];
 var type = JSON.parse(val2);
 var transvalue = JSON.parse(val4);
 var message = JSON.parse(val3);
+link = "http://localhost/scorpion/www/receive_transaction.html?"+uniqueID();
 
+
+
+
+document.getElementById("link").value = link;
 document.getElementById("receiver").value =  name;
 document.getElementById("userpic").src =  pic;
 document.getElementById("usersocial").src =  social;
@@ -38,4 +46,15 @@ document.getElementById("totalweight").value =  transvalue;
 
 document.getElementById("message").value =  message;
 
+}
+
+function uniqueID(){
+  function chr4(){
+    return Math.random().toString(16).slice(-4);
+  }
+  return chr4() + chr4() + chr4() + chr4();
+    //'-' + chr4() +
+    //'-' + chr4() +
+    //'-' + chr4() +
+    //'-' + chr4() + chr4() + chr4();
 }
