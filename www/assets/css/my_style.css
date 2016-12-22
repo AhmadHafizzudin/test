@@ -11,11 +11,11 @@ html,body {
     
     background-image:none;
     height:100%;
-    background: white; /* For browsers that do not support gradients */
-    /*background: -webkit-linear-gradient(190deg, orange, black); /* For Safari 5.1 to 6.0 */
-    /*background: -o-linear-gradient(190deg, orange, black); /* For Opera 11.1 to 12.0 */
-    /*background: -moz-linear-gradient(190deg, orange, black); /* For Firefox 3.6 to 15 */
-    /*background: linear-gradient(190deg, orange, black); /* Standard syntax (must be last) */
+    background: black; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(190deg, black, gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(190deg, black, gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(190deg, black, gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(190deg, black, gray); /* Standard syntax (must be last) */
     
     background-position: center;
     background-repeat:no-repeat;
@@ -213,7 +213,7 @@ input:checked + .slider:before {
 }
 /* Style the links inside the list items */
 .tab h3 {
-    color: black;
+    color: #fff;
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
@@ -300,7 +300,7 @@ ul.tab li {float: left;}
 /* Style the links inside the list items */
 ul.tab li a{
     display: inline-block;
-    color: black;
+    color: #333;
     text-align: center;
     padding: 14px 10px;
     text-decoration: none;
