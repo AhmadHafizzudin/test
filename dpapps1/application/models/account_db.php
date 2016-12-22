@@ -42,6 +42,18 @@ class Account_Db extends CI_Model{
         
     }
 
+    public function getSetting($sessionName){ //retreive variable from controller and select by usersession
+         
+        $query=$this->db->query("SELECT members_fb,members_twt,members_pin_no FROM apdb_members WHERE members_username=" . "'" . $sessionName . "'");
+        return $query->result();
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+      
+    }
+
     public function getGoldList($sessionName) {
 
 
@@ -83,18 +95,17 @@ class Account_Db extends CI_Model{
     {
         $add_trans = array(
             'temp_receiver_name' => $this->input->post('temp_receiver_name'),
-
             'temp_via' => $this->input->post('temp_via'),
             'temp_date' => $this->input->post('temp_date'),
             'temp_type' => $this->input->post('temp_type'),
             'temp_total' => $this->input->post('temp_total'),
-
             'temp_message' => $this->input->post('temp_message'),
             'temp_status' => $this->input->post('temp_status'),
             'temp_sender' => $this->input->post('temp_sender'),
             'temp_itemid' => $this->input->post('temp_itemid'),
             'temp_receiver_id' => $this->input->post('temp_receiver_id'),
-            'temp_unique' => $this->input->post('temp_unique')
+            'temp_unique' => $this->input->post('temp_unique'),
+            'temp_receiver_username' => $this->input->post('temp_receiver_username')
         );
 
         $this->db->insert('apdb_temp', $add_trans);
@@ -116,6 +127,21 @@ class Account_Db extends CI_Model{
 
     }
 
+    public function add_social()
+    {
+        $add_social = array(
+            'members_twt' => $this->input->post('members_twt'),
+            'members_fb' => $this->input->post('members_fb')
+        );
+
+        $username = $this->input->post('members_username');
+
+        $this->db->where('members_username', $username);
+        $this->db->update('apdb_members', $add_social);
+
+
+    }
+
     public function getTransDetail($urlId){ //retreive variable from controller and select by usersession
          
         $query=$this->db->query("SELECT * FROM apdb_temp WHERE temp_unique='" . $urlId . "' AND temp_status='Pending'");
@@ -128,9 +154,21 @@ class Account_Db extends CI_Model{
       
     }
 
-    public function getLogin($username,$password){ //retreive variable from controller and select by usersession
+    public function getLoginTwt($username,$password,$screenname){ //retreive variable from controller and select by usersession
          
-        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."'");
+        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_twt='https://twitter.com/". $screenname ."'");
+        return $query->result();
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+      
+    }
+
+    public function getLoginFb($username,$password,$screenname){ //retreive variable from controller and select by usersession
+         
+        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_fb='https://www.facebook.com/". $screenname ."'");
         return $query->result();
         if ($query->num_rows() == 1) {
             return true;
@@ -200,6 +238,45 @@ class Account_Db extends CI_Model{
             //deduct money
 
         }
+
+        public function getHistory($sessionName) {
+
+
+        $query=$this->db->query("SELECT * FROM apdb_temp WHERE temp_sender=" . "'" . $sessionName . "'");
+        return $query->result();
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function getPending($sessionName) {
+
+
+        $query=$this->db->query("SELECT * FROM apdb_temp WHERE temp_sender=" . "'" . $sessionName . "'AND temp_status='Pending'");
+        return $query->result();
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function getComplete($sessionName) {
+
+
+        $query=$this->db->query("SELECT * FROM apdb_temp WHERE temp_sender=" . "'" . $sessionName . "'AND temp_status='Complete'");
+        return $query->result();
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
 
 

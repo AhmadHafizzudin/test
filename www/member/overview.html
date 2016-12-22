@@ -87,6 +87,102 @@
          </div>
       </form>
    </div>
+
+   <!-- Modal -->
+  <div class="modal fade" id="modsocial" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Social Account Setup</h4>
+
+        </div>
+        <div class="modal-body">
+          <form role="form" class="form-group" style="">
+                        <label for="urlfb">Facebook URL</label>
+                        <input type="text" id="urlfb" class="form-control" placeholder="eg: https://www.facebook.com/example" />
+                        <br />
+                        <label for="urltwt">Twitter URL</label>
+                        <input type="text" id="urltwt" class="form-control" placeholder="eg: https://twitter.com/example" />
+                    </form>
+                    <br />
+                    <div id = "alert_placeholder"></div>
+                    
+        </div>
+        <div class="modal-footer">
+          <center>
+                        <button class="btn myButton-green" id="btn_save"  onclick="submitSocial()">Save</button>
+                    </center>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modpin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Pin Code Setup</h4>
+
+        </div>
+        <div class="modal-body">
+          <!-- start password place -->
+         <div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="form-group">
+                        <label id="first" class="password"><h3>-</h3></label>&nbsp
+                  <label id="second" class="password"><h3>-</h3></label>&nbsp
+                  <label id="third" class="password"><h3>-</h3></label>&nbsp
+                  <label id="fourth" class="password"><h3>-</h3></label>&nbsp
+                    </form></center>
+                </div>
+            </div>
+         
+         <!-- start keyboard -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <center><form role="form" class="keyboard_testing">
+                        <label id="1numpad" class="keyboard" onclick="insert('1')"><h3>1</h3></label>&nbsp
+                  <label id="2numpad" class="keyboard" onclick="insert('2')"><h3>2</h3></label>&nbsp
+                  <label id="3numpad" class="keyboard" onclick="insert('3')"><h3>3</h3></label>&nbsp
+                    </form></center>
+               <center><form role="form" class="form-group">
+                  <label id="4numpad" class="keyboard" onclick="insert('4')"><h3>4</h3></label>&nbsp
+                  <label id="5numpad" class="keyboard" onclick="insert('5')"><h3>5</h3></label>&nbsp
+                  <label id="6numpad" class="keyboard" onclick="insert('6')"><h3>6</h3></label>&nbsp
+               </form></center>
+               <center><form role="form" class="form-group">
+                  <label id="7numpad" class="keyboard" onclick="insert('7')"><h3>7</h3></label>&nbsp
+                  <label id="8numpad" class="keyboard" onclick="insert('8')"><h3>8</h3></label>&nbsp
+                  <label id="9numpad" class="keyboard" onclick="insert('9')"><h3>9</h3></label>&nbsp
+               </form></center>
+               <center><form role="form" class="form-group">
+                  <label id="0numpad" class="keyboard" onclick="insert('0')"><h3>0</h3></label>&nbsp
+                  <br>
+                  <center><label id="reset_numpad" class="keyboard" onclick="reset()"><h3>Clear</h3></label>&nbsp
+                  <label id="del_numpad" class="keyboard" onclick="del_num()"><h3>Del</h3></label>&nbsp
+                  <label id="save_numpad" class="keyboard" onclick="submitPin()"><h3>Save</h3></label></center>
+               </form></center>
+                </div>
+            </div>
+                    
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
 </div>
 <!-- start controller jquery -->
 <script src="assets/js/my_public_session.js"></script>

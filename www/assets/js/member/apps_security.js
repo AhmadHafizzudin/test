@@ -229,7 +229,8 @@ function trans(){
         			val6 = sessionStorage.getItem("selsilver");
         			val7 = sessionStorage.getItem("newReceiverId");
         			val8 = sessionStorage.getItem("newMoney");
-        			val9 = sessionStorage.getItem("link");      
+        			val9 = sessionStorage.getItem("link"); 
+        			val10 = sessionStorage.getItem("newReceiverScreen");      
     			}
 			
 			var newVal = val.replace(/[\]\[\"\']+/g,'');
@@ -242,6 +243,7 @@ function trans(){
 			
 			message = JSON.parse(val3).toString();
 			fbid = JSON.parse(val7);
+			username = JSON.parse(val10);
 
 			if (type == "Gold"){
 				itemid = JSON.parse(val5).toString();
@@ -302,7 +304,8 @@ function trans(){
                     'temp_sender':sender,
                     'temp_itemid':itemid,
                     'temp_receiver_id':fbid,
-                    'temp_unique':link 
+                    'temp_unique':link,
+                    'temp_receiver_username': username
                 },
                     error: function(error_data){
                  	console.log(error_data);

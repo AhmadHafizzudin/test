@@ -27,26 +27,50 @@ class Receive_transaction extends CI_Controller {
       print_r($urlId);
    }
 
-   public function checkLogin() { //retreive query result from getMoneyBalance()
+   public function checkLoginTwt() { //get username and pass from db
       $username = $this->session->userdata('username'); //get value in session
       $password = $this->session->userdata('password'); //get value in session
+      $screenname = $this->session->userdata('screenname'); //get value in session
       $this->load->model('account_db');
-      $data['results'] = $this->account_db->getLogin($username, $password);
+      $data['results'] = $this->account_db->getLoginTwt($username, $password,$screenname);
       echo json_encode($data);
    }
 
-   public function getLoginDetail() { //retreive username session from sessionstroge javascript and pass to model
-      //$usersession= $this->input->post('usersession');
-      $sessiondata = array('username' => $this->input->post('username'), 'password' => $this->input->post('password'));
+   public function getLoginDetailTwt() { //confirm receive transaction by login
+      
+      $sessiondata = array('username' => $this->input->post('username'), 'password' => $this->input->post('password'),'screenname' => $this->input->post('screenname'));
 
       $this->session->set_userdata($sessiondata); //set user into session
       $username = $this->session->userdata('username'); //get value in session
       $password = $this->session->userdata('password'); //get value in session
-      //$result = $this->account_db->getMoneyBalance($urlId);
-      //die($usersession);
+      $screenname = $this->session->userdata('screenname'); //get value in session
+      
       print_r($password);
       print_r($username);
    }
+
+   public function checkLoginFb() { //get username and pass from db
+      $username = $this->session->userdata('username'); //get value in session
+      $password = $this->session->userdata('password'); //get value in session
+      $screenname = $this->session->userdata('screenname'); //get value in session
+      $this->load->model('account_db');
+      $data['results'] = $this->account_db->getLoginFb($username, $password,$screenname);
+      echo json_encode($data);
+   }
+
+   public function getLoginDetailFb() { //confirm receive transaction by login
+      
+      $sessiondata = array('username' => $this->input->post('username'), 'password' => $this->input->post('password'),'screenname' => $this->input->post('screenname'));
+
+      $this->session->set_userdata($sessiondata); //set user into session
+      $username = $this->session->userdata('username'); //get value in session
+      $password = $this->session->userdata('password'); //get value in session
+      $screenname = $this->session->userdata('screenname'); //get value in session
+      
+      print_r($password);
+      print_r($username);
+   }
+
 
    public function updateTrans() {
 

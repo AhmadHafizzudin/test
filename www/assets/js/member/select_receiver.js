@@ -30,7 +30,7 @@ if (c == -1){
 
     var newReceiver = new Array();
     var newReceiverId = $('input[name=user]:checked').parents('div.radio').next().next('div.image1').next('div.image2').find('input:hidden').val();
-
+    var newReceiverScreen = $('input[name=user]:checked').parents('div.radio').next().next('div.image1').next('div.image2').next('div.data3').find('input:hidden').val();
     newReceiver[0] = $('input[name=user]:checked').val();
     newReceiver[1] = $('input[name=user]:checked').parents('div.radio').next().next('div.image1').find('img').attr("src");
     newReceiver[2] = $('input[name=user]:checked').parents('div.radio').next().next('div.image1').next('div.image2').find('img').attr("src");
@@ -39,11 +39,14 @@ if (c == -1){
 // store array data to the session storage
 sessionStorage.setItem("newReceiver",  JSON.stringify(newReceiver));
 sessionStorage.setItem("newReceiverId",  JSON.stringify(newReceiverId));
+sessionStorage.setItem("newReceiverScreen",  JSON.stringify(newReceiverScreen));
+
 
 
 }
 
 pass_url('member/sendpayment.html');
+
 }
 
 
@@ -155,7 +158,7 @@ var twtsession = sessionStorage.getItem("twitter");
 
              $.each(data, function(index,item){
 
-                twtresult += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + item.name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/twitter.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+item.profile_image_url.replace('_normal', '_bigger')+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" id="userid" value="' + item.id_str + '"></div><label for="user">&nbsp;' + item.name + '</label></div>';
+                twtresult += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + item.name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/twitter.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+item.profile_image_url.replace('_normal', '_bigger')+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" class="userid" id="userid" value="' + item.id_str + '"></div><div class="data3" style="display: inline"><input type="hidden" id="userscreen" value="' + item.screen_name + '"></div><label for="user">&nbsp;' + item.name + '</label></div>';
 
 
                 });

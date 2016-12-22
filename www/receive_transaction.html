@@ -4,21 +4,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 
-<script src="assets/js/jquery-2.2.3.js" type="text/javascript"></script>
-        <script src="assets/js/bootstrap.js" type="text/javascript"></script>
-        <script src="assets/js/my_server_config.js" type="text/javascript"></script>
-        <script src="assets/js/check_url.js"></script>
-        <script src="assets/js/my_public_session.js" type="text/javascript"></script>
-        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/my_style.css" rel="stylesheet" />
 <div class="container">
    <div class="row" >
       <form role="form">
          <div class="form-group">
             <div class="col-sm-10 col-sm-offset-1">
                <p></p>
-               <div id="alert_placeholder"></div>
+               <div id="alert_placeholder1"></div>
                <div class="panel panel-default">
                   <div class="panel-body">
                      <div class="row">
@@ -28,6 +20,7 @@
 
                      <input type="hidden" id="tempid"/>
                      <input type="hidden" id="itemid"/>
+                     <input type="hidden" id="screen"/>
 
                             <p>Send Date : <label id="today"></label></p>
               <p>Sender : <label id="receiver"></label></p>
@@ -84,7 +77,7 @@
         <div class="modal-footer">
           <center>
                         <button class="btn myButton-green" id="btn_login">Confirm</button>
-                        <button class="btn btn-link" id="btn_reg">Register</button>
+                        <button class="btn btn-link" id="btn_reg1">Register</button>
                     </center>
         </div>
       </div>
@@ -97,5 +90,249 @@
 
 </div>
 <!-- start controller jquery -->
-<script src="assets/js/member/receive_transaction.js"></script>
+<script>
+  $(document).ready(function () {
+
+    if (localStorage.getItem('receiverx1') == "") {
+
+      document.getElementById("btnaccept").disabled = true;
+            $('#btnaccept').hide();
+            bootstrap_alert.danger1("This link does not exist or already expired");
+            $('#detail').text('This transaction does not exist or expired. Please contact your sender for any enquiries.');
+
+    } else {
+
+      document.getElementById("receiver").innerHTML = localStorage.getItem('receiverx1');
+      document.getElementById("type").innerHTML = localStorage.getItem('typex1');
+      document.getElementById("totalweight").innerHTML = localStorage.getItem('totalweightx1');
+               document.getElementById("today").innerHTML = localStorage.getItem('todayx1');
+               document.getElementById("message").innerHTML = localStorage.getItem('messagex1');
+               document.getElementById("via").innerHTML = localStorage.getItem('viax1');
+               document.getElementById("tempid").value = localStorage.getItem('tempidx1');
+               document.getElementById("itemid").value = localStorage.getItem('itemidx1');
+               document.getElementById("screen").value = localStorage.getItem('screenx1');
+
+
+
+
+      var jenis = localStorage.getItem('jenisx1');
+      if (jenis == "Money") {
+              document.getElementById("jenis").innerHTML = "Amount (MYR) : ";
+            } else {
+              document.getElementById("jenis").innerHTML = "Total Weight (Gram) : ";
+            }
+
+      $("#btn_reg1").click(function() {
+        //alert('hasda');
+        //window.location.href = 'index.html';
+        pass_url("registration.html");
+        $(".modal-backdrop").hide();
+        //location.href='index.html';
+      });
+    }
+
+    $("#btn_login").click(function() {
+  var user = $("#user").val();
+  var pwd = $("#pwd").val();
+  var screenname = localStorage.getItem('screenx1');
+  var socialtype = localStorage.getItem('viax1');
+
+
+  if (user == '' || pwd == '') {
+    //alert('Do not leave blank!');
+    bootstrap_alert.danger('Do not leave blank!');
+  }else{
+
+  if (socialtype == "Twitter"){
+
+  $.post("http://localhost/dpapps/index.php/receive_transaction/getLoginDetailTwt/", {
+    username: user,
+    password: pwd,
+    screenname: screenname 
+  }).done(function(data) {
+    $.ajax({ //check money money balance
+      url: 'http://localhost/dpapps/index.php/receive_transaction/checkLoginTwt/',
+      type: 'POST',
+      dataType: 'json',
+      error: function(error_data) {
+        bootstrap_alert.danger('There is something wrong with our server');
+        console.log(error_data);
+      },
+      success: function(data) {
+          if (data.results.length === 0) {
+            bootstrap_alert.danger("Incorrect username or password or please check your Twitter account URL in DST setting");
+          } else {
+            $.each(data.results, function(index, item) {
+              username = item.members_username;
+            });
+            var tempid = $("#tempid").val();
+            var itemid = $("#itemid").val();
+            var type = $("#type").text();
+            var pitih = $("#totalweight").text();
+            var status = "Complete";
+            $.post("http://localhost/dpapps/index.php/receive_transaction/updateTrans/", {
+              temp_id: tempid,
+              temp_status: status
+            }).done(function(data) {
+              if (type == "Silver") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerSilver/", { //silver
+                  sacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your silver account");
+                  $('#myModal').modal('hide');
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              } else if (type == "Gold") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
+                  gacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your gold account");
+                  $('#myModal').modal('hide');
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              } else if (type == "Money") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
+                  macc_username: username,
+                  macc_amount: pitih,
+                  macc_sender: sender
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your money account");
+                  $('#myModal').modal('hide');                  
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              }
+            });
+          }
+        } // End of success function of ajax form
+    }); // End of second ajax call (money)
+  });
+
+}else if (socialtype == "Facebook"){
+
+  $.post("http://localhost/dpapps/index.php/receive_transaction/getLoginDetailFb/", {
+    username: user,
+    password: pwd,
+    screenname: screenname 
+  }).done(function(data) {
+    $.ajax({ //check money money balance
+      url: 'http://localhost/dpapps/index.php/receive_transaction/checkLoginFb/',
+      type: 'POST',
+      dataType: 'json',
+      error: function(error_data) {
+        bootstrap_alert.danger('There is something wrong with our server');
+        console.log(error_data);
+      },
+      success: function(data) {
+          if (data.results.length === 0) {
+            bootstrap_alert.danger("Incorrect username or password or your Twitter URL in DST setting does not match.Receipient URL must match with Twitter URL!");
+          } else {
+            $.each(data.results, function(index, item) {
+              username = item.members_username;
+            });
+            var tempid = $("#tempid").val();
+            var itemid = $("#itemid").val();
+            var type = $("#type").text();
+            var pitih = $("#totalweight").text();
+            var status = "Complete";
+            $.post("http://localhost/dpapps/index.php/receive_transaction/updateTrans/", {
+              temp_id: tempid,
+              temp_status: status
+            }).done(function(data) {
+              if (type == "Silver") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerSilver/", { //silver
+                  sacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your silver account");
+                  $('#myModal').modal('hide');
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              } else if (type == "Gold") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
+                  gacc_username: username,
+                  temp_itemid: itemid
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your gold account");
+                  $('#myModal').modal('hide');
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              } else if (type == "Money") {
+                $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
+                  macc_username: username,
+                  macc_amount: pitih,
+                  macc_sender: sender
+                }).done(function(data) {
+                  bootstrap_alert.success("Transaction success.Please check your money account");
+                  $('#myModal').modal('hide');                  
+                  $("#btnaccept").html('Check Account Now');
+                  $("#btnaccept").removeAttr('data-toggle');
+                  $("#btnaccept").removeAttr('data-target');
+                  $('#btnaccept').attr('onClick', 'redirects();');
+                });
+              }
+            });
+          }
+        } // End of success function of ajax form
+    }); // End of second ajax call (money)
+  });
+
+}
+
+}//end if password = ""
+
+});//end login click
+
+bootstrap_alert = function() {}
+bootstrap_alert.danger = function(message) {
+  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
+  setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+    $("#alertdiv").remove();
+  }, 2000);
+}
+bootstrap_alert.danger1 = function(message) {
+  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
+  setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+    $("#alertdiv").remove();
+  }, 2000);
+}
+bootstrap_alert.success = function(message) {
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-success alert-dismissable"><span>' + message + '</span></div></center>')
+  setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+    $("#alertdiv").remove();
+  }, 2000);
+}
+bootstrap_alert.info = function(message) {
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-info alert-dismissable"><span>' + message + '</span></div></center>')
+  setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+    $("#alertdiv").remove();
+  }, 2000);
+}
+
+function redirects(){
+  //window.location = "login.html";
+  window.location.href = 'index.html';
+}
+
+
+
+    
+  });
+</script>
 <!-- end controller jquery -->

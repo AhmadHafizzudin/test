@@ -1,9 +1,16 @@
 $(document).ready(function() {
+
+
   var url = window.location.href;
   id = url.substring(url.lastIndexOf('?') + 1); // get id inside url*/
   $.post("http://localhost/dpapps/index.php/receive_transaction/getUrlId/", {
     urlid: id
-  }).done(function(data) {
+  }).done(function(data1) {
+
+    var pecah = url.split("?");
+    //alert(pecah[1]);
+    if (typeof pecah[1] != "undefined") { 
+
     $.ajax({ //check money money balance
       url: 'http://localhost/dpapps/index.php/receive_transaction/viewTransDetail/',
       type: 'POST',
@@ -13,42 +20,53 @@ $(document).ready(function() {
       },
       success: function(data) {
 
+        //pass_url('receive_transaction.html');
+
           if (data.results.length === 0) {
 
-            document.getElementById("btnaccept").disabled = true;
-            $('#btnaccept').hide();
-            bootstrap_alert.danger("This link does not exist or already expired");
-            $('#detail').text('This transaction does not exist or expired. Please contact your sender for any enquiries.');
+            localStorage.setItem('receiverx1', "");
+
+            
 
           }else{
 
-          $.each(data.results, function(index, item) {
-            document.getElementById("receiver").innerHTML = item.temp_sender;
-            document.getElementById("type").innerHTML = item.temp_type;
-            document.getElementById("totalweight").innerHTML = item.temp_total;
-            document.getElementById("today").innerHTML = item.temp_date;
-            document.getElementById("message").innerHTML = item.temp_message;
-            document.getElementById("via").innerHTML = item.temp_via;
-            document.getElementById("tempid").value = item.temp_id;
-            document.getElementById("itemid").value = item.temp_itemid;
-            var jenis = item.temp_type;
-            sender = item.temp_sender;
-          });
-          if (jenis == "Money") {
-            document.getElementById("jenis").innerHTML = "Amount (MYR) : ";
-          } else {
-            document.getElementById("jenis").innerHTML = "Total Weight (Gram) : ";
+            var jenis = "";
+
+            $.each(data.results, function(index, item) {
+
+
+              localStorage.setItem('receiverx1', item.temp_sender);
+              localStorage.setItem('typex1', item.temp_type);
+              localStorage.setItem('totalweightx1', item.temp_total);
+              localStorage.setItem('todayx1', item.temp_date);
+              localStorage.setItem('messagex1', item.temp_message);
+              localStorage.setItem('viax1', item.temp_via);
+              localStorage.setItem('tempidx1', item.temp_id);
+              localStorage.setItem('itemidx1', item.temp_itemid);
+              localStorage.setItem('screenx1', item.temp_receiver_username);
+              
+              //location.href= 'index.html';
+              var jenis = item.temp_type;
+              sender = item.temp_sender;
+              localStorage.setItem('jenisx1', jenis);
+            });
           }
-        }
+
+          pass_url('receive_transaction.html');
         } // End of success function of ajax form
     }); // End of second ajax call (money)
+
+   }
+
   });
+
+  
 });
-$("#btn_reg").click(function() {
-  window.location.href = 'registration.html';
-  //pass_url("registration.html");
-});
+
 $("#btn_login").click(function() {
+
+ 
+
   var user = $("#user").val();
   var pwd = $("#pwd").val();
   if (user == '' || pwd == '') {
@@ -95,7 +113,7 @@ $("#btn_login").click(function() {
                   $('#btnaccept').attr('onClick', 'redirects();');
                 });
               } else if (type == "Gold") {
-                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
+                $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //gold
                   gacc_username: username,
                   temp_itemid: itemid
                 }).done(function(data) {
@@ -107,7 +125,7 @@ $("#btn_login").click(function() {
                   $('#btnaccept').attr('onClick', 'redirects();');
                 });
               } else if (type == "Money") {
-                $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
+                $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //money
                   macc_username: username,
                   macc_amount: pitih,
                   macc_sender: sender
@@ -130,6 +148,12 @@ $("#btn_login").click(function() {
 bootstrap_alert = function() {}
 bootstrap_alert.danger = function(message) {
   $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
+  setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+    $("#alertdiv").remove();
+  }, 2000);
+}
+bootstrap_alert.danger1 = function(message) {
+  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);

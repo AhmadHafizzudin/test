@@ -73,6 +73,7 @@ class Select_receiver extends CI_Controller
                         'id_str' => $fdetail['id_str'],
                         'name' => $fdetail['name'],
                         'profile_image_url' => $fdetail['profile_image_url'],
+                        'screen_name' => $fdetail['screen_name'],
                 );
                     
 

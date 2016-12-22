@@ -2,7 +2,7 @@ $(document).ready(function () {
 
         $("#btn_confirm").click(function () {
             window.setTimeout(refresh, 1000);
-            sessionStorage.setItem("link",  JSON.stringify(uniqueID()));
+            sessionStorage.setItem("link",  JSON.stringify(linkcombo));
         });
 
 
@@ -21,7 +21,8 @@ if(sessionStorage.length > 0) {
         val = sessionStorage.getItem("newReceiver");
         val2 = sessionStorage.getItem("newItem"); 
         val3 = sessionStorage.getItem("newMessage");
-        val4 = sessionStorage.getItem("transvalue");    
+        val4 = sessionStorage.getItem("transvalue"); 
+        val5 = sessionStorage.getItem("newReceiverId");   
     }
 var newVal = val.replace(/[\]\[\"\']+/g,'');
 
@@ -31,7 +32,18 @@ var pic = newVal.split(",")[2];
 var type = JSON.parse(val2);
 var transvalue = JSON.parse(val4);
 var message = JSON.parse(val3);
-link = "http://localhost/scorpion/www/receive_transaction.html?"+uniqueID();
+userid = JSON.parse(val5);
+
+if (social == "assets/images/ws.png"){
+    var via = "Whatsapp";
+}else if (social == "assets/images/fb.png"){
+    var via = "Facebook";
+}else if (social == "assets/images/twitter.png"){
+    var via = "Twitter";
+}
+
+linkcombo = via+"+"+userid+"+"+type+"+"+transvalue+"+"+message+"+receive_transaction.html";
+link = "http://localhost/scorpion/www/index.html?"+linkcombo+"+receive_transaction.html";
 
 
 
@@ -48,13 +60,13 @@ document.getElementById("message").value =  message;
 
 }
 
-function uniqueID(){
+/*function uniqueID(){
   function chr4(){
     return Math.random().toString(16).slice(-4);
   }
-  return chr4() + chr4() + chr4() + chr4();
+  return chr4();
     //'-' + chr4() +
     //'-' + chr4() +
     //'-' + chr4() +
     //'-' + chr4() + chr4() + chr4();
-}
+}*/

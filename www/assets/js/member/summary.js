@@ -74,6 +74,14 @@ if (social == "assets/images/ws.png"){
 	var via = "Twitter";
 }
 
+if (type == "Money") {
+            
+    $("#jenis").html('Amount (MYR) : ');
+} else {
+            
+    $("#jenis").html('Total Weight (Gram) : ');
+}
+
 document.getElementById("receiver").innerHTML =  name;
 document.getElementById("type").innerHTML =  type;
 document.getElementById("totalweight").innerHTML =  transvalue;
@@ -81,6 +89,8 @@ document.getElementById("today").innerHTML =  today;
 document.getElementById("message").innerHTML =  message;
 document.getElementById("via").innerHTML =  via;
 document.getElementById("link").innerHTML =  'http://localhost/scorpion/www/receive_transaction.html?'+link;
+
+
 
 if (via == "Facebook"){
 
