@@ -1,3 +1,4 @@
+	
 <div class="container">
    <div class="row" >
       <form role="form">
@@ -6,10 +7,10 @@
                <div class="panel panel-default">
                   <div class="panel-body">
                      <div class="row">
-                        <h4 align="center"><b>Account Overview</b></h4>
+                        <h4 align="center" style="color=white"><b>Account Overview</b></h4>
                      </div>
-                     <a href="#gold" data-toggle="collapse" style="text-decoration:none">
-                     <img src="assets/images/1.png" width="100" class="img-circle" alt="My Gold"/>&nbsp;My Gold
+                    <center><a href="#gold" data-toggle="collapse" style="text-decoration:none">
+                     <img src="assets/images/1.2.png" width="100" class="img-circle" alt="My Gold"/>
                      </a>
                      <div id="gold" class="collapse">
                         <label for="goldpieces">Total Gold (pcs)</label>
@@ -17,10 +18,9 @@
                         <p></p>
                         <label for="goldbalance">Total Weight (gram)</label>
                         <input type="text" name="goldbalance" id="goldbalance" class="form-control" readonly >
-                     </div>
-                     <p></p>
-                     <a href="#silver" data-toggle="collapse" style="text-decoration:none">
-                     <img src="assets/images/2.png" width="100"  class="img-circle" alt="My Silver"/>&nbsp;My Silver
+                     </div></center>
+                     <center><a href="#silver" data-toggle="collapse" style="text-decoration:none">
+                     <img src="assets/images/2.2.png" width="100"  class="img-circle" alt="My Silver"/>
                      </a>
                      <div id="silver" class="collapse">
                         <label for="silverpieces">Total Silver (pcs)</label>
@@ -28,15 +28,14 @@
                         <p></p>
                         <label for="silverbalance">Total Weight (gram)</label>
                         <input type="text" name="silverbalance" id="silverbalance" class="form-control" readonly > 
-                     </div>
-                     <p></p>
-                     <a href="#money" data-toggle="collapse" style="text-decoration:none">
-                     <img src="assets/images/3.png" width="100"  class="img-circle" alt="My Money"/>&nbsp;My Money
+                     </div></center>
+                     <center><a href="#money" data-toggle="collapse" style="text-decoration:none">
+                     <img src="assets/images/3.png" width="100"  class="img-circle" alt="My Money"/>
                      </a>
                      <div id="money" class="collapse">
                         <label for="moneybalance">Current Balance (MYR)</label>
                         <input type="text" name="moneybalance" id="moneybalance" class="form-control"  readonly >
-                     </div>
+                     </div></center>
                      <p></p>
                   </div>
                </div>
@@ -186,7 +185,90 @@
 
 
 </div>
+
+
 <!-- start controller jquery -->
 <script src="assets/js/my_public_session.js"></script>
 <script src="assets/js/member/overview.js"></script>
+
 <!-- end controller jquery -->
+<!--<script type='text/javascript' language='javascript'>
+   $(document).ready(function() {
+                   
+         if (!localStorage.getItem("reload")) {
+    /* set reload locally and then reload the page */
+    localStorage.setItem("reload", "true");
+    location.reload();
+}
+/* after reload clear the localStorage */
+else {
+    localStorage.removeItem("reload");
+    // localStorage.clear(); // an option
+}          
+   
+        var user = localStorage.getItem("username");
+
+        if (user != null || user !=""){
+
+            $.post("http://localhost/dpapps/index.php/overview/getUserSession/", {
+                usersession: user
+            }).done(function (data) {
+                //alert(data);
+            });
+
+   
+            $.ajax({ //check money money balance
+                 url: 'http://localhost/dpapps/index.php/overview/viewMoneyBalance/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(results){
+                 var newVal = JSON.stringify(results).replace(/[^0-9.]/g, "");
+                 $('#moneybalance').val(newVal);
+                 } // End of success function of ajax form
+             }); // End of second ajax call (money)
+
+            $.ajax({ //display gold overview
+                 url: 'http://localhost/dpapps/index.php/overview/viewAllGold/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(results){
+
+                 var newVal = JSON.stringify(results).replace(/[^0-9.,]/g, "");
+                 var goldpieces = newVal.split(",")[1];
+                 var goldweight = newVal.split(",")[0]; 
+                 $('#goldbalance').val(goldweight);
+                 $('#goldpieces').val(goldpieces);
+                 } // End of success function of ajax form
+             }); // End of second ajax call (gold)
+
+            $.ajax({ //display silver overview
+                 url: 'http://localhost/dpapps/index.php/overview/viewAllSilver/',
+                 type:'POST',
+                 dataType: 'json',
+                 error: function(error_data){
+                 console.log(error_data);
+                 },
+                 success: function(results){
+                 var newVal = JSON.stringify(results).replace(/[^0-9.,]/g, "");
+                 $('#silverbalance').val(newVal);
+                 var silverpieces = newVal.split(",")[1];
+                 var silverweight = newVal.split(",")[0]; 
+                 $('#silverbalance').val(silverweight);
+                 $('#silverpieces').val(silverpieces);
+                 } // End of success function of ajax form
+             }); // End of second ajax call (silver)
+
+       }else{
+        pass_url("login.html");
+       }
+   
+    });
+
+   
+</script>-->
