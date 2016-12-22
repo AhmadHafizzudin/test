@@ -11,7 +11,25 @@ else {
     // localStorage.clear(); // an option
 }          
    
-//$('#modsocial').modal('show'); 
+$("#urlfb").keydown(function(e) {
+    var oldvalue=$(this).val();
+    var field=this;
+    setTimeout(function () {
+        if(field.value.indexOf('https://www.facebook.com/') !== 0) {
+            $(field).val(oldvalue);
+        } 
+    }, 1);
+});
+
+$("#urltwt").keydown(function(e) {
+    var oldvalue=$(this).val();
+    var field=this;
+    setTimeout(function () {
+        if(field.value.indexOf('https://twitter.com/') !== 0) {
+            $(field).val(oldvalue);
+        } 
+    }, 1);
+});
 
         var user = localStorage.getItem("username");
 
@@ -216,7 +234,7 @@ function submitPin() {
                 console.log(error_data);
             },
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 msg_alert('Pin code updated', 1);
                 pass_url('member/overview.html');
             }
@@ -230,10 +248,11 @@ function submitPin() {
         fb = $("#urlfb").val();
         user = localStorage.getItem("username");
 
-        if (twt == "" || fb == ""){
+        if (twt == "https://twitter.com/" || fb == "https://www.facebook.com/"){
 
-            m
-        }
+            bootstrap_alert.danger('Do not leave blank!');
+
+        }else{
 
 
         $.ajax({
@@ -254,7 +273,7 @@ function submitPin() {
             }
         });
 
-
+    }
     }
 
     bootstrap_alert = function() {}
