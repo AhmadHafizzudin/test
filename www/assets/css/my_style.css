@@ -526,3 +526,6 @@ label.keyboard{
     background-color: #B0B0B0;
     border-color: #B0B0B0;
 }
+.glyphicon-copy {
+    font-size: 40px;
+}
