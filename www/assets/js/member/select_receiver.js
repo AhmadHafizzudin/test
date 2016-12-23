@@ -1,3 +1,40 @@
+$(document).ready(function () {
+
+        /* if my var reload isn't set locally.. in the first time it will be true */
+        if (!localStorage.getItem("reload")) {
+        /* set reload locally and then reload the page */
+        localStorage.setItem("reload", "true");
+        location.reload();
+        }
+        /* after reload clear the localStorage */
+        else {
+        localStorage.removeItem("reload");
+        // localStorage.clear(); // an option
+        }
+
+
+        var $searchBox = $('#searchbox');
+        var $userDivs = $('.tabcontent .chip');
+
+$searchBox.on('input', function() {
+  var scope = this;
+  if (!scope.value || scope.value == '') {
+    $userDivs.show();
+    return;
+  }
+
+  $userDivs.each(function(i, div) {
+    var $div = $(div);
+    var $text = $div.find('.name').first().text().toLowerCase();
+    $div.toggle($text.indexOf(scope.value.toLowerCase()) > -1);
+  })
+});
+
+    
+
+});
+
+
 function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -82,7 +119,7 @@ var loading = '';
 
 for (var i = 0; i < friend_data.length; i++) {
 
-results += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + friend_data[i].name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/fb.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+response.data[i].picture.data.url+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" id="userid" value="' + friend_data[i].id + '"></div><label for="user">&nbsp;' + friend_data[i].name + '</label></div>';
+results += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + friend_data[i].name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/fb.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+response.data[i].picture.data.url+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" id="userid" value="' + friend_data[i].id + '"></div><label for="user" class="name">&nbsp;' + friend_data[i].name + '</label></div><p></p>';
 
 if (i<friend_data.length){
     loading = '<div class="loader">';
@@ -144,6 +181,11 @@ twtresult = '';
 var twt_holder = document.getElementById('A');
 var twtsession = sessionStorage.getItem("twitter");
 
+if (twtsession == "false"){
+    twt_holder.innerHTML = '<h4>Please connect your Twitter account</h4>';
+}else{
+
+
        $.ajax({ //get follower from twitter
         url: 'http://localhost/dpapps/index.php/select_receiver/getTwtFollower',
         type: 'POST',
@@ -158,37 +200,21 @@ var twtsession = sessionStorage.getItem("twitter");
 
              $.each(data, function(index,item){
 
-                twtresult += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + item.name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/twitter.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+item.profile_image_url.replace('_normal', '_bigger')+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" class="userid" id="userid" value="' + item.id_str + '"></div><div class="data3" style="display: inline"><input type="hidden" id="userscreen" value="' + item.screen_name + '"></div><label for="user">&nbsp;' + item.name + '</label></div>';
+                twtresult += '<div class="chip"><div class="radio" style="display: inline"><label><input type="radio" name="user" value="' + item.name + '" id="user5"/></label></div><label for="receiver"></label><div class="image1" style="display: inline"><img src="assets/images/twitter.png" id="usersocial5" name="usersocial" height="30px" width="30px"  class="img-circle"/></div><div class="image2" style="display: inline"><img src="'+item.profile_image_url.replace('_normal', '_bigger')+'" id="userpic12" name="userpic" width="20%"  class="img-circle"/><input type="hidden" class="userid" id="userid" value="' + item.id_str + '"></div><div class="data3" style="display: inline"><input type="hidden" id="userscreen" value="' + item.screen_name + '"></div><label for="user" class="name">&nbsp;' + item.name + '</label></div><p></p>';
 
 
                 });
 
-                if (twtsession == "true"){ 
+                //if (twtsession == "true"){ 
 
                 twt_holder.innerHTML =  twtresult; 
 
-            }else if (twtsession == "false"){
-                twt_holder.innerHTML = '<h4>Please connect your Twitter account</h4>';
-            }
-
+            //}
             } // End of success function of ajax form
 
     }); // End of twt list follower
 
-
-
-        /* if my var reload isn't set locally.. in the first time it will be true */
-        if (!localStorage.getItem("reload")) {
-        /* set reload locally and then reload the page */
-        localStorage.setItem("reload", "true");
-        location.reload();
-        }
-        /* after reload clear the localStorage */
-        else {
-        localStorage.removeItem("reload");
-        // localStorage.clear(); // an option
-        }
-
+}
 
 
 

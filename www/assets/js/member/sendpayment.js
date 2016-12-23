@@ -19,6 +19,7 @@ $(document).ready(function () {
             theDiv.slideDown().removeClass("hidden");
             theDiv.siblings('[class*=is]').slideUp(function () {
                 $(this).addClass("hidden");
+                $("#loaders").addClass("loaders");
             });
         });
 
@@ -312,13 +313,15 @@ document.getElementById("usersocial").src =  social;
                     var count = 0;
 
                 $.each(data.results, function(index,item){
-                $("#fgold").append('<tbody class="details"><tr><td rowspan="4"><input type="checkbox" id="gold['+count+']" value="' + item.gacc_id + '" class="cbgold" name="gold"/>&nbsp;<img id="goldpic['+count+']" src="http://localhost/dpapps/images/' + item.gacc_image + '" width="70px"></td><td id="goldno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.gacc_cert_no + '</td></tr><tr><td id="goldname['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.gacc_gold_name + '</td></tr><tr><td id="goldweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.gacc_weight + '&nbsp;gram</td></tr><tr><td id="goldpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.gacc_purity + '<input type="hidden" id="goldid['+count+']" value="' + item.gacc_id + '"/></td></tr></tbody>');
+                $("#fgold").append('<tbody class="details"><tr><td rowspan="4"><input type="checkbox" id="gold['+count+']" value="' + item.gacc_id + '" class="cbgold" name="gold"/>&nbsp;<img class="imgbg" id="goldpic['+count+']" src="http://localhost/dpapps/images/' + item.gacc_image + '" width="70px"></td><td id="goldno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.gacc_cert_no + '</td></tr><tr><td id="goldname['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.gacc_gold_name + '</td></tr><tr><td id="goldweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.gacc_weight + '&nbsp;gram</td></tr><tr><td id="goldpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.gacc_purity + '<input type="hidden" id="goldid['+count+']" value="' + item.gacc_id + '"/></td></tr></tbody>');
 
                 count ++;
 
                 });                
                  } // End of success function of ajax form
+
              }); // End of second ajax call (gold)
+            $('#loaders').hide();
 
             $.ajax({ //display list of silver
                  url: 'http://localhost/dpapps/index.php/sendpayment/listAllSilver/',
@@ -332,14 +335,14 @@ document.getElementById("usersocial").src =  social;
                     var count = 0;
                  
                     $.each(data.results, function(index,item){
-                $("#fsilver").append('<tbody class="details"><label><tr><td rowspan="4"><input type="checkbox" id="silver['+count+']" value="' + item.sacc_id + '" class="cbsilver" name="silver"/>&nbsp;<img id="silverpic['+count+']" src="http://localhost/dpapps/images/' + item.sacc_image + '" width="70px"></td><td id="silverno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.sacc_cert_no + '</td></tr><tr><td id="silvername['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.sacc_silver_name + '</td></tr><tr><td id="silverweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.sacc_weight + '&nbsp;gram</td></tr><tr><td id="silverpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.sacc_purity + '<input type="hidden" id="silverid['+count+']" value="' + item.sacc_id + '"/></td></tr></label></tbody>');
+                $("#fsilver").append('<tbody class="details"><label><tr><td rowspan="4"><input type="checkbox" id="silver['+count+']" value="' + item.sacc_id + '" class="cbsilver" name="silver"/>&nbsp;<img  class="imgbg" id="silverpic['+count+']" src="http://localhost/dpapps/images/' + item.sacc_image + '" width="70px"></td><td id="silverno['+count+']">&nbsp;<b>Certificate No:&nbsp;</b>' + item.sacc_cert_no + '</td></tr><tr><td id="silvername['+count+']">&nbsp;<b>Item:</b>&nbsp;' + item.sacc_silver_name + '</td></tr><tr><td id="silverweight['+count+']">&nbsp;<b>Weight:</b>&nbsp;' + item.sacc_weight + '&nbsp;gram</td></tr><tr><td id="silverpurity['+count+']">&nbsp;<b>Purity:</b>&nbsp;' + item.sacc_purity + '<input type="hidden" id="silverid['+count+']" value="' + item.sacc_id + '"/></td></tr></label></tbody>');
 
                 count ++;
 
                 });
                  } // End of success function of ajax form
              }); // End of second ajax call (silver)
-
+            $('#loaders').hide();
         
 
        }else{

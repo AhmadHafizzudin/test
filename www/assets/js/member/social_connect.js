@@ -318,3 +318,10 @@
     }); // End of second ajax call (silver)
 
     //end profile
+
+ 
+    $("#btnTrans").click(function() {
+        pass_url('member/select_receiver.html');
+        window.location.href = "index.html#";
+
+    });

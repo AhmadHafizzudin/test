@@ -34,6 +34,7 @@ var pic = newVal.split(",")[2];
 var type = JSON.parse(val2);
 var transvalue = JSON.parse(val4);
 var message = JSON.parse(val3);
+msg = message.toString().replace(/\s+/g, '%');
 
 userid = JSON.parse(val5);
 
@@ -45,8 +46,8 @@ if (social == "assets/images/ws.png"){
     var via = "Twitter";
 }
 
-linkcombo = via+"+"+userid+"+"+type+"+"+transvalue+"+"+message+"+receive_transaction.html";
-link = "http://localhost/scorpion/www/index.html?"+linkcombo+"+receive_transaction.html";
+linkcombo = via+"+"+userid+"+"+type+"+"+transvalue+"+"+msg+"+receive_transaction.html";
+link = "http://localhost/scorpion/www/index.html?"+linkcombo;
 
 
 
