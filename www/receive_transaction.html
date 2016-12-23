@@ -137,11 +137,10 @@
             }
 
       $("#btn_reg1").click(function() {
-        //alert('hasda');
-        //window.location.href = 'index.html';
-        pass_url("registration.html");
         $(".modal-backdrop").hide();
-        //location.href='index.html';
+        pass_url("registration.html");
+        
+        window.location.href = "index.html";
       });
     }
 
@@ -274,6 +273,7 @@
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  
                 });
               } else if (type == "Gold") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
@@ -339,10 +339,7 @@ bootstrap_alert.info = function(message) {
   }, 2000);
 }
 
-function redirects(){
-  //window.location = "login.html";
-  window.location.href = 'index.html';
-}
+
 
 
 
