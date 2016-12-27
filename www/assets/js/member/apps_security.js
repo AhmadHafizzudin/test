@@ -28,36 +28,40 @@ oauth: true
  });
 
 
-function insert(value){	
-	
-	if($("#first").html() != "<h3>-</h3>" ){
-		if($("#second").html() != "<h3>-</h3>" ){
-			if($("#third").html() != "<h3>-</h3>" ){
-				var dis4 = value;
-				$("#fourth").html("<h3>"+dis4+"</h3>");
-				localStorage.setItem("fourth", dis4);
-				msg_alert('Authenticating ...', 2);
-				 
-				window.setTimeout(post, 2500);
-				
-			}else{
-				var dis3 = value;
-				$("#third").html("<h3>"+dis3+"</h3>");
-				localStorage.setItem("third", dis3);
-			}
-		}else{
-			var dis2 = value;
-			$("#second").html("<h3>"+dis2+"</h3>");
-			localStorage.setItem("second", dis2);
-		}
-	}else{
-		var dis1 = value;
-		$("#first").html("<h3>"+dis1+"</h3>");
-		localStorage.setItem("first", dis1);
-	}
+function insert(value) {
 
-	
-}
+        if ($("#first").html() != "<h3>-</h3>") {
+            if ($("#second").html() != "<h3>-</h3>") {
+                if ($("#third").html() != "<h3>-</h3>") {
+                    var dis4 = value;
+                    $("#fourth").html("<h3>" + dis4 + "</h3>");
+                    localStorage.setItem("fourth", dis4);
+                    $("#fourth").html("<h3>*</h3>");
+                    msg_alert('Authenticating ...', 2);
+				 
+					window.setTimeout(post, 2500);
+
+                } else {
+                    var dis3 = value;
+                    $("#third").html("<h3>" + dis3 + "</h3>");
+                    localStorage.setItem("third", dis3);
+                    $("#third").html("<h3>*</h3>");
+                }
+            } else {
+                var dis2 = value;
+                $("#second").html("<h3>" + dis2 + "</h3>");
+                localStorage.setItem("second", dis2);
+                $("#second").html("<h3>*</h3>");
+            }
+        } else {
+            var dis1 = value;
+            $("#first").html("<h3>" + dis1 + "</h3>");
+            localStorage.setItem("first", dis1);
+            $("#first").html("<h3>*</h3>");
+        }
+
+
+    }
 
 function post(){
 	
@@ -212,7 +216,7 @@ function chance (){
 	return true;
 }
 
-function trans(){
+function trans(){ // hanya untuk twitter..kalo guna fb akan dpt error sbb x boleh fecth username dari fb api
 
 
 			if(sessionStorage.length > 0) {

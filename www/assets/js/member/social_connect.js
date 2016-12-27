@@ -38,24 +38,25 @@
                     var dis4 = value;
                     $("#fourth").html("<h3>" + dis4 + "</h3>");
                     localStorage.setItem("fourth", dis4);
-                    //msg_alert('Authenticating ...', 2);
-
-                    //window.setTimeout(post, 2500);
+                    $("#fourth").html("<h3>*</h3>");
 
                 } else {
                     var dis3 = value;
                     $("#third").html("<h3>" + dis3 + "</h3>");
                     localStorage.setItem("third", dis3);
+                    $("#third").html("<h3>*</h3>");
                 }
             } else {
                 var dis2 = value;
                 $("#second").html("<h3>" + dis2 + "</h3>");
                 localStorage.setItem("second", dis2);
+                $("#second").html("<h3>*</h3>");
             }
         } else {
             var dis1 = value;
             $("#first").html("<h3>" + dis1 + "</h3>");
             localStorage.setItem("first", dis1);
+            $("#first").html("<h3>*</h3>");
         }
 
 
