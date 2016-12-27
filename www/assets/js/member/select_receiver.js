@@ -76,7 +76,7 @@ if (c == -1){
 // store array data to the session storage
 sessionStorage.setItem("newReceiver",  JSON.stringify(newReceiver));
 sessionStorage.setItem("newReceiverId",  JSON.stringify(newReceiverId));
-sessionStorage.setItem("newReceiverScreen",  JSON.stringify(newReceiverScreen));
+sessionStorage.setItem("newReceiverScreen",  JSON.stringify(newReceiverScreen)); // dpt kn username dari api (stakat ini hanya boleh untuk twitter)
 
 
 

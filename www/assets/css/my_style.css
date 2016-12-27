@@ -11,7 +11,7 @@ html,body {
     
     background-image:none;
     height:100%;
-    background: black; /* For browsers that do not support gradients */
+    background: grey; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(190deg, black, gray); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(190deg, black, gray); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(190deg, black, gray); /* For Firefox 3.6 to 15 */
@@ -287,37 +287,39 @@ height: 10%;
 }
 
 ul.tab {
-    list-style-type: none;
-    margin: 0;
+    margin:  0;
     padding: 0;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: auto;
+    list-style: none;
+    display: table; /* [1] */
+    table-layout: fixed; /* [2] */
+    width: 100%; /* [3] */;
 }
 
 /* Float the list items side by side */
-ul.tab li {float: left;}
+ul.tab li {
+    display: table-cell; /* [4] */
+}
 
 /* Style the links inside the list items */
 ul.tab li a{
-    display: inline-block;
-    color: #333;
+    display: block; /* [5] */
+    color: yellow;
     text-align: center;
     padding: 14px 10px;
     text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
+     
 }
 
 /* Change background color of links on hover */
 ul.tab li a:hover {
-    background-color: #ddd;
+    background-color: #808080;
 }
 
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {
-    background-color: #ccc;
+    background-color: #808080;
 }
 
 /* Style the tab content */
@@ -588,3 +590,7 @@ label.keyboard{
 .imgbg {
     background-color: white;
 }
+.history{
+    background-color: black;
+}
+
