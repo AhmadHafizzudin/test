@@ -5,21 +5,24 @@
     padding-right: 10px;
 }
 html,body {
-    height: 100%;
-    overflow-y:auto;
-    overflow-x:hidden;
-    
-    background-image:none;
+
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y:auto;    
+    background-image: url("../images/bg.png") ;
     height:100%;
-    background: grey; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(190deg, black, gray); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(190deg, black, gray); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(190deg, black, gray); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(190deg, black, gray); /* Standard syntax (must be last) */
+    color: black;
+    
+    /*background: grey; /* For browsers that do not support gradients */
+    /*background: -webkit-linear-gradient(190deg, black, gray); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(190deg, black, gray); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(190deg, black, gray); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(190deg, black, gray); /* Standard syntax (must be last) */
     
     background-position: center;
     background-repeat:no-repeat;
     background-size:120%;
+
 }
 .navbar-left {
     float:left;
@@ -54,6 +57,25 @@ html,body {
 .btn-danger{
     width: 100%;
 }
+.btn-custom{
+    width: 100%;
+    background-image:url('../images/btn.png');
+}
+.btn-custom:focus,
+.btn-custom.focus {
+  background-image:url('../images/btn.png');
+  border-color: brown;
+}
+.btn-custom:hover {
+  background-image:url('../images/btn.png');
+  border-color: brown;
+}
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+  background-image:url('../images/btn.png');
+  border-color: brown;
+}
 
 .image-upload > input
 {
@@ -82,9 +104,9 @@ input:checked + img + img + label {
     font-size: 16px;
     line-height: 50px;
     border-radius: 25px;
-    background-color: black;
+    background-image:url('../images/btn.png');
     width: 100%;
-    border: 1px solid yellow;
+    border: 1px solid brown;
 }
 .chip img {
     float: left;
@@ -101,6 +123,7 @@ input[type="radio"] {
 }
 .panel.panel-default{
     background-color: rgba(235, 235, 235, 0.5);
+    border: 1px solid #ccc;
 }
 
 .sidenav {
@@ -210,23 +233,25 @@ input:checked + .slider:before {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: black;
+    border: none;
+    background-image:url('../images/btn.png');
+    color: black;
 }
 /* Style the links inside the list items */
 .tab h3 {
-    color: #fff;
+    color: black;
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
 }
 /* Change background color of links on hover */
 .tab h3:hover {
-    background-color: #ddd;
+    background-image:url('../images/tab.png');
 }
 /* Create an active/current tablink class */
 tab h3:focus, .active {
-    background-color: #ccc;
+    background-image:url('../images/tab.png');
+    color: black;
 }
 /* Style the tab content */
 @-webkit-keyframes fadeEffect {
@@ -303,7 +328,7 @@ ul.tab li {
 /* Style the links inside the list items */
 ul.tab li a{
     display: block; /* [5] */
-    color: yellow;
+    color: black;
     text-align: center;
     padding: 14px 10px;
     text-decoration: none;
@@ -314,12 +339,12 @@ ul.tab li a{
 
 /* Change background color of links on hover */
 ul.tab li a:hover {
-    background-color: #808080;
+    background-image:url('../images/tab.png');
 }
 
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {
-    background-color: #808080;
+    background-image:url('../images/tab.png');
 }
 
 /* Style the tab content */
@@ -355,123 +380,7 @@ label.keyboard{
 	width:80px;
 	display: inline,!important;
 }
-.myButton-blue {
-    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
-    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
-    box-shadow: 3px 3px 6px 2px #9297a3;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #437ce0), color-stop(1, #83bafc));
-    background:-moz-linear-gradient(top, #437ce0 5%, #83bafc 100%);
-    background:-webkit-linear-gradient(top, #437ce0 5%, #83bafc 100%);
-    background:-o-linear-gradient(top, #437ce0 5%, #83bafc 100%);
-    background:-ms-linear-gradient(top, #437ce0 5%, #83bafc 100%);
-    background:linear-gradient(to bottom, #437ce0 5%, #83bafc 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#437ce0', endColorstr='#83bafc',GradientType=0);
-    background-color:#437ce0;
-    -moz-border-radius:12px;
-    -webkit-border-radius:12px;
-    border-radius:12px;
-    display:inline-block;
-    cursor:pointer;
-    color:white;
-    font-family:Trebuchet MS;
-    font-size:17px;
-    padding:12px 76px;
-    text-decoration:none;
-    text-shadow:3px 3px 2px gray;
-    width: 100%;
-}
-.myButton-blue:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #83bafc), color-stop(1, #437ce0));
-    background:-moz-linear-gradient(top, #83bafc 5%, #437ce0 100%);
-    background:-webkit-linear-gradient(top, #83bafc 5%, #437ce0 100%);
-    background:-o-linear-gradient(top, #83bafc 5%, #437ce0 100%);
-    background:-ms-linear-gradient(top, #83bafc 5%, #437ce0 100%);
-    background:linear-gradient(to bottom, #83bafc 5%, #437ce0 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#83bafc', endColorstr='#437ce0',GradientType=0);
-    background-color:#83bafc;
-}
-.myButton-blue:active {
-    position:relative;
-    top:1px;
-}
-.myButton-red {
-    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
-    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
-    box-shadow: 3px 3px 6px 2px #9297a3;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #de4242), color-stop(1, #fa8282));
-    background:-moz-linear-gradient(top, #de4242 5%, #fa8282 100%);
-    background:-webkit-linear-gradient(top, #de4242 5%, #fa8282 100%);
-    background:-o-linear-gradient(top, #de4242 5%, #fa8282 100%);
-    background:-ms-linear-gradient(top, #de4242 5%, #fa8282 100%);
-    background:linear-gradient(to bottom, #de4242 5%, #fa8282 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#de4242', endColorstr='#fa8282',GradientType=0);
-    background-color:#de4242;
-    -moz-border-radius:12px;
-    -webkit-border-radius:12px;
-    border-radius:12px;
-    display:inline-block;
-    cursor:pointer;
-    color:white;
-    font-family:Trebuchet MS;
-    font-size:17px;
-    padding:12px 76px;
-    text-decoration:none;
-    text-shadow:3px 3px 2px gray;
-    width: 100%;
-}
-.myButton-red:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa8282), color-stop(1, #de4242));
-    background:-moz-linear-gradient(top, #fa8282 5%, #de4242 100%);
-    background:-webkit-linear-gradient(top, #fa8282 5%, #de4242 100%);
-    background:-o-linear-gradient(top, #fa8282 5%, #de4242 100%);
-    background:-ms-linear-gradient(top, #fa8282 5%, #de4242 100%);
-    background:linear-gradient(to bottom, #fa8282 5%, #de4242 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa8282', endColorstr='#de4242',GradientType=0);
-    background-color:#fa8282;
-}
-.myButton-red:active {
-    position:relative;
-    top:1px;
-}
-.myButton-green {
-    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
-    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
-    box-shadow: 3px 3px 6px 2px #9297a3;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #42de47), color-stop(1, #82fa90));
-    background:-moz-linear-gradient(top, #42de47 5%, #82fa90 100%);
-    background:-webkit-linear-gradient(top, #42de47 5%, #82fa90 100%);
-    background:-o-linear-gradient(top, #42de47 5%, #82fa90 100%);
-    background:-ms-linear-gradient(top, #42de47 5%, #82fa90 100%);
-    background:linear-gradient(to bottom, #42de47 5%, #82fa90 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#42de47', endColorstr='#82fa90',GradientType=0);
-    background-color:#42de47;
-    -moz-border-radius:12px;
-    -webkit-border-radius:12px;
-    border-radius:12px;
-    display:inline-block;
-    cursor:pointer;
-    color:white;
-    font-family:Trebuchet MS;
-    font-size:17px;
-    padding:12px 76px;
-    text-decoration:none;
-    text-shadow:3px 3px 2px gray;
-    width: 100%;
-}
-.myButton-green:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #82fa90), color-stop(1, #42de47));
-    background:-moz-linear-gradient(top, #82fa90 5%, #42de47 100%);
-    background:-webkit-linear-gradient(top, #82fa90 5%, #42de47 100%);
-    background:-o-linear-gradient(top, #82fa90 5%, #42de47 100%);
-    background:-ms-linear-gradient(top, #82fa90 5%, #42de47 100%);
-    background:linear-gradient(to bottom, #82fa90 5%, #42de47 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#82fa90', endColorstr='#42de47',GradientType=0);
-    background-color:#82fa90;
-}
-.myButton-green:active {
-    position:relative;
-    top:1px;
-}
+
 .image-upload > input
    {
    display: none;
@@ -527,8 +436,8 @@ label.keyboard{
     font-size: 200%;
 }
 .selected {
-    background-color: #B0B0B0;
-    border-color: #B0B0B0;
+    background-image:url('../images/btn.png');
+    border-color: brown;
 }
 .glyphicon-copy {
     font-size: 40px;
@@ -591,6 +500,38 @@ label.keyboard{
     background-color: white;
 }
 .history{
-    background-color: black;
+    /*background-color: black;*/
+    background-image:url('../images/btn.png');
 }
+.btn-menu {
+  border: 1px solid brown;
+  width: 100%;
+  background-image:url('../images/btn.png');
+}
+.btn-menu:focus,
+.btn-menu.focus {
+  color: black;
+  background-image:url('../images/btn.png');
+  border: 1px solid brown;
+
+}
+.btn-menu:hover {
+  color: black;
+  background-image:url('../images/btn.png');
+  border: 1px solid brown;
+  
+}
+.btn-menu:active,
+.btn-menu.active,
+.open > .dropdown-toggle.btn-info {
+  color: black;
+  background-image:url('../images/btn.png');
+  border: 1px solid brown;
+  
+}
+#touchloader
+{
+          background:grey;
+}
+
 

@@ -1,3 +1,19 @@
+$(document).ready(function () {
+
+var container = document.getElementById("main");
+var mc = new Hammer(container);
+
+mc.on("swiperight", function() {
+        backpage();
+    }); 
+mc.on("swipeleft", function() {
+        
+        validateForm();
+    });     
+
+});
+  
+
 
    $("[data-toggle='toggle']").click(function () {
        var selector = $(this).data("target");
@@ -21,6 +37,10 @@
         $prev.hide(); // this hides it when the input is cleared
     }
 }
+
+function backpage(){
+    pass_url('member/sendpayment.html');
+}  
 
 function validateForm() {
     var x = document.forms["myForm"]["message"].value;

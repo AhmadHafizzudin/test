@@ -23,7 +23,22 @@ $(document).ready(function () {
             });
         });
 
+        var container = document.getElementById("main");
+var mc = new Hammer(container);
+
+mc.on("swiperight", function() {
+        backpage();
+    }); 
+mc.on("swipeleft", function() {
+        
+        validateForm();
+    }); 
+
     });
+
+function backpage(){
+    pass_url('member/select_receiver.html');
+}  
 
     $(document).on('click', '.details', function (event) {//highlight selected item
 

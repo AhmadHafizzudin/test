@@ -30,7 +30,17 @@ $searchBox.on('input', function() {
   })
 });
 
-    
+
+var container = document.getElementById("main");
+var mc = new Hammer(container);
+
+mc.on("swiperight", function() {
+        backpage();
+    }); 
+mc.on("swipeleft", function() {
+        
+        validateForm();
+    });     
 
 });
 
@@ -48,6 +58,10 @@ function openTab(evt, tabName) {
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
     }
+
+function backpage(){
+    pass_url('member/overview.html');
+}    
 
 function validateForm() {
     var x = document.getElementsByName("user");

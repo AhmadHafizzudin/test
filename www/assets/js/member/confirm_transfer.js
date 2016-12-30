@@ -7,12 +7,28 @@ $(document).ready(function () {
 
         });
 
+        var container = document.getElementById("main");
+var mc = new Hammer(container);
+
+mc.on("swiperight", function() {
+        backpage();
+    }); 
+mc.on("swipeleft", function() {
+        
+        $('#myModal').modal('toggle');
+    });  
+
 
     });
 
     function refresh() {
 //        location.href = '';
         pass_url('member/apps_security.html');
+    }
+
+    function backpage() {
+//        location.href = '';
+        pass_url('member/writemessage_transfer.html');
     }
 
 

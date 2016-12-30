@@ -1,7 +1,10 @@
 <div class="container">
-    <div class="row">
-        <h4 align="center"><b>Transaction History</b></h4>
-    </div>
+
+          <h4 align="center" onclick="return refresh()" style="cursor: pointer;">
+            <b>Transaction History</b>
+          </h4>
+
+
     <ul class="tab">
   <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pending')">Pending</a></li>
@@ -101,6 +104,8 @@
     </p>
 </div>
 </div>
+<script src="assets/js/my_public_session.js"></script>
+<script src="assets/js/refresh.js"></script>
 <script src="assets/js/member/transaction_history.js"></script>
 <script>
 document.getElementById("defaultOpen").click();

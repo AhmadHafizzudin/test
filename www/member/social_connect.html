@@ -1,7 +1,7 @@
 <div id="body">
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <h4 align="center"><b>Setting</b></h4>
+        <h4 align="center" onclick="return refresh()" style="cursor: pointer;"><b>Setting</b></h4>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
 
 <div id="Social" class="tabcontent">
   <form role="form" class="form-group" style="">
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-md-12 col-md-offset-0" >
         <div class="panel panel-default">
             <div class="panel-body">
                 <!-- username -->
@@ -71,9 +71,7 @@
                         </td>
                     </tr>
                 </table>
-                <center>
-                    <button class="btn myButton-blue" id="btnTrans">Make transaction</button><!--Sav setting and continue to transaction page-->
-                </center>
+                
 
             </div>
         </div>
@@ -141,4 +139,6 @@
 <!-- start controller jquery -->
 <script src="assets/js/my_public_session.js"></script>
 <script src="assets/js/member/social_connect.js"></script>
+<script src="assets/js/refresh.js"></script>
+
 <!-- end controller jquery -->

@@ -5,7 +5,9 @@
 <!-- end library -->
 
 <div class="container">
-  <center><h3>Guide</h3></center>
+  <h4 align="center" onclick="return refresh()" style="cursor: pointer;">
+            <b>Guide</b>
+          </h4>
   <div class="panel-group" id="accordion">
   
       <div class="panel panel-default">
@@ -168,6 +170,8 @@
 </div>
 
 <!-- start controller jquery -->
+<script src="assets/js/my_public_session.js"></script>
+<script src="assets/js/refresh.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',

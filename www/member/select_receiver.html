@@ -1,9 +1,13 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <h4 align="center"><b>Select Receiver</b></h4>
-        </div>
+<div class="container" id="main">
+    <div id="touchloader" style="text-align: center;display: none;">
+        Refreshing Page..
     </div>
+        <div id="touchlist" style="position: relative;top:0px;">
+          <h4 align="center" onclick="return refresh()" style="cursor: pointer;">
+            <b>Select Receiver</b>
+          </h4>
+        </div>
+
     <p></p>
     <div class="row"  align="left">
         <form role="form" name="myForm"  method="post">
@@ -104,7 +108,7 @@
 
                         <p>&nbsp;<p></p>
                         <div align="center">
-                            <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">
+                         <!--   <input type="button" name="buttonNext" id="buttonNext" value="Next" class="btn myButton-blue" onclick="return validateForm()">-->
 
                         </div>
                         
@@ -116,7 +120,9 @@
     </div>
 
 </div>
+<script src="assets/js/my_public_session.js"></script>
 <script src="assets/js/member/select_receiver.js"></script>
+<script src="assets/js/refresh.js"></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"/>
 
 

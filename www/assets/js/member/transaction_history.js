@@ -101,5 +101,9 @@ $(document).ready(function() {
        }else{
         pass_url("login.html");
        }
+
+
+
    
     });
+

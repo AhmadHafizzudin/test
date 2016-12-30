@@ -24,19 +24,19 @@
 </style>
 
 <!-- start content -->
-
+<div class="container">
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-        <h4 align="center"><b>Profile</b></h4>
+        <h4 align="center" onclick="return refresh()" style="cursor: pointer;"><b>Profile</b></h4>
     </div>
 	
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-md-6 col-md-offset-3" >
             
-        <div class="ordersummary">
+        <div class="panel panel-default">
             
             <span id="paparProfile"></span>
             
-            <div class="detailsummary" >
+           <!-- <div class="panel panel-default" >-->
                 <center>
                     
                     <table class="table">
@@ -147,14 +147,17 @@
                     </table>
 
                 </center>
-            </div>
+            
         </div>
             
         
     </div>
 </div>
+</div>
 <!-- end content -->
 <!-- start controller jquery -->
+<script src="assets/js/refresh.js"></script>
+<script src="assets/js/my_public_session.js"></script>
 <script>
     $(document).ready(function () {
         $.ajax({
