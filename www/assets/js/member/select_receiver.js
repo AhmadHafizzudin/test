@@ -74,7 +74,7 @@ for(var i=0; i < x.length; i++){
 }
 
 if (c == -1){
- msg_alert('Please select a contact', 3);
+ msg_alert('Please select a contact', 6);
         return false;
         x.focus();
 }else{
@@ -207,7 +207,7 @@ if (twtsession == "false"){
         error: function(error_data) {
             
             //console.log(error_data);
-            msg_alert("Cannot load Twitter data.Please refresh page",4);
+            msg_alert("Cannot load Twitter data.Please refresh page",5);
             
         },
         success: function(data) {

@@ -86,7 +86,7 @@
                     if ($("#first").html() != "<h3>-</h3>") {
                         $('#first').html("<h3>-</h3>");
                     } else {
-                        msg_alert('Pin code already empty', 3);
+                        msg_alert('Pin code already empty', 6);
                     }
                 }
             }
@@ -129,7 +129,7 @@
             },
             success: function(data) {
                 console.log(data);
-                msg_alert('Pin code Updated', 1);
+                msg_alert('Pin code Updated', 8);
                 pass_url('member/overview.html');
             }
         });
@@ -180,7 +180,7 @@
 
                 suisfb.onclick = function() {
                     FB.logout(function(response) {
-                        msg_alert("Disconnecting Facebook..", 4);
+                        msg_alert("Disconnecting Facebook..", 5);
                         window.location.reload();
                         document.getElementById('fbswitch').checked = false;
 
@@ -242,7 +242,7 @@
 
     function logintwt() {
 
-        msg_alert("Redirecting to Twitter login Page", 2);
+        msg_alert("Redirecting to Twitter login Page", 7);
 
         $.ajax({ //logi twt
             url: 'http://localhost/dpapps/index.php/social_connect/redirect',
@@ -276,14 +276,14 @@
             type: 'GET',
 
             error: function(error_data) {
-                msg_alert("Disconnecting Twitter..", 4);
+                msg_alert("Disconnecting Twitter..", 5);
                     window.location.reload();
                     suistwt.checked = false;
             },
             success: function(data) {
 
 
-                    msg_alert("Disconnecting Twitter..", 4);
+                    msg_alert("Disconnecting Twitter..", 5);
                     window.location.reload();
                     suistwt.checked = false;
 

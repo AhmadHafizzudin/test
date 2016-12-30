@@ -60,6 +60,7 @@ html,body {
 .btn-custom{
     width: 100%;
     background-image:url('../images/btn.png');
+    border:solid 1px brown;
 }
 .btn-custom:focus,
 .btn-custom.focus {
@@ -533,5 +534,48 @@ label.keyboard{
 {
           background:grey;
 }
-
+.alert-custom-red {
+  color: white;
+  background-color: #d9534f;
+  border-color: brown;
+}
+.alert-custom-red hr {
+  border-top-color: brown;
+}
+.alert-custom-red .alert-link {
+  color: black;
+}
+.alert-custom-orange {
+  color: white;
+  background-color: #f0ad4e;
+  border-color: brown;
+}
+.alert-custom-orange hr {
+  border-top-color: brown;
+}
+.alert-custom-orange .alert-link {
+  color: black;
+}
+.alert-custom-blue {
+  color: white;
+  background-color: #286090;
+  border-color: brown;
+}
+.alert-custom-blue hr {
+  border-top-color: brown;
+}
+.alert-custom-blue .alert-link {
+  color: black;
+}
+.alert-custom-green {
+  color: white;
+  background-color: #5cb85c;
+  border-color: brown;
+}
+.alert-custom-green hr {
+  border-top-color: brown;
+}
+.alert-custom-green .alert-link {
+  color: black;
+}
 

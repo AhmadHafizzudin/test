@@ -315,25 +315,25 @@
 
 bootstrap_alert = function() {}
 bootstrap_alert.danger = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-red alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.danger1 = function(message) {
-  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-danger alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-red alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.success = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-success alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-green alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.info = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-info alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-blue alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);

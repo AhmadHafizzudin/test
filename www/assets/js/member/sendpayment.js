@@ -161,22 +161,22 @@ var curBal = document.getElementById("moneybalance").value;
 var transAmount = document.getElementById("amount").value;
 
 if(itemtype == "" || itemtype == null){
-        msg_alert('Please select your assets type', 4);
+        msg_alert('Please select your assets type', 6);
         return false;
         itemtype.focus();
 
 }else if(itemtype == "Money"){
 
     if(transAmount >= curBal -1){
-        msg_alert('Insufficient Balance', 4);
+        msg_alert('Insufficient Balance', 6);
         return false;
     
     }else if(transAmount == "" || transAmount == null || transAmount == 0){
-        msg_alert('Amount is empty', 4);
+        msg_alert('Amount is empty', 6);
         return false;
 
     }else if(transAmount< 0){
-        msg_alert('Amount is invalid', 4);
+        msg_alert('Amount is invalid', 6);
         return false;
 
     }else if (transAmount<= curBal -1){
@@ -200,7 +200,7 @@ if(itemtype == "" || itemtype == null){
         pass_url('member/writemessage_transfer.html');
         
     }else{
-        msg_alert('Amount is invalid', 4);
+        msg_alert('Amount is invalid', 6);
         return false;
     }
 
@@ -209,7 +209,7 @@ if(itemtype == "" || itemtype == null){
     var totalChecked = $('input[name=gold]:checked').length;
 
     if(totalChecked <= 0){
-        msg_alert('Please select at least 1', 4);
+        msg_alert('Please select at least 1', 6);
         return false;
     }else{
 
@@ -235,7 +235,7 @@ if(itemtype == "" || itemtype == null){
     var totalChecked = $('input[name=silver]:checked').length;
 
     if(totalChecked <= 0){
-        msg_alert('Please select at least 1', 4);
+        msg_alert('Please select at least 1', 6);
         return false;
     }else{
 
