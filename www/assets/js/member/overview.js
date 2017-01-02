@@ -11,7 +11,7 @@ else {
     // localStorage.clear(); // an option
 }          
    
-$("#urlfb").keydown(function(e) {
+/*$("#urlfb").keydown(function(e) {
     var oldvalue=$(this).val();
     var field=this;
     setTimeout(function () {
@@ -29,7 +29,7 @@ $("#urltwt").keydown(function(e) {
             $(field).val(oldvalue);
         } 
     }, 1);
-});
+});*/
 
         var user = localStorage.getItem("username");
 
@@ -62,9 +62,11 @@ $.ajax({ //check social
             });
 
 
-            if (twturl == "" || fburl == "" || twturl == null || fburl == null){
+            /*if (twturl == "" || fburl == "" || twturl == null || fburl == null){
                 $('#modsocial').modal('show');
-            }else if(pin == "" || pin == null){
+            }else*/ 
+
+            if(pin == "" || pin == null){
                  $('#modpin').modal('show');
             }
                }  
@@ -193,7 +195,7 @@ $.ajax({ //check social
                     if ($("#first").html() != "<h3>-</h3>") {
                         $('#first').html("<h3>-</h3>");
                     } else {
-                        msg_alert('Pin code already empty', 3);
+                        msg_alert('Pin code already empty', 7);
                     }
                 }
             }
@@ -236,14 +238,14 @@ function submitPin() {
             },
             success: function(data) {
                 //console.log(data);
-                msg_alert('Pin code updated', 1);
+                msg_alert('Pin code updated', 8);
                 pass_url('member/overview.html');
             }
         });
 
     }
 
-    function submitSocial() {
+    /*function submitSocial() {
 
         twt = $("#urltwt").val();
         fb = $("#urlfb").val();
@@ -269,13 +271,13 @@ function submitPin() {
             },
             success: function(data) {
                 console.log(data);
-                msg_alert('Social Media account updated', 1);
+                msg_alert('Social Media account updated', 8);
                 pass_url('member/overview.html');
             }
         });
 
     }
-    }
+    }*/
 
     bootstrap_alert = function() {}
 bootstrap_alert.danger = function(message) {

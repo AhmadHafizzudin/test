@@ -112,6 +112,7 @@
       document.getElementById("btnaccept").disabled = true;
             $('#btnaccept').hide();
             bootstrap_alert.danger1("This link does not exist or already expired");
+            //msg_alert('This link does not exist or already expired',5)
             $('#detail').text('This transaction does not exist or expired. Please contact your sender for any enquiries.');
 
     } else {
@@ -173,7 +174,7 @@
       },
       success: function(data) {
           if (data.results.length === 0) {
-            bootstrap_alert.danger("Incorrect username or password or please check your Twitter account URL in DST setting");
+            bootstrap_alert.danger("Incorrect username or password or Twitter receipient ID does not match!");
           } else {
             $.each(data.results, function(index, item) {
               username = item.members_username;
@@ -193,11 +194,14 @@
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your silver account");
+                  setTimeout(function(){
                   $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
+                  
                 });
               } else if (type == "Gold") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/changeOwnerGold/", { //silver
@@ -205,11 +209,14 @@
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your gold account");
+
+                  setTimeout(function(){
                   $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
                 });
               } else if (type == "Money") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
@@ -218,11 +225,13 @@
                   macc_sender: sender
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your money account");
-                  $('#myModal').modal('hide');                  
+                  setTimeout(function(){
+                  $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
                 });
               }
             });
@@ -248,7 +257,7 @@
       },
       success: function(data) {
           if (data.results.length === 0) {
-            bootstrap_alert.danger("Incorrect username or password or your Twitter URL in DST setting does not match.Receipient URL must match with Twitter URL!");
+            bootstrap_alert.danger("Incorrect username or password or Facebook receipient ID does not match!");
           } else {
             $.each(data.results, function(index, item) {
               username = item.members_username;
@@ -268,11 +277,16 @@
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your silver account");
+                  setTimeout(function(){
                   $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
+                  
+
+                  
                   
                 });
               } else if (type == "Gold") {
@@ -281,11 +295,13 @@
                   temp_itemid: itemid
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your gold account");
+                  setTimeout(function(){
                   $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
                 });
               } else if (type == "Money") {
                 $.post("http://localhost/dpapps/index.php/receive_transaction/transferMoney/", { //silver
@@ -294,11 +310,13 @@
                   macc_sender: sender
                 }).done(function(data) {
                   bootstrap_alert.success("Transaction success.Please check your money account");
-                  $('#myModal').modal('hide');                  
+                  setTimeout(function(){
+                  $('#myModal').modal('hide');
                   $("#btnaccept").html('Check Account Now');
                   $("#btnaccept").removeAttr('data-toggle');
                   $("#btnaccept").removeAttr('data-target');
                   $('#btnaccept').attr('onClick', 'redirects();');
+                  }, 2000);
                 });
               }
             });
@@ -315,25 +333,25 @@
 
 bootstrap_alert = function() {}
 bootstrap_alert.danger = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-red alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" class="alert alert-custom-red alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.danger1 = function(message) {
-  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-red alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder1').html('<center><div id="alertdiv" class="alert alert-custom-red alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.success = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-green alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-custom-green alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
 }
 bootstrap_alert.info = function(message) {
-  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-blue alert-dismissable"><span>' + message + '</span></div></center>')
+  $('#alert_placeholder').html('<center><div id="alertdiv" div class="alert alert-custom-blue alert-dismissable"><span>' + message + '</span></div></center>')
   setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
     $("#alertdiv").remove();
   }, 2000);
@@ -345,6 +363,16 @@ bootstrap_alert.info = function(message) {
 
     
   });
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
 </script>
 <!-- end controller jquery -->
 

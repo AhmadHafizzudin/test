@@ -44,7 +44,7 @@ $(document).ready(function() {
               localStorage.setItem('viax1', item.temp_via);
               localStorage.setItem('tempidx1', item.temp_id);
               localStorage.setItem('itemidx1', item.temp_itemid);
-              localStorage.setItem('screenx1', item.temp_receiver_username);
+              localStorage.setItem('screenx1', item.temp_receiver_id);
               
               //location.href= 'index.html';
               var jenis = item.temp_type;

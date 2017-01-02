@@ -72,7 +72,7 @@ class Overview extends CI_Controller {
                 }
         }
 
-        public function getSocial() {
+       /* public function getSocial() {
                 
                 $this->load->model('account_db');
                 $getSocial  = $this->account_db->add_social();
@@ -82,5 +82,5 @@ class Overview extends CI_Controller {
                 }else{
                         return false;
                 }
-        }
+        }*/
 }

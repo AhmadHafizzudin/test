@@ -172,6 +172,28 @@
             if (response.authResponse) { // in case if we are logged in
                 var fbInfo = document.getElementById('fb-info');
                 FB.api('/me', function(response) {
+
+
+        fb = response.id;
+        user = localStorage.getItem("username");
+
+
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost/dpapps/index.php/social_connect/getFb',
+            data: {
+                'members_fb': fb,
+                'members_username': user
+            },
+            error: function(error_data) {
+                console.log(error_data);
+            },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+
+
                     fbInfo.innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture"></br>' + response.name;
                     fb.innerHTML = 'Connected';
                     document.getElementById('fbswitch').checked = true;
@@ -304,9 +326,26 @@
         },
         success: function(data) {
 
+        twt = data.id_str;
+        user = localStorage.getItem("username");
+
+
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost/dpapps/index.php/social_connect/getTwt',
+            data: {
+                'members_twt': twt,
+                'members_username': user
+            },
+            error: function(error_data) {
+                console.log(error_data);
+            },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+
                 $("#body").show();
-
-
                 twtinfo.innerHTML = '<img src="' + data.profile_image_url + '"></br>' + data.name;
                 twt.innerHTML = 'Connected';
                 document.getElementById("twtswitch").checked = true;

@@ -108,5 +108,30 @@ class Social_connect extends CI_Controller {
    } 
         }
 
+
+        public function getFb() {
+                
+                $this->load->model('account_db');
+                $getFb  = $this->account_db->add_fb();
+        
+                if(!empty($getFb)){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+
+        public function getTwt() {
+                
+                $this->load->model('account_db');
+                $getTwt  = $this->account_db->add_twt();
+        
+                if(!empty($getTwt)){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+
         
 }

@@ -127,17 +127,30 @@ class Account_Db extends CI_Model{
 
     }
 
-    public function add_social()
+    public function add_fb()
     {
-        $add_social = array(
-            'members_twt' => $this->input->post('members_twt'),
+        $add_fb = array(
             'members_fb' => $this->input->post('members_fb')
         );
 
         $username = $this->input->post('members_username');
 
         $this->db->where('members_username', $username);
-        $this->db->update('apdb_members', $add_social);
+        $this->db->update('apdb_members', $add_fb);
+
+
+    }
+
+    public function add_twt()
+    {
+        $add_twt = array(
+            'members_twt' => $this->input->post('members_twt')
+        );
+
+        $username = $this->input->post('members_username');
+
+        $this->db->where('members_username', $username);
+        $this->db->update('apdb_members', $add_twt);
 
 
     }
@@ -156,7 +169,7 @@ class Account_Db extends CI_Model{
 
     public function getLoginTwt($username,$password,$screenname){ //retreive variable from controller and select by usersession
          
-        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_twt='https://twitter.com/". $screenname ."'");
+        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_twt='". $screenname ."'");
         return $query->result();
         if ($query->num_rows() == 1) {
             return true;
@@ -168,7 +181,7 @@ class Account_Db extends CI_Model{
 
     public function getLoginFb($username,$password,$screenname){ //retreive variable from controller and select by usersession
          
-        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_fb='https://www.facebook.com/". $screenname ."'");
+        $query=$this->db->query("SELECT * FROM apdb_members WHERE members_username='" . $username . "' AND members_password='". $password ."' AND members_fb='". $screenname ."'");
         return $query->result();
         if ($query->num_rows() == 1) {
             return true;

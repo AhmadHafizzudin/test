@@ -44,6 +44,10 @@ class Apps_security extends CI_Controller {
                        $type = $this->session->userdata['twtsess']['type'];
                        $link = $this->session->userdata['twtsess']['link'];
 
+                       $msg = preg_replace('/\s+/', '%', $message);
+
+
+
                 
 
                 $sess_token = $this->session->userdata['tw_access_token']['oauth_token'];
